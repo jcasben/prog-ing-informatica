@@ -1,2 +1,2 @@
-# Programacion-Ing-Informatica
-Collection of exercises and programs that were made as exercises for my Informatics Engineering classes.
+# Programacion Ingenieria Informatica
+Colección de ejercicios realizados en la carrera de Ingeniería Informática.
