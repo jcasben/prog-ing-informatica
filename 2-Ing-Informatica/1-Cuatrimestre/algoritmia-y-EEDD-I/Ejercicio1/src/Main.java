@@ -21,7 +21,8 @@ public class Main {
         //Inicializacion del conjunto de elementos
         ArrayList<Integer> conjunto = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            int nuevoElemento = random.nextInt();
+            //Los elementos aleatorios se generaran desde el 0 hasta el 20000
+            int nuevoElemento = random.nextInt(20000);
             conjunto.add(nuevoElemento);
         }
         
