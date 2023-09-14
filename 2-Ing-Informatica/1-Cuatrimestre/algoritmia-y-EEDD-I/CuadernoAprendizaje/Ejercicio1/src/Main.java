@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /*
  * Autor: Jesus Castillo Benito
- * Titulo: Cuaderno de Aprendizaje: Ejercicio 1
+ * Titulo: Cuaderno de Aprendizaje - Ejercicio 1
  * Fecha: 14/09/2023
  */
 
