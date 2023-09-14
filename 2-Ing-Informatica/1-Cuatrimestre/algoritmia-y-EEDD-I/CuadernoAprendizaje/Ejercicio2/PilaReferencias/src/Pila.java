@@ -15,7 +15,14 @@ public class Pila<E> {
         top = top.getNext();
     }
 
-    public E top() {
+    public E top() throws EmptyStackException {
+        if (top == null) throw new EmptyStackException();
         return top.getElement();
+    }
+
+    private static class EmptyStackException extends Exception {
+        public EmptyStackException() {
+            super("La cola aún no contiene elementos.");
+        }
     }
 }
