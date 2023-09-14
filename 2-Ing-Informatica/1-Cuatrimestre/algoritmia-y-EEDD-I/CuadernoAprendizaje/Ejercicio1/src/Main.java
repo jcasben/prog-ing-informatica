@@ -19,26 +19,48 @@ public class Main {
         int n = scanner.nextInt();
 
         //Inicializacion del conjunto de elementos
-        ArrayList<Integer> conjunto = new ArrayList<>();
+        ArrayList<Integer> set = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             //Los elementos aleatorios se generaran desde el 0 hasta el 20000
-            int nuevoElemento = random.nextInt(20000);
-            conjunto.add(nuevoElemento);
+            int newElement = random.nextInt(20000);
+            set.add(newElement);
         }
-        
-        Collections.sort(conjunto);
-        System.out.println("CONJUNTO ORDENADO:\n" + conjunto);
+
+        //Utilizamos la el metodo sort() de la clase Collections para ordenar el conjunto.
+        Collections.sort(set);
+        System.out.println("CONJUNTO ORDENADO:\n" + set);
 
         //Solicitamos al usuario que introduzca el elemento que quiere buscar en el conjunto.
         System.out.print("\nIntroduce el elemento buscado: ");
-        int elementoBuscado = scanner.nextInt();
+        int searchedElement = scanner.nextInt();
 
-        int indice = Collections.binarySearch(conjunto, elementoBuscado);
+        int index = binarySearch(set, searchedElement);
         //Si no encuentra el elemento, nos saldra un mensaje indicandolo.
-        if (indice < 0) {
+        if (index < 0) {
             System.out.println("No se ha encontrado el elemento en el conjunto.");
         } else {
-            System.out.println("El indice del elemento es: " + indice);
+            System.out.println("El indice del elemento es: " + index);
         }
+    }
+
+    /**
+     * Implementacion del la busqueda dicotomica.
+     * @param set conjunto de elementos sobre el que se busca.
+     * @param searchedElement elemento que buscamos en el conjunto.
+     * @return el indice del elemento si sse encuentra y -1 si no se encuentra.
+     */
+    public static int binarySearch(ArrayList<Integer> set, int searchedElement) {
+        int left = 0, right = set.size() - 1;
+        int center = (left + right) / 2;
+
+        while (left < right && set.get(center) != searchedElement) {
+            if (set.get(center) < searchedElement) {
+                left = center + 1;
+            } else {
+                right = center - 1;
+            }
+            center = (left + right) / 2;
+        }
+        return (set.get(center) == searchedElement ? center : -1);
     }
 }
