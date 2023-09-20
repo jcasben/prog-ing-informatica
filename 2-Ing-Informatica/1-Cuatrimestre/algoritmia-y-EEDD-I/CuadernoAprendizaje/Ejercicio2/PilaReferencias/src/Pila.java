@@ -20,7 +20,7 @@ public class Pila<E> {
         return top.getElement();
     }
 
-    private static class EmptyStackException extends Exception {
+    public static class EmptyStackException extends Exception {
         public EmptyStackException() {
             super("La cola aún no contiene elementos.");
         }
