@@ -34,13 +34,13 @@ public class Pila {
         return elements[top];
     }
 
-    private static class EmptyStackException extends Exception {
+    public static class EmptyStackException extends Exception {
         public EmptyStackException() {
             super("La cola aún no contiene elementos.");
         }
     }
 
-    private static class FullStackException extends Exception {
+    public static class FullStackException extends Exception {
         public FullStackException() {
             super("La cola ha llegado al máximo de su capacidad.");
         }
