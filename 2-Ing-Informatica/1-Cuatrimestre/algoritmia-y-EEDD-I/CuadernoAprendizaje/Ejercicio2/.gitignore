@@ -1,2 +1,5 @@
 /.idea
 /out
+/lib
+/nbproject
+manifest.mf
