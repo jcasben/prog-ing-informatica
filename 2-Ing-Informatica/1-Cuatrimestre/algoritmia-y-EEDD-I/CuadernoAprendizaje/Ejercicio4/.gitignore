@@ -24,6 +24,9 @@ bin/
 /dist/
 /nbdist/
 /.nb-gradle/
+manifest.mf
+nbproject
+lib
 
 ### VS Code ###
 .vscode/
