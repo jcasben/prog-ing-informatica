@@ -8,3 +8,4 @@ nbproject/
 *.mf
 lib/
 target/
+*.lock
