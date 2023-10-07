@@ -7,3 +7,4 @@ out/
 nbproject/
 *.mf
 lib/
+target/
