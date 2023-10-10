@@ -3,7 +3,7 @@
 *.iml
 out/
 .Rproj.user
-*/output/
+/2-Ing-Informatica/1-Cuatrimestre/sistemas-operativos-I/**/output/
 
 nbproject/
 *.mf
