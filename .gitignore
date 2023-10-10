@@ -1,12 +1,21 @@
 # IntelliJ
 */.idea/
 *.iml
-out/
-.Rproj.user
-/2-Ing-Informatica/1-Cuatrimestre/sistemas-operativos-I/**/output/
 
+# NetBeans
 nbproject/
 *.mf
 lib/
+
+# Java
+out/
+
+# Rust
 target/
 *.lock
+
+# R-Studio
+.Rproj.user
+
+# C
+/2-Ing-Informatica/1-Cuatrimestre/sistemas-operativos-I/**/output/
