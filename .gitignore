@@ -1,9 +1,10 @@
-.idea/
+# IntelliJ
 */.idea/
+*.iml
 out/
 .Rproj.user
-/2-Ing-Informatica/1-Cuatrimestre/sistemas-operativos-I/**/output/
-*.iml
+*/output/
+
 nbproject/
 *.mf
 lib/
