@@ -19,3 +19,7 @@ target/
 
 # C
 output/
+
+# Easy 68k
+*.L68
+*.S68
