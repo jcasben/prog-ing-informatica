@@ -1,5 +1,4 @@
 # IntelliJ
-*/.idea/
 .idea/
 *.iml
 
@@ -19,4 +18,4 @@ target/
 .Rproj.user
 
 # C
-/2-Ing-Informatica/1-Cuatrimestre/sistemas-operativos-I/**/output/
+output/
