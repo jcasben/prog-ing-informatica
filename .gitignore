@@ -6,6 +6,7 @@
 nbproject/
 *.mf
 lib/
+*.xml
 
 # Java
 out/
