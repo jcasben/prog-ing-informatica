@@ -3,30 +3,28 @@ package binarySearch;
 import java.util.Comparator;
 
 /**
- * Contiene la implementacion de la busqueda binaria generica con {@link Comparable} y con {@link Comparator}.
+ * Contains the implementation of the generic binary
+ * search with {@link Comparable} and {@link Comparator}.
  * @author jcasben
  * @author linkcla
  */
 public class Search {
     /**
-     * <p>
-     *     Implementacion generica de la busqueda binaria. Utiliza el compareTo para hacer las comparaciones.
-     *     Se requiere que el objeto que se quiere buscar y el conjunto de elementos sobre los que se quiere
-     *     buscar implementen la interfaz {@link Comparable}.
-     * </p>
+     * <p>Generic implementation of the binary search. Uses
+     *    compareTo for doing the comparisons. It requires that the
+     *    object that we want to search and the set of elements
+     *    both implement the interface {@link Comparable}.</p>
      * <br>
-     * <p>
-     *     Especificacion formal:
-     *     <li>Precondicion:  elements.length > 1 && target != null &&
+     * <p>Formal specification:
+     *     <li>Precondition: elements.length > 1 && target != null &&
      *                        ∀j 0 < j < elements.length: elements[j] != null &&
-     *                        ∀i 0 < i < elements.length - 1 : elements[i]  elements [i+1] </> </li>
-     *     <li>Postcondicion: (-1 → (∀i 0 < i < elements.length: target != elements[i])) &&
-     *                        (!-1 → (target == elements[center])) </li>
-     * </p>
+     *                        ∀i 0 < i < elements.length - 1 : elements[i]  elements [i+1]</li>
+     *     <li>Post condition: (-1 → (∀i 0 < i < elements.length: target != elements[i])) &&
+     *                        (!-1 → (target == elements[center]))</li></p>
      *
-     * @param elements array de elementos sobre los que se quiere buscar
-     * @param target elemento que se quiere encontrar
-     * @return el indice del elemento dentro del array si se ha encontrado; -1 si no se ha encontrado.
+     * @param elements array that we want to iterate on.
+     * @param target element that we want to find.
+     * @return the element's index if it was found; -1 if it wasn't found.
      */
     public static <E extends Comparable<E>> int binarySearchComparable(E[] elements, E target) {
         int left = 0, right = elements.length - 1;
@@ -40,24 +38,21 @@ public class Search {
     }
 
     /**
-     * <p>
-     *     Implementacion generica de la busqueda binaria. Requiere de un {@link Comparator} para comparar los
-     *     elementos del conjunto.
-     * </p>
+     * <p>Generic implementation of the binary search.
+     * Requires of a {@link Comparator} for comparing the
+     * elements of the set.</p>
      * <br>
-     * <p>
-     *     Especificacion formal:
-     *     <li>Precondicion:  elements.length > 1 && target != null &&
+     * <p>Formal specification:
+     *     <li>Precondition: elements.length > 1 && target != null &&
      *                        ∀j 0 < j < elements.length: elements[j] != null &&
-     *                        ∀i 0 < i < elements.length - 1 : elements[i]  elements [i+1] </> </li>
-     *     <li>Postcondicion: (-1 → (∀i 0 < i < elements.length: target != elements[i])) &&
-     *                        (!-1 → (target == elements[center])) </li>
-     * </p>
+     *                        ∀i 0 < i < elements.length - 1 : elements[i]  elements [i+1]</li>
+     *     <li>Post condition: (-1 → (∀i 0 < i < elements.length: target != elements[i])) &&
+     *                        (!-1 → (target == elements[center])) </li></p>
      *
-     * @param elements array de elementos sobre el que queremos buscar.
-     * @param target elemento que queremos encontrar.
-     * @param comparator objeto de la clase {@link Comparator}.
-     * @return el indice del elemento dentro del array si se ha encontrado; -1 si no se ha encontrado.
+     * @param elements array that we want to iterate on.
+     * @param target element that we want to find.
+     * @param comparator object of the class {@link Comparator}.
+     * @return the element's index if it was found; -1 if it wasn't found.
      */
     public static <E> int binarySearchComparator(E[] elements, E target, Comparator<E> comparator) {
         int left = 0, right = elements.length - 1;

@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.Comparator;
 
 /**
- * Clase encargada de los tests de los metodos de la clase {@link Search}.
+ * Test class for the methods in the class {@link Search}.
  * @author jcasben
  * @author linkcla
  */
@@ -16,7 +16,8 @@ class SearchTest {
     private Comparator<Integer> integerComparator;
 
     /**
-     * Antes de cada test, inicializa un array de {@link Integer} y un {@link Comparator} para hacer las pruebas.
+     * Before each test, initializes an {@link Integer} array and
+     * a {@link Comparator} for doing the tests.
      */
     @BeforeEach
     void setUp() {
@@ -25,8 +26,9 @@ class SearchTest {
     }
 
     /**
-     * Comprueba si el metodo binarySearchComparable() encuentra un elemento de tipo {@link Integer} dentro del array y
-     * devuelve en indice correcto.
+     * Asserts if the method binarySearchComparable() finds an
+     * element of the type {@link Integer} inside the array and
+     * returns the right index.
      */
     @Test
     void testBinarySearchComparableExisting() {
@@ -35,8 +37,9 @@ class SearchTest {
     }
 
     /**
-     * Comprueba si el metodo binarySearchComparable() no encuentra un elemento de tipo {@link Integer} dentro del array
-     * y devuelve -1.
+     * Asserts if the method binarySearchComparable() doesn't find
+     * an element of the type {@link Integer} inside the array
+     * and returns -1.
      */
     @Test
     void testBinarySearchComparableNotExisting() {
@@ -45,8 +48,9 @@ class SearchTest {
     }
 
     /**
-     * Comprueba si el metodo binarySearchComparator() encuentra un elemento de tipo {@link Integer} dentro del array y
-     * devuelve el indice correcto.
+     * Asserts if the method binarySearchComparator() finds
+     * an element of the type {@link Integer} inside the array and
+     * returns the right index.
      */
     @Test
     void testBinarySearchComparatorExisting() {
@@ -55,8 +59,9 @@ class SearchTest {
     }
 
     /**
-     * Comprueba si el metodo binarySearchComparator() no encuentra un elemento de tipo {@link Integer} dentro del array
-     * y devuelve -1.
+     * Asserts if the method binarySearchComparator() doesn't
+     * find an element of the type {@link Integer} inside the
+     * array and returns -1.
      */
     @Test
     void testBinarySearchComparatorNotExisting() {
@@ -65,8 +70,8 @@ class SearchTest {
     }
 
     /**
-     * Comprueba si el metodo binarySearchComparator() encuentra un elemento de tipo {@link String} y devuelve el indice
-     * correcto.
+     * Asserts if the method binarySearchComparator() finds an element
+     * of the type {@link String} and returns the right index.
      */
     @Test
     void testBinarySearchComparatorStrings() {
