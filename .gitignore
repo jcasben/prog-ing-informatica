@@ -7,6 +7,7 @@ nbproject/
 *.mf
 lib/
 *.xml
+build/
 
 # Java
 out/
