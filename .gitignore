@@ -9,6 +9,9 @@ lib/
 *.xml
 build/
 
+# VS Code
+.vscode
+
 # Java
 out/
 
