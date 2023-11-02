@@ -4,8 +4,8 @@
 /*
     AUTORES:
      - Marc Link Cladera
-     - Carlos Gálvez Mena
-     - Jesús Castillo Benito
+     - Carlos Galvez Mena
+     - Jesus Castillo Benito
 */
 
 /// @brief Calculates the length of a string.
