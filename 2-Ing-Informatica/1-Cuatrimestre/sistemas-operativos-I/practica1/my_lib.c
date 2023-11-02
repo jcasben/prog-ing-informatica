@@ -1,6 +1,13 @@
 #include <stdlib.h>
 #include "my_lib.h"
 
+/*
+    AUTORES:
+     - Marc Link Cladera
+     - Carlos Gálvez Mena
+     - Jesús Castillo Benito
+*/
+
 /// @brief Calculates the length of a string.
 /// @param str pointer to the string.
 /// @return the length of the string.
