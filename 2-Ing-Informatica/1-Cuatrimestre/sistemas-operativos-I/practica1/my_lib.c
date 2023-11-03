@@ -271,7 +271,12 @@ struct my_stack *my_stack_read(char *filename)
     
     // Get the size of the data that is stored in the file.
     int size = 0;
-    read(fd, &size, sizeof(int));
+    if (read(fd, &size, sizeof(int)))
+    {
+        perror("ERROR: ");
+        close(fd);
+        return NULL;
+    }
     // Initialize a new stack with the obtained size.
     struct my_stack *stack = my_stack_init(size);
     void *data = malloc(size);
