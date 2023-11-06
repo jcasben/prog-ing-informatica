@@ -3,7 +3,7 @@ import TAD.*;
 import java.util.Comparator;
 import java.util.Random;
 
-public class Main {
+public class Ejercicio4 {
     public static void main(String[] args) {
         // ---------- EJEMPLO CON PILA DE CURSOR ----------
         System.out.println("---------- EJEMPLO CON PILA DE CURSOR ----------");
@@ -75,7 +75,7 @@ public class Main {
             System.out.print(ints[i] + ", ");
         }
         System.out.println("\n---- ORDENAMOS EL ARRAY ----");
-        Integer [] orderedInts = Main.orderWithComparable(ints);
+        Integer [] orderedInts = Ejercicio4.orderWithComparable(ints);
         for (Integer orderedInt : orderedInts) {
             System.out.print(orderedInt + ", ");
         }
@@ -87,7 +87,7 @@ public class Main {
             System.out.print(ints2[i] + ", ");
         }
         System.out.println("\n---- ORDENAMOS EL ARRAY ----");
-        Integer [] orderedInts2 = Main.orderWithComparator(ints2, Comparator.naturalOrder());
+        Integer [] orderedInts2 = Ejercicio4.orderWithComparator(ints2, Comparator.naturalOrder());
         for (Integer orderedInt : orderedInts2) {
             System.out.print(orderedInt + ", ");
         }
