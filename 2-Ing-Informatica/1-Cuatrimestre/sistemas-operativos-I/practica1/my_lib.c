@@ -271,7 +271,7 @@ struct my_stack *my_stack_read(char *filename)
     
     // Get the size of the data that is stored in the file.
     int size = 0;
-    if (read(fd, &size, sizeof(int)))
+    if (read(fd, &size, sizeof(int)) < 0)
     {
         perror("ERROR: ");
         close(fd);
@@ -295,7 +295,7 @@ struct my_stack *my_stack_read(char *filename)
         my_stack_push(stack, data);
         data = malloc(size);
         // Check if the malloc gived a space in memory
-        if (data == NULL)
+        if (&data == NULL)
         {
             perror("ERROR: ");
             return NULL;
