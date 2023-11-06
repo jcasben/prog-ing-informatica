@@ -1,0 +1,8 @@
+* Si el conjunt tengués 10 elements, que seria més ràpida la cerca lineal o la cerca dicotòmica? Per què? *
+
+En un conjunto de 10 elementos, la búsqueda binaria y la búsqueda lineal tendrían una eficiencia prácticamente idéntica,
+aunque de manera teórica, la busqueda binaria sería más eficiente debido a que su complejidad es O(log n) y la de la
+busqueda lineal es O(n).
+
+Habiendo dicho esto, en relación coste computacional y tiempo de ejecución, sería mejor utilizar la búsqueda lineal,
+ya que el algoritmo de búsqueda binaria saca mejor provecho en conjuntos de gran tamaño.
