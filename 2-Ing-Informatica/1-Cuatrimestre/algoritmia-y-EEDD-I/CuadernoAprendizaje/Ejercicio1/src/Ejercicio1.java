@@ -9,7 +9,7 @@ import java.util.Scanner;
  * Fecha: 14/09/2023
  */
 
-public class Main {
+public class Ejercicio1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
