@@ -1,4 +1,4 @@
-public class Main {
+public class Ejercicio2a {
     public static void main(String[] args) {
         Pila pila = new Pila(10);
         try {

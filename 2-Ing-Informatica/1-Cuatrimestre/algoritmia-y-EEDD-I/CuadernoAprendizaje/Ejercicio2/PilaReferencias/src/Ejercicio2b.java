@@ -1,4 +1,4 @@
-public class Main {
+public class Ejercicio2b {
     public static void main(String[] args) {
         Pila<Integer> pila = new Pila<>();
         pila.push(10);
