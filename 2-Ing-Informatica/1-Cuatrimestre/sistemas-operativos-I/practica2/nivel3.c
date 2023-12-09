@@ -103,11 +103,19 @@ char *read_line(char *line)
 int execute_line(char *line)
 {
     char full_line[ARGS_SIZE] = "";
-    strcpy(full_line, line);
     char *args[ARGS_SIZE];
     pid_t pid;
     if (parse_args(args, line) > 0)
     {
+        for (int i = 0; args[i] != NULL; i++)
+        {
+            strcat(full_line, args[i]);
+            if (args[i + 1] != NULL)
+            {
+                strcat(full_line, " ");
+            }
+        }
+        
         if (check_internal(args) == 0)
         {
             #if DEBUGN2
