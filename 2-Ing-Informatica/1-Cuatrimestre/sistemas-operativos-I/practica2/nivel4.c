@@ -113,6 +113,7 @@ int execute_line(char *line)
     pid_t pid;
     if (parse_args(args, line) > 0)
     {
+        //Concatenate the tokens to get the full line.
         for (int i = 0; args[i] != NULL; i++)
         {
             strcat(full_line, args[i]);
