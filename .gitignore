@@ -21,6 +21,8 @@ target/
 
 # R-Studio
 .Rproj.user
+.Rhistory
+.RData
 
 # C
 output/
