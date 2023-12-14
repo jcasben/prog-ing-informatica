@@ -18,9 +18,9 @@
 #define N_JOBS 64
 #define DEBUGN1 0
 #define DEBUGN2 0
-#define DEBUGN3 1
-#define DEBUGN4 1
-#define DEBUGN5 1
+#define DEBUGN3 0
+#define DEBUGN4 0
+#define DEBUGN5 0
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -78,6 +78,7 @@ int main(int argc, char *argv[])
     }
     job0->pid = 0;
     job0->estado = 'N';
+    memset(job0->cmd, '\0', COMMAND_LINE_SIZE);
     jobs_list[0] = *job0;
     
     char line[COMMAND_LINE_SIZE];
@@ -172,7 +173,6 @@ int execute_line(char *line)
                 else
                 {
                     jobs_list_add(pid, 'E', full_line);
-                    printf("[%d] %d\t%c\t%s\n", n_job, jobs_list[n_job].pid, jobs_list[n_job].estado, jobs_list[n_job].cmd);
                 }
             }
             // pid < 0 --> error
@@ -441,7 +441,7 @@ void reaper(int signum)
                 write(2, mensaje, strlen(mensaje));
             #endif
 
-            strcpy(jobs_list[0].cmd, "");
+            memset(jobs_list[0].cmd, '\0', COMMAND_LINE_SIZE);
             jobs_list[0].estado = 'F';
             jobs_list[0].pid = 0;
         }
@@ -454,7 +454,7 @@ void reaper(int signum)
                 write(2, mensaje, strlen(mensaje));
             #endif
 
-            printf("Terminado PID %d (%s) en jobs_list[%d] con status %d\n", ended, jobs_list[pos_ended].cmd, pos_ended, status);
+            printf("\nTerminado PID %d (%s) en jobs_list[%d] con status %d\n", ended, jobs_list[pos_ended].cmd, pos_ended, status);
             jobs_list_remove(pos_ended);
         }
     }
@@ -503,6 +503,7 @@ void ctrlc(int signum)
         #endif
     }
 
+    printf("\n");
     fflush(stdout);
 }
 
@@ -524,7 +525,6 @@ void ctrlz(int signum)
             kill(jobs_list[0].pid, SIGSTOP);
             jobs_list[0].estado = 'D';
             jobs_list_add(jobs_list[0].pid, jobs_list[0].estado, jobs_list[0].cmd);
-            printf("[%d] %d\t%c\t%s\n", n_job, jobs_list[0].pid, jobs_list[0].estado, jobs_list[0].cmd);
             
             #if DEBUGN5
                 char mensaje[3000];
@@ -552,6 +552,7 @@ void ctrlz(int signum)
         #endif
     }
 
+    printf("\n");
     fflush(stdout);
 }
 
@@ -589,6 +590,8 @@ int jobs_list_add(pid_t pid, char estado, char *cmd)
         fprintf(stderr, ROJO_T "-mini_shell: jobs_list_add: jobs_list is full.\n" RESET);
         return -1;
     }
+    printf("\n[%d] %d\t%c\t%s (jobs_list_add)\n", n_job, pid, estado, cmd);
+    fflush(stdout);
 
     return 0;
 }
@@ -602,6 +605,7 @@ int jobs_list_find(pid_t pid)
     {
         if (jobs_list[i].pid == pid) return i;
     }
+    fflush(stdout);
 
     return 0;
 }
