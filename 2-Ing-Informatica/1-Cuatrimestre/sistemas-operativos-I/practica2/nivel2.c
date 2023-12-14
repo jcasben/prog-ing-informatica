@@ -1,4 +1,12 @@
+/*
+    Autores:
+        - Marc Link Cladera
+        - Carlos Gálvez Mena
+        - Jesús Castillo Benito
+*/
+
 #define _POSIX_C_SOURCE 200112L
+
 #define COMMAND_LINE_SIZE 1024
 #define ARGS_SIZE 64
 #define RESET "\033[0m"

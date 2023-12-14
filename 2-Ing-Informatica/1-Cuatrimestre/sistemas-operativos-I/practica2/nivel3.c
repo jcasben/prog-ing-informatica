@@ -1,3 +1,10 @@
+/*
+    Autores:
+        - Marc Link Cladera
+        - Carlos Gálvez Mena
+        - Jesús Castillo Benito
+*/
+
 #define _POSIX_C_SOURCE 200112L
 
 #define RESET "\033[0m"
