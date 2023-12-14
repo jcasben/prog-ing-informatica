@@ -438,7 +438,10 @@ void ctrlc(int signum)
     {
         if (strcmp(mi_shell, jobs_list[0].cmd) != 0)
         {
-            kill(jobs_list[0].pid, SIGTERM);
+            if (kill(jobs_list[0].pid, SIGTERM) < 0)
+            {
+                fprintf(stderr, ROJO_T "-mini_shell: kill: %s\n" RESET, strerror(errno));
+            }
             
             #if DEBUGN4
                 char mensaje[3000];

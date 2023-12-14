@@ -18,9 +18,9 @@
 #define N_JOBS 64
 #define DEBUGN1 0
 #define DEBUGN2 0
-#define DEBUGN3 0
-#define DEBUGN4 0
-#define DEBUGN5 0
+#define DEBUGN3 1
+#define DEBUGN4 1
+#define DEBUGN5 1
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -41,7 +41,7 @@ static char mi_shell[COMMAND_LINE_SIZE];
 static struct info_job jobs_list[N_JOBS];
 int n_job = 0;
 
-/* Function prototypes */
+//Function prototypes
 char *read_line(char *line);
 int execute_line(char *line);
 int parse_args(char **args, char *line);
@@ -477,7 +477,10 @@ void ctrlc(int signum)
     {
         if (strcmp(mi_shell, jobs_list[0].cmd) != 0)
         {
-            kill(jobs_list[0].pid, SIGTERM);
+            if (kill(jobs_list[0].pid, SIGTERM) < 0)
+            {
+                fprintf(stderr, ROJO_T "-mini_shell: ctrlc: %s\n" RESET, strerror(errno));
+            }
             
             #if DEBUGN4
                 char mensaje[3000];
@@ -522,7 +525,10 @@ void ctrlz(int signum)
     {
         if (strcmp(mi_shell, jobs_list[0].cmd) != 0)
         {
-            kill(jobs_list[0].pid, SIGSTOP);
+            if (kill(jobs_list[0].pid, SIGSTOP) < 0)
+            {
+                fprintf(stderr, ROJO_T "-mini_shell: ctrlz: %s\n" RESET, strerror(errno));
+            }
             jobs_list[0].estado = 'D';
             jobs_list_add(jobs_list[0].pid, jobs_list[0].estado, jobs_list[0].cmd);
             
