@@ -603,7 +603,7 @@ int jobs_list_add(pid_t pid, char estado, char *cmd)
         fprintf(stderr, ROJO_T "-mini_shell: jobs_list_add: jobs_list is full.\n" RESET);
         return -1;
     }
-    printf("\n[%d] %d\t%c\t%s (jobs_list_add)\n", n_job, pid, estado, cmd);
+    printf("\n[%d] %d\t%c\t%s\n", n_job, pid, estado, cmd);
     fflush(stdout);
 
     return 0;
