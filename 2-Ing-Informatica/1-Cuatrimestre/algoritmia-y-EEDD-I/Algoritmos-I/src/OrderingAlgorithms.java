@@ -1,4 +1,4 @@
-public class Algorithms {
+public class OrderingAlgorithms {
     public <T extends Comparable<T>> void directInsertion(T[] t) {
         final int N = t.length;
         int j;
