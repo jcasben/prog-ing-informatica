@@ -132,6 +132,7 @@ int execute_line(char *line)
     char full_line[ARGS_SIZE] = "";
     char *args[ARGS_SIZE];
     pid_t pid;
+    //Save the number of arguments.
     int num_args = parse_args(args, line);
     if (num_args > 0)
     {
@@ -299,7 +300,8 @@ int internal_cd(char **args)
     {
         if (chdir(getenv("HOME")) < 0)
         {
-            fprintf(stderr, ROJO_T "-mini_shell: cd: %s\n" RESET, strerror(errno));
+            perror("chdir");    
+            return -1;
         }
     }
     else if (args[2])
@@ -329,15 +331,19 @@ int internal_cd(char **args)
             advanced_cd[strlen(advanced_cd) - 1] = '\0';
         }
 
-        if (chdir(advanced_cd) == -1)
+        if (chdir(advanced_cd) < 0)
         {
             fprintf(stderr, ROJO_T "-mini_shell: cd: %s: %s\n" RESET, advanced_cd, strerror(errno));
+            return -1;
         }
     }
     else
     {
         if (chdir(args[1]) == -1)
+        {
             fprintf(stderr, ROJO_T "-mini_shell: cd: %s: %s\n" RESET, args[1], strerror(errno));
+            return -1;
+        }
     }
 
     #if DEBUGN2
@@ -373,7 +379,11 @@ int internal_export(char **args)
         printf(BLANCO_T "[internal_export() -> previous value of %s: %s]\n" RESET, name, getenv(name));
     #endif
 
-    setenv(name, value, 1);
+    if (setenv(name, value, 1) < 0)
+    {
+        perror("setenv");
+        return -1;
+    }
 
     #if DEBUGN2
         printf(BLANCO_T "[internal_export() -> new value of %s: %s]\n" RESET, name, getenv(name));
@@ -584,6 +594,10 @@ void reaper(int signum)
             memset(jobs_list[0].cmd, '\0', COMMAND_LINE_SIZE);
             jobs_list[0].estado = 'F';
             jobs_list[0].pid = 0;
+        }
+        else if (ended == -1)
+        {
+            perror("waitpid");
         }
         else
         {

@@ -161,11 +161,24 @@ int internal_cd(char **args)
         printf(BLANCO_T "[internal_cd() -> Esta función cambia de directorio]\n" RESET);
     #endif
 
-    if (args[1] == NULL) chdir(getenv("HOME"));
+    if (args[1] == NULL)
+    {
+        if (chdir(getenv("HOME")) < 0)
+        {
+            fprintf(stderr, ROJO_T "-mini_shell: cd: %s: %s\n" RESET, getenv("HOME"), strerror(errno));
+            
+            return -1;
+        } 
+    }
     else if (args[2])
     {
         int i = 1;
         char *advanced_cd = malloc(COMMAND_LINE_SIZE);
+        if (advanced_cd == NULL)
+        {
+            perror("malloc");
+            return -1;
+        }
         strcpy(advanced_cd, args[1]);
 
         while (args[i + 1])
@@ -185,12 +198,18 @@ int internal_cd(char **args)
         }
 
         if(chdir(advanced_cd) == -1)
+        {
             fprintf(stderr, ROJO_T "-mini_shell: cd: %s: %s\n" RESET, advanced_cd, strerror(errno));
+            return -1;
+        }
     }
     else
     {
         if (chdir(args[1]) == -1)
+        {
             fprintf(stderr, ROJO_T "-mini_shell: cd: %s: %s\n" RESET, args[1], strerror(errno));
+            return -1;
+        }
     }
 
     #if DEBUGN2
@@ -226,7 +245,11 @@ int internal_export(char **args)
         printf(BLANCO_T "[internal_export() -> previous value of %s: %s]\n" RESET, name, getenv(name));
     #endif
 
-    setenv(name, value, 1);
+    if (setenv(name, value, 1) < 0)
+    {
+        fprintf(stderr, ROJO_T "-mini_shell: export: %s: %s\n" RESET, name, strerror(errno));
+        return -1;
+    }
     
     #if DEBUGN2
         printf(BLANCO_T "[internal_export() -> new value of %s: %s]\n" RESET, name, getenv(name));
