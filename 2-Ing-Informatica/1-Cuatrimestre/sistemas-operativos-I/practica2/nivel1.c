@@ -75,8 +75,10 @@ int execute_line(char *line)
     char *args[ARGS_SIZE];
     if (parse_args(args, line) > 0)
     {
-        if (check_internal(args) == 0) 
-            printf(ROJO_T "%s: command not found\n" RESET, args[0]);
+        if (check_internal(args) == 0)
+        {
+            //printf(ROJO_T "%s: command not found\n" RESET, args[0]);
+        }
     }
     return 0;
 }

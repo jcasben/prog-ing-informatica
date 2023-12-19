@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
     struct info_job *job0 = malloc(sizeof(struct info_job));
     if (job0 == NULL)
     {
-        perror("ERROR");
+        perror("malloc");
         return -1;
     }
     job0->pid = 0;
@@ -135,7 +135,7 @@ int execute_line(char *line)
             {   
                 execvp(args[0], args);
                 
-                perror(ROJO_T "ERROR");
+                perror(ROJO_T "execvp");
                 printf(RESET);
                 exit(-1);
             }

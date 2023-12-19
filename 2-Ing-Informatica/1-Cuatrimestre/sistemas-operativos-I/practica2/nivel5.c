@@ -485,7 +485,7 @@ void reaper(int signum)
             int pos_ended = jobs_list_find(ended);
             #if DEBUGN5
                 char mensaje[1200];
-                sprintf(mensaje, BLANCO_T "[reaper() -> Proceso hijo %d en background (%s) finalizado con exit code %d]\n" RESET, ended, jobs_list[pos_ended].cmd, status);
+                sprintf(mensaje, BLANCO_T "\n[reaper() -> Proceso hijo %d en background (%s) finalizado con exit code %d]\n" RESET, ended, jobs_list[pos_ended].cmd, status);
                 write(2, mensaje, strlen(mensaje));
             #endif
 
