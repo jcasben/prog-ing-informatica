@@ -19,7 +19,6 @@ urlcolor: blue
 ---
 
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,cache=FALSE)
 library(tidyverse)
@@ -145,6 +144,7 @@ datos_A <- datos$tiempo[datos$muestra == "A"]
 datos_B <- datos$tiempo[datos$muestra == "B"]
 var.test(datos_A, datos_B)
 ```
+
 Ahora, realizamos el test de Fisher de forma manual.
 ```{r}
 var_A <- var(datos_A)
@@ -153,8 +153,11 @@ F_stat <- var_A / var_B
 df1 <- length(datos_A) - 1
 df2 <- length(datos_B) - 1
 p_value <- pf(F_stat, df1, df2, lower.tail = FALSE)
+```
+```{r echo=FALSE}
 print(paste("Test de Fisher: F =", F_stat, ", p =", p_value))
 ```
+
 Al realizar el test de Fisher, obtenemos un valor F de 1.722912 y un valor p menor que 0.05. Por tanto, podemos rechazar la hipótesis nula de que las varianzas de las muestras son iguales.
 
 Realizamos el test de Fligner-Killeen.
@@ -192,10 +195,11 @@ t_stat <- (media_A - media_B) / sqrt((sd_A^2/n_A) + (sd_B^2/n_B))
 df <- n_A + n_B - 2
 ```
 
-Por último, calculamos el valor p e imprimimos el resultado.
+Por último, calculamos el valor p.
 ```{r}
 p_value <- pt(t_stat, df, lower.tail = FALSE)
-
+```
+```{r echo=FALSE}
 print(paste("Test t: t =", t_stat, ", p =", p_value))
 ```
 
@@ -229,7 +233,7 @@ IC_Fisher <- c(F_stat / F_crit, F_stat * F_crit)
 ```
 
 Los resultados obtenidos son los siguientes:
-```{r}
+```{r echo = FALSE}
 print(
   paste("Intervalo de confianza: [", IC_media[1], ",", IC_media[2], "]")
 )
@@ -334,6 +338,8 @@ Para calcular el $\chi^2$ utilizaremos la siguiente fórmula: $\chi^2 = \sum \fr
 chi_cuadrado <- sum(
   (frecuencias_observadas - frecuencias_esperadas)^2 / frecuencias_esperadas
 )
+```
+```{r echo=FALSE}
 print(paste("Estadístico X^2: ", chi_cuadrado))
 ```
 
@@ -341,6 +347,8 @@ Calculamos los grados de libertad y el p-valor:
 ```{r}
 grados_de_libertad <- length(frecuencias_observadas) - 1
 p_valor <- 1 - pchisq(chi_cuadrado, df = grados_de_libertad)
+```
+```{r echo=FALSE}
 print(paste("p-valor: ", p_valor))
 ```
 
@@ -351,6 +359,8 @@ Para calcular el $\chi^2$ utilizaremos la siguiente fórmula: $\chi^2 = \sum \fr
 chi_cuadrado2 <- sum(
   (frecuencias_observadas2 - frecuencias_esperadas2)^2 / frecuencias_esperadas2
 )
+```
+```{r echo=FALSE}
 print(paste("Estadístico X^2: ", chi_cuadrado2))
 ```
 
@@ -469,8 +479,8 @@ estadistico_contraste <- sum(
 p_valor <- 1 - pchisq(estadistico_contraste, df)
 ```
 
-Por útlimo, imprimimos los resultados.
-```{r}
+Estos son los resultados:
+```{r echo=FALSE}
 print(paste("Estadístico de contraste: ", estadistico_contraste))
 print(paste("Grados de libertad: ", df))
 print(paste("Valor p: ", p_value))
@@ -517,8 +527,8 @@ proporcion_aciertos1 <- sum(datos_algoritmo1$Aciertos) / tamaño_muestra1
 proporcion_aciertos2 <- sum(datos_algoritmo2$Aciertos) / tamaño_muestra2
 ```
 
-Por último, imprimimos los resultados.
-```{r}
+Estos son los resultados:
+```{r echo=FALSE}
 print(paste("Tamaño de la muestra para el algoritmo 1: ", tamaño_muestra1))
 print(paste("Tamaño de la muestra para el algoritmo 2: ", tamaño_muestra2))
 print(paste("Proporción de aciertos para el algoritmo 1: ", proporcion_aciertos1))
@@ -575,6 +585,8 @@ Por último, calculamos el intervalo de confianza del 95%
 z <- qnorm(0.975)
 ci_lower <- diff - z * se
 ci_upper <- diff + z * se
+```
+```{r echo=FALSE}
 print(paste("Intervalo de confianza del 95%: [", ci_lower, ", ", ci_upper, "]"))
 ```
 
@@ -619,5 +631,28 @@ proporcion_aciertos_beta
 ```
 
 **Apartado 2**
+
+Las hipótesis que vamos a definir son las siguientes:
+
+- Hipótesis nula ($H_0$): La proporción de los aciertos del algoritmo alpha es igual a la proporción de los aciertos del algoritmo beta.
+- Hipótesis alternativa ($H_1$): La proporción de los aciertos del algoritmo alpha es mayor que la proporción de los aciertos del algoritmo beta.
+
+Una vez definidas las hipotesis, calculamos el estadístico de constraste:
+```{r}
+n <- tamaño_alpha
+b <- sum(datos_alpha != datos_beta & datos_alpha == 1)
+c <- sum(datos_alpha != datos_beta & datos_alpha == 0)
+
+z <- (b / n - c / n) / sqrt((b + c) / n^2)
+```
+
+Una vez calculado el estadístico de contraste, calculamos el p-valor:
+```{r}
+p_valor <- 2 * pnorm(abs(z), lower.tail = FALSE)
+```
+```{r echo=FALSE}
+print(paste("El p-valor es: ", p_valor))
+```
+
 
 
