@@ -19,7 +19,6 @@ urlcolor: blue
 ---
 
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,cache=FALSE)
 library(tidyverse)
@@ -81,7 +80,7 @@ AB %>% group_by(muestra) %>% summarise(N = n(),
 ```
 
 Una vez tenemos calculados los estadísticos básicos, podemos realizar el diagrama de cajas y el histograma comparativo de las muestras.
-```{r}
+```{r out.width="75%", fig.align='center'}
 ggplot(AB, aes(x = muestra, y = tiempo, fill = muestra)) +
   geom_boxplot() +
   labs(title = "Diagrama de Caja - Tiempo de Juego por Interfaz",
@@ -145,6 +144,7 @@ datos_A <- datos$tiempo[datos$muestra == "A"]
 datos_B <- datos$tiempo[datos$muestra == "B"]
 var.test(datos_A, datos_B)
 ```
+
 Ahora, realizamos el test de Fisher de forma manual.
 ```{r}
 var_A <- var(datos_A)
@@ -153,8 +153,11 @@ F_stat <- var_A / var_B
 df1 <- length(datos_A) - 1
 df2 <- length(datos_B) - 1
 p_value <- pf(F_stat, df1, df2, lower.tail = FALSE)
+```
+```{r echo=FALSE}
 print(paste("Test de Fisher: F =", F_stat, ", p =", p_value))
 ```
+
 Al realizar el test de Fisher, obtenemos un valor F de 1.722912 y un valor p menor que 0.05. Por tanto, podemos rechazar la hipótesis nula de que las varianzas de las muestras son iguales.
 
 Realizamos el test de Fligner-Killeen.
@@ -192,10 +195,11 @@ t_stat <- (media_A - media_B) / sqrt((sd_A^2/n_A) + (sd_B^2/n_B))
 df <- n_A + n_B - 2
 ```
 
-Por último, calculamos el valor p e imprimimos el resultado.
+Por último, calculamos el valor p.
 ```{r}
 p_value <- pt(t_stat, df, lower.tail = FALSE)
-
+```
+```{r echo=FALSE}
 print(paste("Test t: t =", t_stat, ", p =", p_value))
 ```
 
@@ -229,9 +233,13 @@ IC_Fisher <- c(F_stat / F_crit, F_stat * F_crit)
 ```
 
 Los resultados obtenidos son los siguientes:
-```{r}
-print(paste("Intervalo de confianza para la diferencia de medias: [", IC_media[1], ",", IC_media[2], "]"))
-print(paste("Intervalo de confianza para la razón de varianzas: [", IC_Fisher[1], ",", IC_Fisher[2], "]"))
+```{r echo = FALSE}
+print(
+  paste("Intervalo de confianza: [", IC_media[1], ",", IC_media[2], "]")
+)
+print(
+  paste("Intervalo de confianza: [", IC_Fisher[1], ",", IC_Fisher[2], "]")
+)
 ```
 
 Podemos concluir lo siguiente:
@@ -287,7 +295,11 @@ frecuencias_observadas
 
 Ahora calculamos las frecuencias esperadas en los primeros dígitos según la ley de Benford.
 ```{r}
-probabilidades_benford <- c(0.30103000, 0.17609126, 0.12493874, 0.09691001, 0.07918125, 0.06694679, 0.05799195, 0.05115252, 0.04575749)
+probabilidades_benford <- c(
+  0.30103000, 0.17609126, 0.12493874, 0.09691001, 
+  0.07918125, 0.06694679, 0.05799195, 0.05115252, 
+  0.04575749
+)
 frecuencias_esperadas <- probabilidades_benford * length(cubos)
 frecuencias_esperadas
 ```
@@ -323,7 +335,11 @@ Primero calcularemos el estadístico de contraste para el apartado 1:
 
 Para calcular el $\chi^2$ utilizaremos la siguiente fórmula: $\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}$
 ```{r}
-chi_cuadrado <- sum((frecuencias_observadas - frecuencias_esperadas)^2 / frecuencias_esperadas)
+chi_cuadrado <- sum(
+  (frecuencias_observadas - frecuencias_esperadas)^2 / frecuencias_esperadas
+)
+```
+```{r echo=FALSE}
 print(paste("Estadístico X^2: ", chi_cuadrado))
 ```
 
@@ -331,6 +347,8 @@ Calculamos los grados de libertad y el p-valor:
 ```{r}
 grados_de_libertad <- length(frecuencias_observadas) - 1
 p_valor <- 1 - pchisq(chi_cuadrado, df = grados_de_libertad)
+```
+```{r echo=FALSE}
 print(paste("p-valor: ", p_valor))
 ```
 
@@ -338,7 +356,11 @@ Ahora calcularemos el estadístico de contraste para el apartado 2:
 
 Para calcular el $\chi^2$ utilizaremos la siguiente fórmula: $\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}$
 ```{r}
-chi_cuadrado2 <- sum((frecuencias_observadas2 - frecuencias_esperadas2)^2 / frecuencias_esperadas2)
+chi_cuadrado2 <- sum(
+  (frecuencias_observadas2 - frecuencias_esperadas2)^2 / frecuencias_esperadas2
+)
+```
+```{r echo=FALSE}
 print(paste("Estadístico X^2: ", chi_cuadrado2))
 ```
 
@@ -352,7 +374,7 @@ print(paste("p-valor: ", p_valor2))
 **Apartado 4**
 
 Dibujamos los diagramas de frecuencias esperadas y observadas para el apartado 1:
-```{r}
+```{r out.width="75%", fig.align='center'}
 frecuencias <- data.frame(
   Dígito = as.character(rep(1:9, 2)),
   Frecuencia = c(as.numeric(frecuencias_observadas), frecuencias_esperadas),
@@ -401,7 +423,68 @@ Se pide
 
 **Apartado 1**
 
+La diferencia entre un contraste de independencia y un contraste de homogeneidad es la siguiente:
 
+- *Contraste de independencia:* Se usa para determinar si existe una relación entre dos variable categóricas. En este caso, estamos buscando una relación entre la tecnología usada por cada estudiante y la nota que sacaron. Las hipótesis que se plantean para este contraste son las siguientes:
+
+  - ***$H_0$:*** Las tecnologías que usan los estudiantes y sus notas son independientes.
+  - ***$H_1$:*** Las tecnologías que usan los estudiantes y sus notas no son independientes.
+
+- *Contraste de homogeneidad:* Se usa para determinar si dos o más poblaciones tienen la misma distribución de una variable categórica. En nuestro caso nos interesa saber si la distribución de las notas es la misma en los diferentes grados, independientemente de la tecnología. Las hipótesis que se plantean para este contraste son las siguientes:
+
+  - ***$H_0$:*** Las distribuciones de las notas en los diferentes grados son iguales.
+  - ***$H_1$:*** Las distribuciones de las notas en los diferentes grados no son iguales.
+  
+**Apartado 2**
+
+Como nuestro en el archivo csv que tenemos solo tenemos una columna de notas y la de tecnología, solo podemos hacer el contraste de independencia. Para ello, usaremos la función `chisq.test` de R. Gracias a esta calcularemos el p-valor.
+
+Primero, cargamos los datos del fichero csv.
+```{r}
+tecnologias <- read_csv(
+  "datasets/tecnologias_4_grados.csv",
+  col_types = cols(tecnologia = col_guess(), nota = col_guess())
+)
+```
+
+Una vez cargados los datos, ya podemos calcular el p-valor utilizando el test $\chi^2$.
+```{r warning=FALSE}
+tabla_independencia <- table(tecnologias$tecnologia, tecnologias$nota)
+test_independencia <- chisq.test(tabla_independencia)
+test_independencia
+```
+
+Al realizar la prueba, obtenemos que el p-valor es 0.778, que es mayor que 0.05, lo que significa que no tenemos evidencias suficientes para rechazar concluir que hay una relación entre las tecnologías que usan los estudiantes y sus notas.
+
+**Apartado 3**
+
+Para calcular las frecuencias teóricas , necesitamos multiplicar los vectores marginales y dividir por el número total de observaciones. Después de ello, ya podemos pasar a calcular el estadístico de contraste y el p-valor. Aprovecharemos los datos que hemos cargado en el apartado anterior.
+
+Primero, crearemos una tabla de contingencia y calculamos las frecuencias marginales.
+```{r}
+tabla_contingencias <- table(tecnologias$tecnologia, tecnologias$nota)
+frecuencias_marginales <- margin.table(tabla_contingencias, 1) 
+frecuencias_marginales = frecuencias_marginales %o% margin.table(tabla_contingencias, 2)
+frecuencias_marginales = frecuencias_marginales / sum(tabla_contingencias)
+frecuencias_marginales
+```
+
+Una vez calculadas las frecuencias marginales ya podemos calcular el estadístico de contraste y el p-valor.
+```{r warning=FALSE}
+df <- (length(margin.table(tabla_contingencias, 1)) - 1) 
+df = df * (length(margin.table(tabla_contingencias, 2)) - 1)
+estadistico_contraste <- sum(
+  (tabla_contingencias - frecuencias_marginales)^2 / frecuencias_marginales
+)
+p_valor <- 1 - pchisq(estadistico_contraste, df)
+```
+
+Estos son los resultados:
+```{r echo=FALSE}
+print(paste("Estadístico de contraste: ", estadistico_contraste))
+print(paste("Grados de libertad: ", df))
+print(paste("Valor p: ", p_value))
+```
 
 ## Problema `r cuenta()`: Contraste de proporciones de dos muestras independientes. (3. puntos)
 
@@ -416,7 +499,98 @@ Se pide:
 2. Contrastad si hay evidencia de que las las proporciones de aciertos del algoritmo 1  son mayores que las del algoritmo 2. Definid bien las hipótesis y las condiciones del contraste. Tenéis que hacer el contraste con funciones de  `R` y resolver el contrate con el $p$-valor.
 3. Calculad el  intervalo de confianza  para la diferencia de proporciones **pág 187 tema 4: CH**  que vimos de forma manual en teoría.
 
+### Solución 4
 
+**Apartado 1**
+
+Para este apartado, cargamos los datos del algoritmo1 y del algorimo2 desde la web:
+```{r}
+datos_algoritmo1 <- read_csv(
+  "https://bioinfo.uib.es/~recerca/MATIIIGINF/velutina/algoritmo1.csv",
+  show_col_types = FALSE
+)
+
+datos_algoritmo2 <- read_csv(
+  "https://bioinfo.uib.es/~recerca/MATIIIGINF/velutina/algoritmo2.csv",
+  show_col_types = FALSE
+)
+
+view(datos_algoritmo1)
+```
+
+Una vez cargados los datos, calculamos el tamaño de las muestras y la proporción de aciertos de cada muestra.
+```{r warning=FALSE}
+tamaño_muestra1 <- nrow(datos_algoritmo1)
+tamaño_muestra2 <- nrow(datos_algoritmo2)
+
+proporcion_aciertos1 <- sum(datos_algoritmo1$Aciertos) / tamaño_muestra1
+proporcion_aciertos2 <- sum(datos_algoritmo2$Aciertos) / tamaño_muestra2
+```
+
+Estos son los resultados:
+```{r echo=FALSE}
+print(paste("Tamaño de la muestra para el algoritmo 1: ", tamaño_muestra1))
+print(paste("Tamaño de la muestra para el algoritmo 2: ", tamaño_muestra2))
+print(paste("Proporción de aciertos para el algoritmo 1: ", proporcion_aciertos1))
+print(paste("Proporción de aciertos para el algoritmo 2: ", proporcion_aciertos2))
+```
+
+**Apartado 2**
+
+Para determinar si hay evidencia de las proporciones de los algoritmo 1 son mayores que las del algoritmo 2, realizamos una prueba de proporciones. Para ello, podemos definir las siguientes hipótesis:
+
+- Hipótesis nula ($H_0$): La proporción de los aciertos del algoritmo 1 es igual a la proporción de los aciertos del algoritmo 2.
+- Hipótesis alternativa ($H_1$): La proporción de los aciertos del algoritmo 1 es mayor que la proporción de los aciertos del algoritmo 2.
+
+En este apartado no voleremos a cargar los datos, ya que los hemos cargado en el apartado anterior. Por tanto, calculamos la proporción de aciertos y fallos de cada muestra.
+```{r}
+aciertos1 <- sum(datos_algoritmo1)
+fallos1 <- tamaño_muestra1 - aciertos1
+aciertos2 <- sum(datos_algoritmo2)
+fallos2 <- tamaño_muestra2 - aciertos2
+```
+
+Por último, realizamos la prueba de proporciones:
+```{r}
+resultado <- prop.test(
+  x = c(aciertos1, aciertos2),
+  n = c(tamaño_muestra1, tamaño_muestra2),
+  alternative = "greater"
+)
+resultado
+```
+
+Después de haber realizado la prueba de proporciones, podemos ver que el p-valor es mayor que 0.05, por lo que no podemos rechazar la hipótesis nula de que las proporciones de aciertos de los dos algoritmos son iguales.
+
+**Apartado 3**
+
+Para calcular los intervalos de confianza a mano de manera manual, utilizaremos la siguiente fórmula: $\hat{p}_1 - \hat{p}_2 \pm z_{\alpha/2} \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}$.
+
+Primero, utilizando el el resultado de la prueba de proporciones, almacenaremos los valores de las proporciones de aciertos de cada algoritmo y la longitud de las muestras.
+```{r}
+prop1 <- 0.7915832
+prop2 <- 0.8737475
+n1 <- tamaño_muestra1
+n2 <- tamaño_muestra2
+```
+
+Después calculamos la diferencia de proporciones y el error estándar.
+```{r}
+diff <- prop1 - prop2
+se <- sqrt((prop1 * (1 - prop1) / n1) + (prop2 * (1 - prop2) / n2))
+```
+
+Por último, calculamos el intervalo de confianza del 95%
+```{r}
+z <- qnorm(0.975)
+ci_lower <- diff - z * se
+ci_upper <- diff + z * se
+```
+```{r echo=FALSE}
+print(paste("Intervalo de confianza del 95%: [", ci_lower, ", ", ci_upper, "]"))
+```
+
+Dado que el intervalo de confianza no contiene el 0, podemos decir que la diferencia de proporciones es significativa. Sin embargo, como ambos valores del intervalo son negativos, esto sugiere que el algoritmo 1 tiene una proporción de aciertos menor que el algoritmo 2.
 
 ## Problema `r cuenta()` : Contraste de proporciones de dos muestras emparejadas. (2. puntos)
 
@@ -427,7 +601,58 @@ En el problema anterior hemos decidido quedarnos con el mejor de los algoritmos 
 1. Cargad los datos desde el servidos y calcular el tamaño de las muestras y la proporción de aciertos de cada muestra.
 2. Contrastad si hay evidencia de que las las proporciones de aciertos del algoritmo alfa  son iguales que las del algoritmo beta. Definid bien las hipótesis y las condiciones del contraste.  De forma manual como  se explicó en **teoría pág 246 tema 4: CH** y resolver con el $p$-valor.
 
+### Solución 5
 
+**Apartado 1**
+
+Cargamos los datos del algoritmo alpha y del algorimo beta desde la web:
+```{r}
+datos_alpha <- read_csv(
+  "https://bioinfo.uib.es/~recerca/MATIIIGINF/velutina2/algoritmo_alpha.csv",
+  show_col_types = FALSE
+)
+
+datos_beta <- read_csv(
+  "https://bioinfo.uib.es/~recerca/MATIIIGINF/velutina2/algoritmo_beta.csv",
+  show_col_types = FALSE
+)
+```
+
+Una vez cargados los datos, calculamos el tamaño de las muestras y la proporción de aciertos de cada muestra.
+```{r}
+tamaño_alpha <- nrow(datos_alpha)
+tamaño_beta <- nrow(datos_beta)
+
+proporcion_aciertos_alpha <- sum(datos_alpha) / tamaño_alpha
+proporcion_aciertos_beta <- sum(datos_beta) / tamaño_beta
+
+proporcion_aciertos_alpha
+proporcion_aciertos_beta
+```
+
+**Apartado 2**
+
+Las hipótesis que vamos a definir son las siguientes:
+
+- Hipótesis nula ($H_0$): La proporción de los aciertos del algoritmo alpha es igual a la proporción de los aciertos del algoritmo beta.
+- Hipótesis alternativa ($H_1$): La proporción de los aciertos del algoritmo alpha es mayor que la proporción de los aciertos del algoritmo beta.
+
+Una vez definidas las hipotesis, calculamos el estadístico de constraste:
+```{r}
+n <- tamaño_alpha
+b <- sum(datos_alpha != datos_beta & datos_alpha == 1)
+c <- sum(datos_alpha != datos_beta & datos_alpha == 0)
+
+z <- (b / n - c / n) / sqrt((b + c) / n^2)
+```
+
+Una vez calculado el estadístico de contraste, calculamos el p-valor:
+```{r}
+p_valor <- 2 * pnorm(abs(z), lower.tail = FALSE)
+```
+```{r echo=FALSE}
+print(paste("El p-valor es: ", p_valor))
+```
 
 
 
