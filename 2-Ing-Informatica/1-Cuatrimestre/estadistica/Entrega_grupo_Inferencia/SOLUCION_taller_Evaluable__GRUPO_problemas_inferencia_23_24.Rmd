@@ -1,0 +1,468 @@
+---
+title: "Soluciones Taller de problemas GRUPO inferencia 2023 MAT3 GIN"
+author: "Marc Link, Carlos Gálvez, Pau Toni Bibiloni, Jesús Castillo"
+date: ""
+output:
+  pdf_document:
+    number_sections: yes
+    toc: yes
+  html_document:
+    df_print: paged
+    toc: yes
+  word_document:
+    toc: yes
+linkcolor: red
+header-includes: \renewcommand{\contentsname}{Contenidos}
+citecolor: blue
+toccolor: blue
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,cache=FALSE)
+library(tidyverse)
+options(scipen=999)
+contador=0
+cuenta=function(x=contador) {
+  contador<<- contador+1;return(contador)}
+set.seed(2020)
+```
+
+
+# Taller  Problemas evaluable 22-23: Estadística Inferencial
+**Valor 14 puntos. Todos los  apartados valen 1 punto.**
+
+Se trata de resolver los siguientes problemas y cuestiones en un fichero Rmd y su  salida en un informe en  html, word  o pdf.
+
+## Problema `r cuenta()`: Regresión lineal simple. 7 puntos.
+
+
+Consideremos los siguientes  datos
+
+
+```{r}
+x=c(-2,-1,2,0,1,2)
+y=c(-7, -5,  5, -3,  3.0,  4)
+```
+
+1. Calcular manualmente haciendo una tabla los coeficiente de la regresión lineal de $y$ sobre $x$.
+
+Para poder calcular los coeficientes de la regresión lineal necesitaremos el número de elementos, los valores de $X$, los valores de $Y$, los valores de $X \cdot Y$ y los valores de $X^2$. Además de sus correspondientes sumas.
+
+
+```{r}
+# El número de elementos 
+n = length(x)
+
+# La suma de los valores de x
+sum_x = sum(x)
+
+# La suma de los valores de y
+sum_y = sum(y)
+
+# La suma de los valores de x*y
+sum_xy = sum(x*y)
+
+# La suma de los valores de x^2
+sum_x2 = sum(x^2)
+
+```
+
+Una vez obtenidos, podremos calcular los coeficientes $b_0$ y $b_1$.
+
+```{r}
+
+b1 = (n * sum_xy - sum_x * sum_y) / (n * sum_x2 - sum_x^2)
+b0 = (sum_y - b1 * sum_x) / n
+
+cat("Coeficiente b0:", b0, "\n")
+cat("Coeficiente b1:", b1, "\n")
+```
+
+
+2. Calcular los valores $\hat{y}_i=b_0+b_1\cdot x_1$ para los valores de la muestra y el error cometido. 
+
+
+Sabemos que $\varepsilon_i = y_i - \hat{y}_i$, por lo que simplemente calculamos los valores para $\hat{y}_i$ y podremos calcular el error $\varepsilon_i$.
+
+```{r}
+y_gorro = b1*x + b0
+
+errs = y - y_gorro
+
+cat("Valores y_gorro", y_gorro, "\n")
+cat("Errores:", errs, "\n")
+```
+
+
+3. Calcular la estimación de la varianza del error.
+
+Sabemos que la estimación de la varianza del error es $\frac{\sum \varepsilon_i^2}{n-2}$.
+
+```{r}
+s2 = sum(errs^2) / (n - 2)
+
+cat("Estimación de la varianza del error (s^2):", s2, "\n")
+```
+
+
+
+
+4. Resolver manualmente el contraste 
+$\left\{\begin{array}{ll} H_0: & \beta_1=0 \\ H_1: & \beta_1\not=0\end{array}\right. ,$ calculando el $p$-valor. 
+
+Dadas estas hipótesis, para contrastarlas, primero deberemos calcular el valor del estadístico de contraste $t$ y así obtener el $p-valor$. El estadístico de contraste se calcula de la siguiente manera: $t = \frac{b_1}{\sqrt{\frac{s^2}{\sum_{i=1}^{n} (x_i - \bar{x})^2}}}$. Una vez calculado el estadístico podemos calcular el $p-valor$ de la siguiente manera: $p = 2\cdot P(T > t_s)$. Utilizando leyes de t de Student con $n-2$ grados de libertad.
+
+```{r}
+
+mean_x = sum_x/n
+S = sqrt(sum(errs^2)/(n - 2))
+# Calculamos el estadístico
+t = b1 / (S/(sd(x) * sqrt(n - 1)))
+
+# Calculamos el p-valor
+p = 2 * pt(abs(t), n - 2, lower.tail = FALSE)
+
+cat("El valor del estadístico t es", t, "\n")
+cat("El p-valor vale", p, "\n")
+```
+
+Dado que el $p-valor$ ha resultado ser menor que 0.05 tenemos evidencia suficiente como para rechazar la hipótesis nula. Gracias a que rechazamos dicha hipótesis podemos decir que existe una relación entre $Y$ y $X$ y que, cuando la segunda cambia, la primera también lo hace.
+
+
+5. Calcular $SST$, $SSR$ y $SSE$. 
+
+Calcularemos dichas variables de la siguiente manera:
+
+```{r}
+
+media_y = sum_y / n
+
+SST = sum((y - media_y)^2)
+SSR = sum((y_gorro - media_y)^2)
+SSE = sum(errs^2)
+
+cat("SST =", SST, "\n")
+cat("SSR =", SSR, "\n")
+cat("SSE =", SSE, "\n")
+```
+
+Además podemos comprobar que los resultados son corretos mediante la siguiente fórmula $SS_T = SS_R + SS_E$. Calculando obtenemos que:
+
+```{r}
+SSR + SSE
+SST
+```
+
+Por lo que podemos afirmar que los cálculos son correctos.
+
+
+6. Calcular el coeficiente de regresión lineal $r_{xy}$ y el coeficiente de determinación $R^2$. Interpretad el resultado en términos de la cantidad de varianza explicada por el modelo. 
+
+Sabemos que $R^2 = \frac{SS_R}{SS_T}$ y que $R^2 = r_{xy}^2$. Así que calculando obtenemos:
+
+```{r}
+R2 = SSR / SST
+rxy = sqrt(R2)
+
+cat("El coeficiente de determinación (R^2) es:", R2, "\n")
+cat("El coeficiente de regresión lineal (r_xy) es", rxy, "\n")
+```
+
+Vemos que el valor de $R^2$ es cercano a 1 por lo que podemos decir que nuestra recta de regresión se ajusta bastante bien a nuestros datos.
+
+7. Comprobar que los resultados son los mismos que los obtenidos con la  función `summary(lm(y~x))`. 
+
+Dados los resultados obtenidos podemos comprobar su veracidad comparándolos con los resultados que nos ofrece la función de R. Ejecutando la función obtenemos los siguiente:
+
+```{r}
+linear = summary(lm(y~x))
+linear
+```
+
+Cuyos coeficientes y $R^2$ son idénticos a los obtenidos por nuestros cálculos.
+
+```{r}
+cat("Coeficientes:\n\tPunto de corte:", b0, "\n\tPendiente:", b1, "\n")
+cat("R^2 =", R2)
+```
+
+##  Problema `r cuenta()`: Distribución de los grados de un grafo de  contactos. 3 puntos
+
+[The marvel chronology project](http://www.chronologyproject.com/)  es una web que ha recopilado las apariciones de los personajes Marvel en cada uno de los cómics  que se van publicando.
+
+En el artículo [Marvel Universe looks almost like a real social network](https://arxiv.org/abs/cond-mat/0202174) se estudió la red de contactos de los personajes del [Universo Marvel de la serie de cómics books](https://www.marvel.com/comics?&options%5Boffset%5D=0&totalcount=12). Dos personajes  tienen relación  si han participado en al menos un mismo cómic; a semejanza del [Oracle of Bacon](https://oracleofbacon.org/) donde se relacionan los actores de las películas de Hollywood que han participado en al menos una película juntos. 
+
+
+Si construimos  el grafo de asociado a esas  relaciones el grado de cada carácter (personaje)  será el número de ortos caracteres (personajes) con los que ha colaborado. Cuando más importante es el personaje más colaboraciones tiene.
+
+
+Los grados de cada caracteres están en el fichero `datasets/degree_Marvel_characters.cvs`. Según algunos estudios la distribución de los grados de los grafos de contactos sigue una ley potencial  $\mbox{frecuencia grado }k =\beta_0\cdot grado^\beta1$  si eliminamos los 20 más pequeños.
+
+```{r carga_marvel,message=FALSE,warnings=FALSE}
+data=read_csv("datasets/degree_Marvel_characters.csv")
+```
+
+
+Se pide:
+
+1. Cargad los datos.  Calcular las frecuencias de los grados, es decir el número de caracteres que tienen 1, 2 ,3 .... colaboradores para cada grado (número de colaboraciones) observado.  
+2. Ajustar un modelo lineal, potencial y exponencial a la relación entre $y=\mbox{"frecuencia del grado"}$ y $x=grado$ dibujar las gráficas de ajuste de cada modelo con gráficos semi-log y log-log  si es necesario. 
+3. Para el mejor modelo calcular los coeficientes en las unidades originales  y escribir la  ecuación del modelos.
+
+### Solucion 2
+
+**Apartado 1**
+
+Cargamos la librería tidyverse y calculamos las frecuencias de los grados en el conjunto de datos.
+```{r warning=FALSE}
+# Cargar librerías
+library(tidyverse)
+
+# Calcular las frecuencias de los grados
+frecuencias <- table(data$degree_Marvel_characters)
+print(frecuencias)
+```
+
+**Apartado 2**
+
+Ajustamos modelos lineales, potenciales y exponenciales utilizando la función lm de R.
+```{r warning=FALSE}
+# Ajustar modelos lineal, potencial y exponencial
+modelo_lineal <- lm(frecuencias ~ as.numeric(names(frecuencias)))
+modelo_potencial <- lm(log(frecuencias) ~ as.numeric(names(frecuencias)))
+modelo_exponencial <- lm(log(frecuencias) ~ as.numeric(names(frecuencias)))
+```
+
+Creamos los gráficos para los modelos lineal y potencial. Se utiliza par(mfrow=c(1,2)) para organizar los gráficos en una fila de dos columnas.
+```{r warning=FALSE}
+# Dibujar gráficos semi-log y log-log sin leyendas
+par(mfrow=c(1,2))
+
+# Gráfico lineal
+plot(as.numeric(names(frecuencias)), frecuencias, main="Modelo Lineal", xlab="Grado", ylab="Frecuencia", col="green", pch=16)
+abline(modelo_lineal, col="purple")
+
+# Gráfico semi-log
+plot(as.numeric(names(frecuencias)), frecuencias, log = "y", main="Modelo Potencial", xlab="Grado", ylab="Frecuencia", col="green", pch=16)
+abline(modelo_potencial, col="purple")
+```
+
+Creamos el gráfico log-log para el modelo exponencial y restauramos el diseño original de la disposición de gráficos.
+```{r warning=FALSE}
+# Gráfico log-log
+plot(log(as.numeric(names(frecuencias))), log(frecuencias), main="Modelo Exponencial", xlab="Grado (log)", ylab="Frecuencia (log)", col="green", pch=16)
+abline(modelo_exponencial, col="purple")
+
+# Restaurar el diseño de la disposición
+par(mfrow=c(1,1))
+```
+
+**Apartado 3**
+
+Calculamos los errores cuadráticos para cada modelo utilizando la función residuals y la función sum.
+```{r warning=FALSE}
+# Calcular los errores cuadráticos para cada modelo
+errores_lineal <- sum(residuals(modelo_lineal)^2)
+errores_potencial <- sum(residuals(modelo_potencial)^2)
+errores_exponencial <- sum(residuals(modelo_exponencial)^2)
+```
+
+Identificamos el mejor modelo seleccionando el que tiene el menor error cuadrático y lo imprimimos.
+```{r warning=FALSE}
+# Identificar el mejor modelo seleccionando el de menor error cuadrático
+mejor_modelo <- which.min(c(errores_lineal, errores_potencial, errores_exponencial))
+
+# Imprimir el mejor modelo identificado
+cat("Mejor modelo:", c("Lineal", "Potencial", "Exponencial")[mejor_modelo], "\n")
+```
+
+Extraemos los coeficientes del mejor modelo y los imprimimos en las unidades originales.
+```{r warning=FALSE}
+# Extraer los coeficientes del mejor modelo identificado
+coeficientes_mejor_modelo <- coef(c(modelo_lineal, modelo_potencial, modelo_exponencial))[[mejor_modelo]]
+
+# Imprimir los coeficientes en las unidades originales
+cat("Coeficientes en las unidades originales:", coeficientes_mejor_modelo, "\n")
+```
+
+Escribimos la ecuación del modelo seleccionado utilizando la función switch.
+```{r warning=FALSE}
+# Escribir la ecuación del modelo seleccionado
+ecuacion_modelo <- switch(mejor_modelo,
+  "y = b0 * x + b1",     # Modelo lineal
+  "y = b0 * x^b2",       # Modelo Potencial
+  "y = b0 * exp(b1 * x)" # Modelo Exponencial
+)
+cat("Ecuación del modelo:", ecuacion_modelo, "\n")
+```
+
+##  Problema `r cuenta()`: Longitud reviews mallorca AirBnb 2022. 4 puntos
+
+El siguiente código  cuenta cuantas palabras hay en un  la variable `commnets` del fichero 
+`reviews.csv` de los comentario a cada apartamento de Mallorca extraído de  la web [Inside AirBnb](http://insideairbnb.com/) que recoge datos de los alquileres vacacionales por zonas del mundo de la web de alquiler de apartamentos vacacionales [AirBnb](https://www.airbnb.es/). Se puede leer con el siguiente código y contar el número de palabras  con la `stringr::str_count`.
+
+
+```{r}
+read_csv("datasets/reviews.csv")->reviews
+names(reviews)
+library(stringr)
+#str_count(str, pattern = “”)
+str_count(str=reviews$comments[1],pattern ="\\s+")
+```
+
+
+Es habitual  que la frecuencia de  la longitud de los comentarios, es decir cuantos comentarios tienen 5, 6, 7 palabras y sus frecuencias siguen una ley que puede ser: lineal, exponencial o potencial. Como hemos hecho en el tema de regresión lineal calcular se trata de calcular y dibujar los tres modelos y decidir cuál es el más ajustado.
+
+Se pide:
+
+
+1. Calcular las longitudes de todos los comentarios (utilizar funciones como `mutate`, `arrange`, `filter`....) y las frecuencias de cada  longitud y filtrar (con la función `filter`)  solo los comentarios  con **MÁS de 20 palabras y MENOS de 800**  y guardarlos en una tibble con dos columnas $N_{words}$= número de palabras y $Frec$=frecuencia absoluta de las palabras.  
+2. Calcular los tres modelos lineal $Freq=\beta_0 +\beta_1 \cdot N_{words}$, potencial
+$Freq=\beta_0\cdot  \left(N_{words}\right)^{\beta_1}$ y exponencial $Freq= \beta_0\cdot \beta_1^{N_{words}}$.  
+3. Repetir el ajuste anterior pero sustituyendo el la variable $N_{words}$ por el rango u orden de $N_{words}$.  
+
+### Solución 3
+
+**Apartado 1** \
+
+Vamos a calcular la longitud de cada comentario y lo añadimos en una columna nueva llamada *Nwords*.
+```{r}
+# Le sumamos 1 porque estamos contando los espacios y para contar las palabras
+# necesitamos contar los espacios + 1
+reviews <- reviews %>%
+  mutate(Nwords = str_count(comments, "\\s+") + 1)
+```
+
+Ahora ya podemos calcular las frecuencias de cada longitud y filtrar los comentarios con más de 20 palabras y menos de 800.
+Lo metemos en una tibble(*word_freq*) con dos columnas: *Nwords* y *Frec*.
+```{r}
+# Calclulamos la frecuencia
+word_freq <- reviews %>%
+  group_by(Nwords) %>%
+  summarise(Frec = n(), .groups = "drop")
+
+# Filtramos los comentarios
+word_freq <- word_freq %>%
+  filter(Nwords > 20, Nwords < 800)
+
+head(word_freq)
+```
+
+<br>
+**Apartado 2** \
+
+Calculemos el modelo lineal:
+```{r}
+modelo_lineal <- lm(Frec ~ Nwords, data = word_freq)
+```
+
+Calculemos el modelo potencial:
+```{r}
+word_freq_transformed <- word_freq %>%
+  mutate(log_Frec = log(Frec), log_Nwords = log(Nwords))
+
+modelo_potencial <- nls(log_Frec ~ log(B0) + B1 * log_Nwords, data = word_freq_transformed, start = list(B0 = 1, B1 = 1))
+```
+
+Calculemos el modelo exponencial:
+```{r}
+word_freq_transformed <- word_freq %>%
+  mutate(log_Frec = log(Frec))
+modelo_exponencial <- nls(log_Frec ~ log(B0) + Nwords * log(B1), data = word_freq_transformed, start = list(B0 = 1, B1 = 1))
+```
+<br>
+Para completar un poco voy ha hacer los diferentes graficos.
+
+```{r}
+word_freq$Pred_Lineal <- predict(modelo_lineal, newdata = word_freq)
+ggplot(word_freq, aes(x = Nwords, y = Frec)) +
+  geom_point() +
+  geom_line(aes(y = Pred_Lineal), color = "red") +
+  labs(title = "Modelo Lineal", x = "Nwords", y = "Frecuencia")
+```
+<br>
+El modelo lineal no se ajusta muy bien a la distribución de los datos.
+<br>
+```{r}
+word_freq$Pred_Potencial <- exp(predict(modelo_potencial, newdata = word_freq_transformed))
+ggplot(word_freq, aes(x = Nwords, y = Frec)) +
+  geom_point() +
+  geom_line(aes(y = Pred_Potencial), color = "red") +
+  labs(title = "Modelo Potencial", x = "Nwords", y = "Frecuencia")
+```
+<br>
+El modelo potencial se empieza a ajustar a la distribución datos cuando Nwords es mayor que 80(aprox)
+<br>
+```{r}
+word_freq$Pred_Exponencial <- exp(predict(modelo_exponencial, newdata = word_freq_transformed))
+ggplot(word_freq, aes(x = Nwords, y = Frec)) +
+  geom_point() +
+  geom_line(aes(y = Pred_Exponencial), color = "red") +
+  labs(title = "Modelo Exponencial", x = "Nwords", y = "Frecuencia")
+```
+<br>
+El modelo exponencial se empieza a ajustar a la distribución datos cuando Nwords es mayor que 175(aprox)
+<br>
+
+**Apartado 3** \
+
+Vamos a substituir la variable *Nwords* por el rango de *Nwords*.
+```{r}
+word_freq <- word_freq %>%
+  mutate(Rank_Nwords = rank(Nwords))
+```
+
+Ahora realizamos los mismos pasos que en el apartado 2.
+
+Calculemos el modelo lineal:
+```{r}
+modelo_lineal_rank <- lm(Frec ~ Rank_Nwords, data = word_freq)
+```
+
+Calculemos el modelo potencial:
+```{r}
+word_freq_transformed <- word_freq %>%
+  mutate(log_Frec = log(Frec), log_Rank_Nwords = log(Rank_Nwords))
+
+modelo_potencial_rank <- nls(log_Frec ~ log(B0) + B1 * log_Rank_Nwords, data = word_freq_transformed, start = list(B0 = 1, B1 = 1))
+```
+
+Calculemos el modelo exponencial:
+```{r}
+word_freq_transformed <- word_freq %>%
+  mutate(log_Frec = log(Frec))
+modelo_exponencial_rank <- nls(log_Frec ~ log(B0) + Rank_Nwords * log(B1), data = word_freq_transformed, start = list(B0 = 1, B1 = 1))
+```
+
+Para completar un poco voy ha hacer los diferentes graficos.
+```{r}
+word_freq$Pred_Lineal <- predict(modelo_lineal_rank, newdata = word_freq)
+ggplot(word_freq, aes(x = Rank_Nwords, y = Frec)) +
+  geom_point() +
+  geom_line(aes(y = Pred_Lineal), color = "red") +
+  labs(title = "Modelo Lineal", x = "Rango de Nwords", y = "Frecuencia")
+```  
+<br>
+El modelo lineal no se ajusta muy bien a la distribución de los datos.
+<br>
+```{r}
+word_freq$Pred_Potencial <- exp(predict(modelo_potencial_rank, newdata = word_freq_transformed))
+ggplot(word_freq, aes(x = Rank_Nwords, y = Frec)) +
+  geom_point() +
+  geom_line(aes(y = Pred_Potencial), color = "red") +
+  labs(title = "Modelo Potencial", x = "Rango de Nwords", y = "Frecuencia")
+```
+<br>
+El modelo potencial no se ajusta para nada a la distribución de los datos en los primeros rangos de *Nwords*.
+<br>
+```{r}
+word_freq$Pred_Exponencial <- exp(predict(modelo_exponencial_rank, newdata = word_freq_transformed))
+ggplot(word_freq, aes(x = Rank_Nwords, y = Frec)) +
+  geom_point() +
+  geom_line(aes(y = Pred_Exponencial), color = "red") +
+  labs(title = "Modelo Exponencial", x = "Rango de Nwords", y = "Frecuencia")
+```
+<br>
+El modelo exponencial se empieza a ajustar a la distribución datos cuando Nwords es mayor que 100(aprox).
+<br>

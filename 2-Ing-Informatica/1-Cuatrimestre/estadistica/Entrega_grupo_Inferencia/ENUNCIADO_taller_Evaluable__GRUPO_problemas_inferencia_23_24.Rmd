@@ -1,0 +1,160 @@
+---
+title: "Taller de problemas GRUPO  inferencia 2023 MAT3 GIN"
+author: "Estadística Inferencial"
+date: ""
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  pdf_document:
+    number_sections: yes
+    toc: yes
+  word_document:
+    toc: yes
+linkcolor: red
+header-includes: \renewcommand{\contentsname}{Contenidos}
+citecolor: blue
+toccolor: blue
+urlcolor: blue
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,cache=FALSE)
+library(tidyverse)
+options(scipen=999)
+contador=0
+cuenta=function(x=contador) {
+  contador<<- contador+1;return(contador)}
+set.seed(2020)
+```
+
+
+# Taller  Problemas evaluable 22-23: Estadística Inferencial
+**Valor 14 puntos. Todos los  apartados valen 1 punto.**
+
+
+Se trata de resolver los siguientes problemas y cuestiones en un fichero Rmd y su  salida en un informe en  html, word  o pdf.
+
+
+
+
+
+## Problema `r cuenta()`: Regresión lineal simple. 7 puntos.
+
+
+Consideremos los siguientes  datos
+
+
+```{r}
+x=c(-2,-1,2,0,1,2)
+y=c(-7, -5,  5, -3,  3.0,  4)
+```
+1. Calcular manualmente haciendo una tabla  los coeficiente de  la regresión lineal de $y$ sobre $x$. 
+2. Calcular los valores $\hat{y}_i=b_0+b_1\cdot x_1$ para los valores de la muestra y el error cometido. 
+3. Calcular la estimación de la varianza del error.
+4. Resolver manualmente el contraste 
+$\left\{\begin{array}{ll} H_0: & \beta_1=0 \\ H_1: & \beta_1\not=0\end{array}\right. ,$ calculando el $p$-valor. 
+5. Calcular $SST$, $SSR$ y $SSE$. 
+6. Calcular el coeficiente de regresión lineal $r_{xy}$ y el coeficiente de determinación $R^2$. Interpretad el resultado en términos de la cantidad de varianza explicada por el modelo 
+7. Comprobar que los resultados son los mismos que los obtenidos con la  función `summary(lm(y~x))`. 
+
+### Solución 1
+**Apartado 1**
+```{r}
+n = length(x)
+media_x = sum(x)/n
+media_x
+media_y = mean(y)
+tb = tibble(i = as.character(1:6), x, y)
+tb = tb %>% mutate(x2 = x^2, y2 = y^2, xy = x * y)
+Sxy = cov(x,y)
+Sxy
+Sxy = (n/(n - 1)) * (sum(tb$xy) / n - media_x * media_y)
+Sxy
+Sx = sd(x)
+Sx
+S2x = (n/(n - 1)) * (sum(tb$xy) / n - media_x^2)
+Sx = sqrt(S2x)
+Sx 
+```
+
+
+
+##  Problema `r cuenta()`: Distribución de los grados de un grafo de  contactos. 3 puntos
+
+[The marvel chronology project](http://www.chronologyproject.com/)  es una web que ha recopilado las apariciones de los personajes Marvel en cada uno de los cómics  que se van publicando.
+
+En el artículo [Marvel Universe looks almost like a real social network](https://arxiv.org/abs/cond-mat/0202174) se estudió la red de contactos de los personajes del [Universo Marvel de la serie de cómics books](https://www.marvel.com/comics?&options%5Boffset%5D=0&totalcount=12). Dos personajes  tienen relación  si han participado en al menos un mismo cómic; a semejanza del [Oracle of Bacon](https://oracleofbacon.org/) donde se relacionan los actores de las películas de Hollywood que han participado en al menos una película juntos. 
+
+
+Si construimos  el grafo de asociado a esas  relaciones el grado de cada carácter (personaje)  será el número de ortos caracteres (personajes) con los que ha colaborado. Cuando más importante es el personaje más colaboraciones tiene.
+
+
+Los grados de cada caracteres están en el fichero `datasets/degree_Marvel_characters.cvs`. Según algunos estudios la distribución de los grados de los grafos de contactos sigue una ley potencial  $\mbox{frecuencia grado }k =\beta_0\cdot grado^\beta1$  si eliminamos los 20 más pequeños.
+
+```{r carga_marvel,message=FALSE,warnings=FALSE}
+data=read_csv("datasets/degree_Marvel_characters.csv")
+```
+
+
+Se pide:
+
+1. Cargad los datos.  Calcular las frecuencias de los grados, es decir el número de caracteres que tienen 1, 2 ,3 .... colaboradores para cada grado (número de colaboraciones) observado.  
+2. Ajustar un modelo lineal, potencial y exponencial a la relación entre $y=\mbox{"frecuencia del grado"}$ y $x=grado$ dibujar las gráficas de ajuste de cada modelo con gráficos semi-log y log-log  si es necesario. 
+3. Para el mejor modelo calcular los coeficientes en las unidades originales  y escribir la  ecuación del modelos. 
+
+### SOlucion 2
+```{r}
+library(readr)
+MU = read_csv("datasets/degree_Marvel_characters.csv", col_names = col())
+tabla_frec = table(MU$degree_Marvel_characters)
+head(tabla_frec)
+
+MU_tb = tibble(grado = as.integer(names(tabla_frec)), Frec = as.integer(tabla_frec))
+```
+```{r}
+# copiar de las transparencias
+plot(MU_tb$grado, MU_tb$Frec)
+plot(MU_tb$grado, MU_tb$Frec, log = "xy")
+plot(MU_tb$grado, MU_tb$Frec, log = "y")
+```
+
+```{r}
+sol_lin = lm(Frec~grado + 1, data = MU_tb)
+sol_pot = lm(log10(Frec)~log10(grado) + 1, data = MU_tb)
+sol_exp = lm(log10(Frec)~grado + 1, data = MU_tb)
+summary(sol_lin)$r.squared
+summary(sol_pot)$r.squared
+summary(sol_exp)$r.squared
+```
+
+##  Problema `r cuenta()`: Longitud reviews mallorca AirBnb 2022. 4 puntos
+
+
+El siguiente código  cuenta cuantas palabras hay en un  la variable `commnets` del fichero 
+`reviews.csv` de los comentario a cada apartamento de Mallorca extraído de  la web [Inside AirBnb](http://insideairbnb.com/) que recoge datos de los alquileres vacacionales por zonas del mundo de la web de alquiler de apartamentos vacacionales [AirBnb](https://www.airbnb.es/). Se puede leer con el siguiente código y contar el número de palabras  con la `stringr::str_count`.
+
+
+```{r}
+read_csv("datasets/reviews.csv")->reviews
+names(reviews)
+library(stringr)
+#str_count(str, pattern = “”)
+str_count(str=reviews$comments[1],pattern ="\\s+")
+```
+
+
+
+Es habitual  que la frecuencia de  la longitud de los comentarios, es decir cuantos comentarios tienen 5, 6, 7 palabras y sus frecuencias siguen una ley que puede ser: lineal, exponencial o potencial. Como hemos hecho en el tema de regresión lineal calcular se trata de calcular y dibujar los tres modelos y decidir cuál es el más ajustado.
+
+Se pide:
+
+
+1. Calcular las longitudes de todos los comentarios (utilizar funciones como `mutate`, `arrange`, `filter`....) y las frecuencias de cada  longitud y filtrar (con la función `filter`)  solo los comentarios  con **MÁS de 20 palabras y MENOS de 800**  y guardarlos en una tibble con dos columnas $N_{words}$= número de palabras y $Frec$=frecuencia absoluta de las palabras.  
+2. Calcular los tres modelos lineal $Freq=\beta_0 +\beta_1 \cdot N_{words}$, potencial
+$Freq=\beta_0\cdot  \left(N_{words}\right)^{\beta_1}$ y exponencial $Freq= \beta_0\cdot \beta_1^{N_{words}}$.  
+3. Repetir el ajuste anterior pero sustituyendo el la variable $N_{words}$ por el rango u orden de $N_{words}$.  
+
+
