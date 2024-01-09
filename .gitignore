@@ -23,6 +23,9 @@ target/
 .Rproj.user
 .Rhistory
 .RData
+datasets/
+*.Rproj
+*.html
 
 # C
 output/
