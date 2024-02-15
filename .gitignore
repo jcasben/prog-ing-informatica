@@ -15,6 +15,13 @@ build/
 # Java
 out/
 
+# Android Studio
+*.kts
+*.jar
+*.bat
+*.webp
+*.pro
+
 # Rust
 target/
 *.lock
