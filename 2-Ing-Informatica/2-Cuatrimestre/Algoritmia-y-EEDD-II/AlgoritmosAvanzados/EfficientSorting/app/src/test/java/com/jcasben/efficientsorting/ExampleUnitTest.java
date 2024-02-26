@@ -1,4 +1,4 @@
-package com.jcasben.calculator;
+package com.jcasben.efficientsorting;
 
 import org.junit.Test;
 

@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.jcasben.calculator"
+    namespace = "com.jcasben.efficientsorting"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.jcasben.calculator"
+        applicationId = "com.jcasben.efficientsorting"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
