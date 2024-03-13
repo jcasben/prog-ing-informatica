@@ -26,6 +26,8 @@ CREATE TABLE PASSATGER(
 	sexe ENUM('home', 'dona', 'nodefinit') NOT NULL
 );
 
+ALTER TABLE passatger MODIFY dataNaixement DATE NOT NULL;
+
 CREATE TABLE VOL(
 	numVol INTEGER PRIMARY KEY,
     data VARCHAR(10) NOT NULL,

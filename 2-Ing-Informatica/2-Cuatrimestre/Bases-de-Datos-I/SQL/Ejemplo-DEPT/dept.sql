@@ -11,3 +11,4 @@ CREATE TABLE TREBALLADOR (
     dept VARCHAR(30),
     CONSTRAINT fk_treballador_dept FOREIGN KEY (dept) REFERENCES DEPT(nomDept)
 );
+
