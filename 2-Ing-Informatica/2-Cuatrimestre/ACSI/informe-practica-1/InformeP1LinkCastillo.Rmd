@@ -47,7 +47,7 @@ este apartado y deja los datos en formato csv.
 ## 1.2. Pregunta 1: ¿Cuántas CPUs tiene el sistema que se ha monitorizado? ¿De dónde se ha obtenido esa información?
 
 El sistema que hemos monitoreado tiene 8 CPUs. Hemos optenido esta información
-del monitor `top`, con el cual si pulsamos la tecla 1 mientras está activo, nos 
+del monitor `top`, con el cual si pulsamos la tecla "1" mientras está activo, nos 
 da una información más detallada de las CPUs donde estas se listan desde la
 CPU0 hasta la CPU7.
 
@@ -60,8 +60,13 @@ CPU0 hasta la CPU7.
 
 ## 1.3. Pregunta 2: ¿Cuál es la utilización media de la CPU en modo usuario, sistema y en global?
 
-La media de uso de la CPU en modo usuario es de 0.01133333%, la media en modo
-sistema es de 0.01961111% y en global es de 0.037%. Los cálculos para sacar el
+Para calcular las medias de utilización de la CPU, hemos eliminado los dos
+primeras filas de datos, ya que estas tenían un valor más alto de lo normal
+debido a que el monitor `top` se estaba lanzando en esos momentos. Al quitar
+estos datos evitamos que produzcan una distorsión en los cálculos de las medias.
+
+La media de uso de la CPU en modo usuario es de 0.010901%, la media en modo
+sistema es de 0.01902113% y en global es de 0.03565072%. Los cálculos para sacar el
 uso de la CPU en modo usuario y sistema han sido muy sencillos de obtener ya que
 son datos que obtenemos directamente del monitor `top`, y por tanto nos basta con
 hacer la media de todos los datos obtenidos. En cambio, no tenemos directamente
@@ -79,10 +84,10 @@ lanzamiento del monitor `top`, ya que después no se vuelve a repetir una muestr
 así.
 
 Para empezar, en el gráfico del porcentaje de uso en modo usuario (ver figura 2),
-se puede observar que se mantiene un porcentaje estable en 0.1%, exceptuando
-algunos momentos puntuales. Podemos suponer que este porcentaje tan bajo y estable
-se debe a que durante la toma de las muestras el usuario no tuvo interacción con
-el sistema.
+se puede observar que se mantiene la mayoría del tiempo en 0% con bastantes subidas
+a 0.1%, exceptuando algunos momentos puntuales. Podemos suponer que este porcentaje 
+tan bajo y estable se debe a que durante la toma de las muestras el usuario no 
+tuvo interacción con el sistema.
 
 En el gráfico de porcentaje de uso en modo sistema (ver figura 3), podemos ver
 que las muestras son mucho más irregulares, con muchos altibajos durante todo
@@ -91,15 +96,29 @@ el proceso de muestreo.
 Por último, en el gráfico del porcentaje de uso de la CPU global (ver figura 4),
 podemos ver como de manera regular se procuden picos de uso que cuadran con los 
 picos de uso que se podían apreciar en el gráfico de uso del sistema. Por tanto,
-concluimos que estos picos se deben al uso del sistema.
+podemos concluir que esos picos se deben al mismo uso del sistema.
 
-![Gráfico del porcentaje de uso en modo usuario](assets/grafico-cpu2.png){width=250}
+![Gráfico del porcentaje de uso en modo usuario](assets/cpu-user.png){width=275}
 
-![Gráfico del porcentaje de uso en modo sistema](assets/grafico-cpu3.png){width=250}
+![Gráfico del porcentaje de uso en modo sistema](assets/cpu-system.png){width=275}
 
-![Gráfico del porcentaje de uso global](assets/grafico-cpu1.png){width=250}
+![Gráfico del porcentaje de uso global](assets/cpu-global.png){width=275}
 
 ## 1.5. Pregunta 4: ¿Cuál es la sobrecarga provocada por el monitor TOP?
+
+Para calcular la sobrecarga del monitor `top`, necesitamos el tiempo que tarda 
+en ejecutarse. Para ello,hemos usado el siguiente comando:
+
+```bash
+time top -b -d1 -n1
+```
+
+Este comando nos da el tiempo que tarda el monitor en ejecutarse. Nos interesa 
+el dato de tiempo **real**. En nuestro caso, el tiempo que tardó fue 0.188 
+segundos. Ahora usamos la fórmula de la sobrecarga usando como intervalo de 
+medida 2 segundos, que es el intervalo que hemos usado para tomar las muestras:
+
+$$OV_{top} = \frac{0.188}{2} = 9.4\%$$
 
 # 2. Monitorización de la memoria principal
 
@@ -108,7 +127,7 @@ concluimos que estos picos se deben al uso del sistema.
 En esta prueba, se nos pidió monitorear la memoria principal de nuestro sistema
 durante un preiodo de 2 horas, con un intervalo de muestreo de 5 segundos. En
 este caso decidimos usar el monitor `vmstat` y para saber cuantas muestras
-teniamos que realizar, lo calculamos de igual manera que en el calculo del primer
+teniamos que realizar, lo calculamos de igual manera que en el cálculo del primer
 apartado:
 
 $$\frac{(2h\cdot60min\cdot60seg)}{5seg}=1440\ muestras$$
@@ -132,7 +151,7 @@ con nuestro programa escrito en Java y dejarlos en un formato csv.
 
 ## 2.2. Pregunta 1: ¿Qué capacidad total tiene la memoria principal del sistema? ¿De dónde se ha obtenido ese dato?
 
-La capacidad de la memoria principal es de: 4038176KB. Esta información la hemos 
+La capacidad de la memoria principal es de 4038176KB. Esta información la hemos 
 obtenido con el comando `free`. Este comando nos proporciona un número exacto 
 pero sin unidades. Buscando información, hemos encontrado que normalmente los 
 números mostrados por la instrucción `free` se representan en KB pero, para 
@@ -158,14 +177,96 @@ Con ello podemos concluir que la memoria se ha mantenido en unos valores
 "uniformes" durante todo el muestreo, sin ningún pico significativo y con una 
 media del 34.364%.
 
-![Gráfico del porcentaje de memoria utilizada](assets/porc-utilizado-mem.png){width=350}
+![Gráfico del porcentaje de memoria utilizada](assets/porcentaje-utilizado.png){width=275}
 
-![Gráfico de la capacidad de memoria utilizada](assets/mem-utilizada.png){width=350}
+![Gráfico de la capacidad de memoria utilizada](assets/capacidad-utilizada.png){width=275}
 
 ## 2.5. Pregunta 4: ¿Cuál es la sobrecarga provocada por el monitor VMSTAT?
+
+Para calcular la sobrecarga del monitor `vmstat` necesitamos el tiempo que tarda
+en ejecutarse. Para ello, hemos usado el siguiente comando:
+
+```bash
+time vmstat
+```
+
+Este comando nos da el tiempo que tarda el monitor en ejecutarse. Nos interesa 
+el dato de tiempo **real**. En nuestro caso, el tiempo que tardó fue 0.007 
+segundos. Ahora usamos la fórmula de la sobrecarga usando como intervalo de 
+medida 5 segundos, que es el intervalo que hemos usado para tomar las muestras:
+
+$$OV_{vmstat} = \frac{0.007}{5} = 0.14\%$$
 
 # 3. Monitorización en paralelo
 
 ## 3.1. Script y recolección de datos
+En el último apartado de la práctica, se nos pidió monitorizar la CPU y la memoria
+durante 2 horas esta vez en paralelo. Para ello, hemos creado un script en bash 
+llamado monitoring.sh que nos permite tomar estas muestras de manera simultánea 
+con ayuda del monitor `top`. El script es el siguiente:
 
-# 4. Pregunta voluntaria
+```bash
+# $1 represents the number of samples to take
+# $2 represents the delay between samples
+for ((i=1; i <= $1; i++)); do
+  tp=$(top -b -d1 -n1 | grep -e "top -" -e "%Cpu(s)" -e "KiB Mem" | paste -sd "#")
+  printf "%s#" "$tp"
+  sleep $2
+done
+```
+
+Este script toma dos parámetros, el primero es el número de muestras que queremos
+tomar y el segundo es el delay entre muestras. El script ejecuta un bucle que 
+toma las filas que nos interesan del monitor top, las cuales son en la que se 
+muestra el **timestamp**, la del **porcentaje de uso de la CPU** y la de la 
+**memoria principal**. Una vez obtenidas estas filas, las juntamos en una sola, 
+separandolas por un `#` y la enseñamos por pantalla. Por último, este realiza un
+`sleep` de tantos segundos como indique el segundo parámetro.
+
+Una vez tenemos el script, nos falta saber un último dato antes de ejecutarlo,
+ya que el enunciado solicitaba que teniamos que tomar las muestras con un
+intervalo de medida tal que la sobrecarga generada por el monitor no superase el
+10%. 
+
+Para sacar este dato, necesitamos el tiempo que tarda el monitor `top` en ejecutarse,
+cosa que hemos calculado en el apartado 1.5. El tiempo que tarda en ejecutarse es
+de 0.188 segundos. Ahora, para obtener el intervalo de medida despejaremos la
+formula de la sobrecarga de la siguiente manera:
+
+$$OV = \frac{T_{ejecucion}}{Intervalo\ medida},\ Intervalo\ medida = \frac{T_{ejecucion}}{OV}$$
+
+Sustituyendo con los valores que tenemos, obtenemos el siguiente resultado para
+el intervalo de medida:
+
+$$Intervalo\ medida = \frac{0.188}{0.1} = 1.88\ segundos$$
+
+Por último, calculamos el número de muestras que necesitamos tomar:
+
+$$\left\lfloor\frac{(2h\cdot60min\cdot60seg)}{1.88seg} \right\rfloor=3829\ muestras$$
+
+Utilizamos la función suelo para redondear hacia abajo, ya que si redondearamos
+hacia arriba, estaríamos tomando más muestras de las necesarias.
+
+Ahora ya podemos ejecutar nuestro script redireccionando la salida hacia un fichero
+para poder procesarlo posteriormente:
+
+```bash
+./monitoring.sh 3829 1.88 > raw-paralel-data.txt
+
+```
+
+# 4. Pregunta voluntaria: Expresar la fórmula de la sobrecarga de la monitorización cuando dos (o más) monitores se están ejecutando en paralelo.
+
+La formula general para calcular la sobrecarga de monitorización cuando dos o más
+monitores se están ejecutando en paralelo es la siguiente:
+
+$$OV_{TOTAL} = \sum_{i=1}^{n} \frac{Tiempo\ de\ ejecución\ del\ monitor_i}{Intervalo\ de\ medida_i} $$
+
+Donde $OV_{TOTAL}$ es la sobrecarga total, $n$ es el número de monitores que se
+ejecutan en paralelo, el $Tiempo\ de\ ejecución\ del\ monitor_i$ es el tiempo que
+tarda el monitor $i$ en ejecutarse y, el $Intervalo\ de\ medida_i$ que se le ha 
+indicado al monitor $i$.
+
+Esta formula la podemos obtener de la formula de la sobrecarga de monitorización,
+pero, al tener $n$ monitores que se ejecutan en paralelo en diferentes terminales,
+necesitamos hacer el sumatorio de cada uno de los overheads que genera cada monitor.
