@@ -59,7 +59,7 @@ public class UnsortedArrayMapping<K, V> {
         return n == 0;
     }
 
-    public IteratorUnsortedArrayMapping iterator() {
+    public Iterator iterator() {
         return new IteratorUnsortedArrayMapping();
     }
 
@@ -75,13 +75,13 @@ public class UnsortedArrayMapping<K, V> {
         }
 
         @Override
-        public Object next() {
+        public Pair<K, V> next() {
             iteratorI++;
             return new Pair<>(keys[iteratorI - 1], values[iteratorI - 1]);
         }
     }
 
-    protected static class Pair<K, V> {
+    public static class Pair<K, V> {
         private final K key;
         private final V value;
 
