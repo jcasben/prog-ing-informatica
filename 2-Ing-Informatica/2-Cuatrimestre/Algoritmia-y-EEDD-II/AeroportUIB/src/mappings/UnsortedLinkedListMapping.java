@@ -66,7 +66,7 @@ public class UnsortedLinkedListMapping<K, V> {
         return null;
     }
 
-    public UnsortedLinkedListMappingIterator iterator() {
+    public Iterator iterator() {
         return new UnsortedLinkedListMappingIterator();
     }
 
@@ -79,11 +79,11 @@ public class UnsortedLinkedListMapping<K, V> {
 
         @Override
         public boolean hasNext() {
-            return first != null;
+            return iteratorI != null;
         }
 
         @Override
-        public Object next() {
+        public Pair next() {
             Pair next = new Pair(iteratorI.key, iteratorI.value);
             iteratorI = iteratorI.next;
 
@@ -91,7 +91,7 @@ public class UnsortedLinkedListMapping<K, V> {
         }
     }
 
-    protected class Pair {
+    public class Pair {
         private final K key;
         private final V value;
 
