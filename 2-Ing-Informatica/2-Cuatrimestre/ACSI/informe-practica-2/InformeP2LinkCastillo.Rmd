@@ -1,0 +1,76 @@
+---
+title: "Informe Práctica Benchmarking"
+subtitle: "21719 - Avaluació de Comportament de Sistemes Informàtics"
+author: "Marc Link Cladera y Jesús Castillo Benito"
+date: "`r Sys.Date()`"
+lang: "es-sp"
+output: 
+  pdf_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\newpage
+
+Las medidas y pruebas realizadas en esta práctica han sido realizadas en una
+máquina virtual Oracle VM con sistema operativo Ubuntu 16.04 a la cual le fueron
+otorgados 8 procesadores y 4GB de memoria RAM.
+
+# 1. Evaluación nº 1: Sysbench CPU con porcentaje de uso de CPU del 50% y carga variable
+
+## 1.1. Explicación del diseño e implementación del experimento
+
+En este primer apartado se nos pide medir el comportamiento del sistema ejecutando
+el benchamark Sysbench con un porcentaje de uso de la CPU del 50% con las cargas 
+de 30000, 60000, 90000 y 120000 números primos. Lo primero que tenemos que comprobar 
+es qué versión de Sysbench tenemos instalada en nuestra máquina ejecutando 
+
+```bash
+sysbench --version
+```
+
+En nuestro caso tenemos una version inferior a la `1.`, por lo tanto usaremos el
+siguiente comando para ejecutar Sysbench:
+
+```bash
+sysbench --test=cpu --cpu-max-prime=<num> --num-threads=<num>
+```
+
+Si queremos medir el rendimiento de la máquina con un uso de la CPU del 50%,
+en nuestro caso, al tener 8 CPU, tenemos que poner `num-threads = 4`, ya que de
+esta manera estaríamos usando solamente la mitad de las CPUs al 100%.
+
+Para cada carga, realizaremos 5 muestras. Con estas muestras calcularemos el tiempo
+medio y la desviación estándar. Si esta desviación es pequeña en respecto a la media,
+tomaremos la media como válida y nos basaremos en ella.
+El propio Sysbench nos proporciona el tiempo de respuesta, entonces para obtener
+el resto de datos necesario como el uso de la CPU y de la memoria utilizada usaremos
+el monitor `top`, ya que este nos proporciona información sobre el estado de la
+CPU y de la memoria al mismo tiempo. Utilizar el monitor `top` hará que sea más
+sencillo tomar la información que si tuvieramos que lanzar dos monitores al mismo
+tiempo (en este caso la otra opción sería lanzar el monitor `top` y `vmstat` en
+paralelo).
+
+Para saber cuantas muestras tiene que tomar el monitor top primero haremos una
+serie de ejecuciones en las cuales calcularemos cuál es el tiempo medio que tarda
+la máquina en ejecutar el benchmark. Tomaremos el `floor` del tiempo medio como
+el número de muestras que debe tomar el monitor con 1 segundo
+
+## 1.2. Análisis del comportamiento del sistema con las diferentes cargas, del tiempo de respuesta y de la productividad
+
+## 1.3. Calculo del porcentaje medio de uso de CPU y memoria y explicación de su comportamiento
+
+# 2. Evaluación nº 2: Sysbench CPU con porcentaje de uso de CPU del 100% y una carga de 90000 números primos
+
+## 2.1. Análisis de los datos obtenidos
+
+## 2.2. Comparación con los resultados de la prueba anterior
+
+# 3. Evaluación nº 3: Sysbench CPU con porcentaje de uso de la CPU variable y carga fija
+
+## 3.1. Análisis del tiempo de respuesta y la productividad en respecto al aumento de recursos
+
+## 3.2 ¿Existe relación entre los recursos de la CPU y el tiempo de respuesta?
