@@ -33,3 +33,22 @@ SELECT v.numVol
 FROM vol v, aeroport a
 WHERE (v.codiIATAdesti = a.codiIATA OR codiIATAorigen = a.codiIATA)
     AND a.pais = 'Regne Unit';
+
+-- JOIN
+
+-- 1.
+
+SELECT v.numVol
+FROM vol v
+	LEFT JOIN aeroport a
+    ON a.codiIATA = v.codiIATAorigen
+WHERE a.ciutat = 'Londres'
+ORDER BY v.nomCo;
+
+-- 2.
+
+SELECT v.capacitat - SUM(r.places) AS places_buides111
+FROM vol v
+    JOIN reserva r
+    ON v.numVol = r.numVol
+    AND v.numVol = '111'
