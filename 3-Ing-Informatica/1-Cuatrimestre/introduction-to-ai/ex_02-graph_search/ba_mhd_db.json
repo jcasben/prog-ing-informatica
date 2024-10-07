@@ -1,0 +1,4651 @@
+{
+  "neighbors": {
+    "Ursinyho": [
+      "Pionierska",
+      "Racianske myto"
+    ],
+    "Klepac": [
+      "Cerveny most P+R",
+      "Deviaty mlyn"
+    ],
+    "Mlada garda": [
+      "Pionierska",
+      "ZST Vinohrady",
+      "Nam. Biely kriz",
+      "Riazanska"
+    ],
+    "Vihorlatska": [
+      "Radiova",
+      "Mierova kolonia"
+    ],
+    "Pri zvonici": [
+      "Bulharska",
+      "Stara Ivanska"
+    ],
+    "Komisarky": [
+      "Puchovska"
+    ],
+    "Hany Melickovej": [
+      "Tomankova",
+      "Pri podchode"
+    ],
+    "Zlate piesky": [
+      "Shopping Park Soravia",
+      "Kon-Rad",
+      "Shopping Palace",
+      "Pri mlyne"
+    ],
+    "Budatinska": [
+      "Luky II",
+      "Lucanka",
+      "ZS Budatinska",
+      "Luky V",
+      "Znievska"
+    ],
+    "Mierova": [
+      "Nevadzova-OC Retro",
+      "Krasna"
+    ],
+    "Televizia": [
+      "Cintorin Slavicie udolie",
+      "Zoo"
+    ],
+    "TV Markiza": [
+      "Dievci hradok",
+      "Krce"
+    ],
+    "Chatam Sofer": [
+      "Most SNP",
+      "Park kultury",
+      "Zochova"
+    ],
+    "Drienovske luky": [
+      "Bukva",
+      "Lanovka"
+    ],
+    "Zochova": [
+      "Chatam Sofer",
+      "Einsteinova",
+      "Aupark",
+      "Ekonomicka univerzita"
+    ],
+    "Tomasikova": [
+      "Maximiliana Hella",
+      "Herlianska-OC Retro",
+      "Sumracna"
+    ],
+    "Pri podchode": [
+      "Hany Melickovej",
+      "Janotova"
+    ],
+    "Nad internatmi": [
+      "Nad vinicami",
+      "Grunty"
+    ],
+    "Pri Vapenickom potoku": [
+      "Krce",
+      "Pri kaplnke"
+    ],
+    "Tomankova": [
+      "Matejkova",
+      "Hany Melickovej"
+    ],
+    "Holicska": [
+      "Smolenicka",
+      "Sintavska",
+      "Luky II"
+    ],
+    "Vretenova": [
+      "Konvalinkova",
+      "Na Sitine"
+    ],
+    "Havlickova": [
+      "Kalvaria",
+      "Misikova"
+    ],
+    "Kacinska dolina": [
+      "Kamenolom"
+    ],
+    "Hodoninska": [
+      "Vrancovicova",
+      "ZST Lamac",
+      "Segnare"
+    ],
+    "Spalovna": [
+      "COV Vlcie hrdlo"
+    ],
+    "Vodarenske muzeum": [
+      "Botanicka zahrada",
+      "Jurigrad"
+    ],
+    "Avion Shopping Park": [
+      "Galvaniho",
+      "Stara Ivanska",
+      "Ribezlova",
+      "Avion Shopping Park"
+    ],
+    "Krahulcia": [
+      "Briezky"
+    ],
+    "Kremelska": [
+      "Dolne koruny",
+      "Slovanske nabrezie"
+    ],
+    "Pristavna": [
+      "Most Apollo",
+      "Kosicka",
+      "Panorama City"
+    ],
+    "Kamenne nam.": [
+      "Marianska",
+      "Safarikovo nam.",
+      "Kapucinska"
+    ],
+    "Krpas": [
+      "Vapenka",
+      "Kamenace"
+    ],
+    "Hospodarska": [
+      "MiU Vajnory",
+      "Vajnory"
+    ],
+    "Lieskovec": [
+      "Plniaren plynu",
+      "Ketelec"
+    ],
+    "NUSCH": [
+      "Klenova",
+      "Vlarska"
+    ],
+    "Kamenolom": [
+      "Lanovka",
+      "Kacinska dolina"
+    ],
+    "Valasska": [
+      "Hyrosova",
+      "Lovinskeho"
+    ],
+    "COV Vlcie hrdlo": [
+      "Spalovna",
+      "Vodostav"
+    ],
+    "Drobneho": [
+      "OD Saratov",
+      "Alexyho",
+      "Peknikova"
+    ],
+    "Vajnory-nadjazd": [
+      "Kon-Rad",
+      "Pri starom letisku"
+    ],
+    "ZST Rusovce": [
+      "Kastiel Rusovce",
+      "Gastanova aleja"
+    ],
+    "MiU Ruzinov": [
+      "Hranicna-OC Retro",
+      "Kastielska"
+    ],
+    "Stare ihrisko": [
+      "Odborarska",
+      "Eu. vzdel. akademia"
+    ],
+    "Jeseniova": [
+      "Tupeho",
+      "Cremchova"
+    ],
+    "Nakupna zona Luky": [
+      "Kolma",
+      "Jasovska"
+    ],
+    "Cabanova": [
+      "Cabanova II",
+      "Homolova"
+    ],
+    "Sliacska": [
+      "Pionierska",
+      "Briezky"
+    ],
+    "Lokomotivne depo II": [
+      "Na pasekach",
+      "Sportove letisko"
+    ],
+    "Topolcianska": [
+      "Technopol",
+      "Sintavska"
+    ],
+    "Zitavska": [
+      "Cilizska",
+      "Dudvazska"
+    ],
+    "Slavin": [
+      "Stara vinarska",
+      "Kalvaria"
+    ],
+    "Klanec": [
+      "Lamac",
+      "Studenohorska"
+    ],
+    "Bystricka": [
+      "Panske"
+    ],
+    "Zavodna": [
+      "Refinery Gallery",
+      "Ulica svornosti"
+    ],
+    "Gerulata": [
+      "Vyvojova",
+      "Kastiel Rusovce"
+    ],
+    "Kastiel Rusovce": [
+      "Gerulata",
+      "ZST Rusovce"
+    ],
+    "Karpatska": [
+      "Racianske myto",
+      "SAV"
+    ],
+    "PD P. Biskupice": [
+      "Lieskovska cesta",
+      "Janske hony"
+    ],
+    "Hronska": [
+      "Podzahradna",
+      "Dudvazska",
+      "Bodrocka",
+      "Komarovska",
+      "Toryska"
+    ],
+    "Cesta na letisko": [
+      "Fatruny"
+    ],
+    "Magnetova": [
+      "Mierova kolonia",
+      "Odborarska",
+      "Jurajov dvor"
+    ],
+    "Pri starom letisku": [
+      "Vajnory-nadjazd",
+      "Uhliska",
+      "Sportove letisko"
+    ],
+    "Klenova": [
+      "NUSCH",
+      "Vlarska"
+    ],
+    "Lachova": [
+      "Starohajska",
+      "Sustekova",
+      "Nam. hraniciarov",
+      "Bosakova"
+    ],
+    "Haburska": [
+      "Trnavska",
+      "Maximiliana Hella",
+      "Slovinska"
+    ],
+    "Aupark": [
+      "Dvory",
+      "Zochova",
+      "Most SNP"
+    ],
+    "Radiova": [
+      "Slovinska",
+      "Vozovna Trnavka",
+      "Bocna",
+      "Radiova",
+      "Vihorlatska",
+      "Bulharska"
+    ],
+    "Cilizska": [
+      "Zeleznicna",
+      "Zitavska"
+    ],
+    "Sikma": [
+      "Slovnaftska"
+    ],
+    "Cabanova II": [
+      "Stepna",
+      "Cabanova"
+    ],
+    "Odborarska": [
+      "Polus City Center",
+      "Stare ihrisko",
+      "Magnetova",
+      "ZST Nove Mesto",
+      "Zatisie"
+    ],
+    "Strojnicka": [
+      "Prievoz-most"
+    ],
+    "Technicke sklo": [
+      "Bory-razcestie",
+      "Agatova"
+    ],
+    "Pristavny most": [
+      "Prievozska",
+      "Lucna",
+      "Mliekarenska",
+      "Bosakova",
+      "Ekonomicka univerzita"
+    ],
+    "Zelezna studnicka": [
+      "Deviaty mlyn",
+      "Bukva"
+    ],
+    "Ekonomicka univerzita": [
+      "Bulikova",
+      "Most Apollo",
+      "Zehrianska",
+      "Pristavny most",
+      "Zochova"
+    ],
+    "Gastanova aleja": [
+      "ZST Rusovce",
+      "Pieskovy hon"
+    ],
+    "Legionarska": [
+      "Blumental",
+      "Trnavske myto",
+      "Odborarske nam."
+    ],
+    "Zeleznicna": [
+      "Sipova",
+      "Cilizska",
+      "Podunajska"
+    ],
+    "Segnerova": [
+      "Nad luckami"
+    ],
+    "Bukva": [
+      "Zelezna studnicka",
+      "Drienovske luky"
+    ],
+    "Nove SND": [
+      "Mala scena",
+      "Panorama City"
+    ],
+    "Nakupna": [
+      "Korytnicka",
+      "Ucitelska"
+    ],
+    "Znievska": [
+      "Lucanka",
+      "Budatinska"
+    ],
+    "Most SNP": [
+      "Nam. L. Stura",
+      "Chatam Sofer",
+      "Lanfranconi",
+      "Einsteinova",
+      "Aupark",
+      "Mala scena",
+      "Safarikovo nam."
+    ],
+    "Zahumenice-Drevona": [
+      "Puchovska",
+      "Zvoncekova",
+      "Detvianska"
+    ],
+    "Segnare": [
+      "Pod nasypom",
+      "Hodoninska",
+      "Pod Zecakom",
+      "Lediny"
+    ],
+    "Internaty B": [
+      "Cintorin Slavicie udolie",
+      "Konvalinkova"
+    ],
+    "Radvanska": [
+      "Jancova",
+      "Inovecka"
+    ],
+    "Tbiliska": [
+      "Zavadska"
+    ],
+    "Deviaty mlyn": [
+      "Klepac",
+      "Zelezna studnicka"
+    ],
+    "Kopcianska-stred": [
+      "Dargovska",
+      "ZST Petrzalka"
+    ],
+    "Kvacalova": [
+      "Saleziani",
+      "Kuliskova",
+      "Karadzicova"
+    ],
+    "Podzahradna": [
+      "Slovnaftska",
+      "Hronska",
+      "Toryska"
+    ],
+    "Cerveny most P+R": [
+      "ZST Zelezna studienka",
+      "Klepac"
+    ],
+    "Stefana Kralika": [
+      "Milana Marecka",
+      "Vapenka",
+      "Bory-razcestie"
+    ],
+    "Bajkalska": [
+      "Zimny stadion",
+      "Sabinovska",
+      "Nova doba",
+      "Trnavska",
+      "Drienova",
+      "Nemocnica Ruzinov",
+      "Bratislavska zupa",
+      "Mliekarenska"
+    ],
+    "Kuliskova": [
+      "Kvacalova",
+      "Cvernovka",
+      "Karadzicova"
+    ],
+    "Lanfranconi": [
+      "Park kultury",
+      "Botanicka zahrada",
+      "Zoo",
+      "Most SNP",
+      "Janotova"
+    ],
+    "Kukucinova": [
+      "OD Slimak",
+      "Halkova"
+    ],
+    "Kremencova": [
+      "Mlynska",
+      "Zamajerske"
+    ],
+    "Priekopnicka": [
+      "Komarovska",
+      "Cintorin Vrakuna"
+    ],
+    "Mokrohajska": [
+      "Patronka",
+      "Bory Mall",
+      "Pridanky",
+      "Huscavova",
+      "ZST Lamac",
+      "Tesco Lamac"
+    ],
+    "Jancova": [
+      "Cerveny kriz",
+      "Radvanska"
+    ],
+    "Devin": [
+      "Strbska",
+      "Morava"
+    ],
+    "Shopping Park Soravia": [
+      "Vozovna Trnavka",
+      "Zlate piesky"
+    ],
+    "Hrobonova": [
+      "Sokolska",
+      "Prokopa Velkeho",
+      "SAV",
+      "Patronka",
+      "Dubova",
+      "Vozovna Hrobonova"
+    ],
+    "Hauerland": [
+      "Subezna",
+      "Slov. nar. archiv"
+    ],
+    "Spolocenska": [
+      "Bulharska",
+      "Hanacka"
+    ],
+    "ZST P. Biskupice": [
+      "Dudvazska",
+      "Petofiho"
+    ],
+    "Solosnicka": [
+      "Kuklovska 44",
+      "Sastinska"
+    ],
+    "Dargovska": [
+      "Udernicka-Kupalisko",
+      "Kopcianska-stred"
+    ],
+    "STU": [
+      "Zilinska",
+      "Vysoka"
+    ],
+    "Refinery Gallery": [
+      "Vlcie hrdlo",
+      "Zavodna"
+    ],
+    "Cesta na Kamzik": [
+      "Stromova"
+    ],
+    "Odborarske nam.": [
+      "Marianska",
+      "Legionarska"
+    ],
+    "Lamac": [
+      "Klanec",
+      "Vrancovicova"
+    ],
+    "Borska": [
+      "Sastinska",
+      "Borska",
+      "Harmincova",
+      "Karlova Ves",
+      "MiU Karlova Ves"
+    ],
+    "Svantnerova": [
+      "Alexyho",
+      "Damborskeho"
+    ],
+    "Sulekova": [
+      "Donovalova",
+      "Kozia"
+    ],
+    "Hradistna": [
+      "Novoveska",
+      "Milana Marecka"
+    ],
+    "Marianska": [
+      "Americke nam.",
+      "Kamenne nam.",
+      "Odborarske nam."
+    ],
+    "Zatisie": [
+      "Polus City Center",
+      "Odborarska"
+    ],
+    "Luky II": [
+      "Smolenicka",
+      "Budatinska",
+      "ZS Budatinska",
+      "Holicska"
+    ],
+    "Zamajerske": [
+      "Kremencova",
+      "Jana Jonasa-VW"
+    ],
+    "Nemecky kulturny dom": [
+      "MiU Raca",
+      "Baronka"
+    ],
+    "Sintavska": [
+      "Topolcianska",
+      "Strecnianska",
+      "Holicska"
+    ],
+    "Bodrocka": [
+      "Hronska",
+      "Korytnicka"
+    ],
+    "Maximiliana Hella": [
+      "Haburska",
+      "Tomasikova",
+      "Solivarska",
+      "DK Ruzinov",
+      "Sumracna"
+    ],
+    "Vajnory": [
+      "Hospodarska"
+    ],
+    "Dievci hradok": [
+      "Podkerepusky",
+      "TV Markiza"
+    ],
+    "Nemocnica Kramare": [
+      "Pri Suchom mlyne",
+      "Magurska",
+      "Vlarska"
+    ],
+    "Stary kamenolom": [
+      "Novy kamenolom",
+      "Dolne koruny"
+    ],
+    "Zahorska Bystrica": [
+      "Zahorska"
+    ],
+    "Vlarska": [
+      "NUSCH",
+      "Magurska",
+      "Nemocnica Kramare",
+      "Klenova"
+    ],
+    "Ulica svornosti": [
+      "Zavodna",
+      "Slovnaftska"
+    ],
+    "Palenisko": [
+      "Lucna",
+      "Terminal"
+    ],
+    "Lucna": [
+      "Pristavny most",
+      "Palenisko",
+      "Pristav"
+    ],
+    "Kapucinska": [
+      "Park kultury",
+      "Postova-Martinus",
+      "Kamenne nam."
+    ],
+    "Einsteinova": [
+      "Zochova",
+      "Kremnicka",
+      "Most SNP",
+      "Zoo",
+      "Dvory"
+    ],
+    "Nemocnica Antolska": [
+      "Lubovnianska",
+      "Vozovna Petrzalka"
+    ],
+    "Stromova": [
+      "Bardosova",
+      "Cesta na Kamzik",
+      "Sokolska"
+    ],
+    "Sady": [
+      "Jarovce",
+      "Kovacsova"
+    ],
+    "SAV": [
+      "Racianske myto",
+      "Patronka",
+      "Hlavna stanica",
+      "Sokolska",
+      "Hrobonova",
+      "Karpatska"
+    ],
+    "Jurajov dvor": [
+      "Vozovna Jurajov dvor",
+      "Pri nadjazde",
+      "Stara Vajnorska",
+      "Vozovna Trnavka",
+      "Magnetova",
+      "PPA Controll"
+    ],
+    "Syslia": [
+      "Krasna",
+      "ZST UNS"
+    ],
+    "Novy kamenolom": [
+      "Pri zahradach",
+      "Stary kamenolom"
+    ],
+    "Luky V": [
+      "Budatinska",
+      "Vysehradska"
+    ],
+    "MiU Karlova Ves": [
+      "Borska",
+      "Nad luckami"
+    ],
+    "ZS Budatinska": [
+      "Luky II",
+      "Budatinska"
+    ],
+    "Pod nasypom": [
+      "Vrancovicova",
+      "Segnare"
+    ],
+    "Sabinovska": [
+      "Bajkalska",
+      "Trnavska"
+    ],
+    "Vodostav": [
+      "COV Vlcie hrdlo",
+      "Micherov majer"
+    ],
+    "Vyvojova": [
+      "Kovacsova",
+      "Gerulata"
+    ],
+    "Tupeho": [
+      "Sancova",
+      "Jeseniova"
+    ],
+    "ZIPP": [
+      "Shopping Palace",
+      "Stara Vajnorska"
+    ],
+    "Park kultury": [
+      "Chatam Sofer",
+      "Lanfranconi",
+      "Kapucinska"
+    ],
+    "Koliba": [
+      "Julova"
+    ],
+    "Zvoncekova": [
+      "Zahumenice-Drevona"
+    ],
+    "Pracanska": [
+      "Cierny chodnik",
+      "Pri mlyne",
+      "MiU Vajnory"
+    ],
+    "Lediny": [
+      "Segnare",
+      "Vrancovicova"
+    ],
+    "Vysoka": [
+      "STU",
+      "Postova-Martinus",
+      "Blumental"
+    ],
+    "Shopping Palace": [
+      "Zlate piesky",
+      "ZIPP",
+      "PPA Controll"
+    ],
+    "Pod Zecakom": [
+      "Tesco Lamac",
+      "Segnare"
+    ],
+    "Dvory": [
+      "Racianske myto",
+      "ZST Petrzalka",
+      "Halova",
+      "Aupark",
+      "Einsteinova",
+      "Rusovska cesta"
+    ],
+    "Herlianska-OC Retro": [
+      "Tomasikova",
+      "Nemocnica Ruzinov",
+      "Nevadzova-OC Retro"
+    ],
+    "Hrobakova": [
+      "Romanova",
+      "Starohajska",
+      "Nam. hraniciarov"
+    ],
+    "Panske": [
+      "Paulinske",
+      "Bystricka"
+    ],
+    "Novoveska": [
+      "Mlynska",
+      "Hradistna",
+      "Na Grbe"
+    ],
+    "Hranicna-OC Retro": [
+      "Prievozska",
+      "Nevadzova-OC Retro",
+      "MiU Ruzinov"
+    ],
+    "Guothova": [
+      "L. Derera",
+      "Bardosova"
+    ],
+    "VS Manazmentu": [
+      "ZST Petrzalka",
+      "Jiraskova"
+    ],
+    "Lodenica": [
+      "Povodie Dunaja"
+    ],
+    "Hyrosova": [
+      "Pri Suchom mlyne",
+      "Patronka",
+      "Valasska"
+    ],
+    "Cintorin Vrakuna": [
+      "Ribezlova",
+      "Slovnaftska",
+      "Priekopnicka",
+      "Ondrejovova"
+    ],
+    "Zaporozska": [
+      "Kremnicka",
+      "ZST Petrzalka",
+      "Gercenova"
+    ],
+    "Vozovna Jurajov dvor": [
+      "Jurajov dvor"
+    ],
+    "Patronka": [
+      "SAV",
+      "Mokrohajska",
+      "Bory Mall",
+      "Pri Habanskom mlyne",
+      "Tesco Lamac",
+      "ZST Zelezna studienka",
+      "Hrobonova",
+      "Dubova",
+      "Patronka, Kaufland",
+      "Hyrosova",
+      "Pri Suchom mlyne"
+    ],
+    "Kon-Rad": [
+      "Zlate piesky",
+      "Vajnory-nadjazd"
+    ],
+    "Nad luckami": [
+      "MiU Karlova Ves",
+      "Segnerova"
+    ],
+    "Budkova": [
+      "Stara vinarska",
+      "Cerveny kriz",
+      "Horsky park"
+    ],
+    "ZST Zelezna studienka": [
+      "Patronka",
+      "Cerveny most P+R"
+    ],
+    "Koniarkova": [
+      "Vojensky utvar",
+      "Osloboditelska"
+    ],
+    "Cintorinska": [
+      "Autobusova stanica"
+    ],
+    "MiU P. Biskupice": [
+      "Ucitelska",
+      "Devatinova",
+      "Ul. 8. maja",
+      "Lieskovska cesta"
+    ],
+    "Sprinclov majer": [
+      "Rybnicna",
+      "Vojensky utvar"
+    ],
+    "Nam. Biely kriz": [
+      "ZST Vinohrady",
+      "Mlada garda"
+    ],
+    "Pri kaplnke": [
+      "Pri Vapenickom potoku"
+    ],
+    "Zehrianska": [
+      "Ekonomicka univerzita",
+      "Slnecnice",
+      "Jasovska",
+      "Bzovicka"
+    ],
+    "Morava": [
+      "Devin",
+      "Waitov lom"
+    ],
+    "Pri Suchom mlyne": [
+      "Pri Habanskom mlyne",
+      "Nemocnica Kramare",
+      "Hyrosova",
+      "Patronka"
+    ],
+    "Bory-razcestie": [
+      "Kamenace",
+      "Technicke sklo",
+      "Bory Mall",
+      "Stefana Kralika",
+      "Agatova",
+      "Velkolucky potok"
+    ],
+    "Hrad": [
+      "Inovecka",
+      "Zamocka"
+    ],
+    "Markova": [
+      "Svabinskeho",
+      "Romanova",
+      "Prokofievova"
+    ],
+    "Lamac-Stare zahrady": [
+      "Vrancovicova",
+      "Pri krematoriu",
+      "Bory Mall",
+      "Bakosova"
+    ],
+    "Jasovska": [
+      "Nakupna zona Luky",
+      "Slnecnice",
+      "Zehrianska"
+    ],
+    "Cierny chodnik": [
+      "Uhliska",
+      "Pracanska"
+    ],
+    "Partizanska": [
+      "Zamocka",
+      "Kozia"
+    ],
+    "Podkerepusky": [
+      "Pri krematoriu",
+      "Dievci hradok"
+    ],
+    "Nemocnica Ruzinov": [
+      "Herlianska-OC Retro",
+      "Slovanet",
+      "Bajkalska"
+    ],
+    "Tupolevova": [
+      "Smolenicka",
+      "Technopol"
+    ],
+    "Pri krizi": [
+      "Agatova",
+      "OD Saratov",
+      "Volkswagen",
+      "Homolova",
+      "Pri krizi"
+    ],
+    "Nam. A. Hlinku": [
+      "Baronka",
+      "Zavadska"
+    ],
+    "Pristav": [
+      "Lucna",
+      "Plynarenska"
+    ],
+    "Slovnaftska": [
+      "Cintorin Vrakuna",
+      "Podzahradna",
+      "Ulica svornosti",
+      "Sikma"
+    ],
+    "Volkswagen": [
+      "Jana Jonasa",
+      "Velkolucky potok",
+      "Pri krizi"
+    ],
+    "Vapenka": [
+      "Stefana Kralika",
+      "Krpas"
+    ],
+    "Prvosienkova": [
+      "Safranova",
+      "Na hrebienku"
+    ],
+    "Siravska": [
+      "Estonska",
+      "Sipova"
+    ],
+    "Grunty": [
+      "Nad internatmi",
+      "Panorama"
+    ],
+    "Bosakova": [
+      "Sustekova",
+      "Mlynarovicova",
+      "Lachova",
+      "Pristavny most"
+    ],
+    "Namestie SNP": [
+      "Safarikovo nam.",
+      "Postova-Martinus"
+    ],
+    "Panorama City": [
+      "Twin City",
+      "Most Apollo",
+      "Pristavna",
+      "Nove SND"
+    ],
+    "Mokrad": [
+      "Pri nadjazde"
+    ],
+    "Lieskovska cesta": [
+      "MiU P. Biskupice",
+      "PD P. Biskupice"
+    ],
+    "Bulharska": [
+      "Radiova",
+      "Pri zvonici",
+      "Spolocenska"
+    ],
+    "Suhvezdna": [
+      "Astronomicka",
+      "Vahostav"
+    ],
+    "Majerska": [
+      "Sipova"
+    ],
+    "Trnavska": [
+      "Sabinovska",
+      "ZST Nove Mesto",
+      "Haburska",
+      "Slovinska",
+      "Bajkalska"
+    ],
+    "Estonska": [
+      "Stavbarska",
+      "Siravska"
+    ],
+    "Patronka, Kaufland": [
+      "Patronka"
+    ],
+    "Muchovo nam.": [
+      "Farskeho"
+    ],
+    "Vozovna Krasnany": [
+      "Male Krasnany",
+      "ZST Vinohrady"
+    ],
+    "Devatinova": [
+      "MiU P. Biskupice"
+    ],
+    "Karadzicova": [
+      "Mickiewiczova",
+      "Kvacalova",
+      "Kuliskova"
+    ],
+    "Safarikovo nam.": [
+      "Postova-Martinus",
+      "Sad Janka Krala",
+      "Kamenne nam.",
+      "Most SNP",
+      "Namestie SNP"
+    ],
+    "Stara Vajnorska": [
+      "ZIPP",
+      "Jurajov dvor"
+    ],
+    "Krasna": [
+      "Mierova",
+      "Syslia"
+    ],
+    "Zavadska": [
+      "Cachticka",
+      "Nam. A. Hlinku",
+      "Tbiliska"
+    ],
+    "Karlova Ves": [
+      "Dolne Krcace",
+      "Borska"
+    ],
+    "Dolne koruny": [
+      "Stary kamenolom",
+      "Kremelska"
+    ],
+    "Svabinskeho": [
+      "Smolenicka",
+      "Markova",
+      "Jiraskova"
+    ],
+    "Uhrovecka": [
+      "Na hriadkach",
+      "Ivana Bukovcana"
+    ],
+    "Odbojarov": [
+      "Trnavske myto",
+      "Nova doba"
+    ],
+    "Baronka": [
+      "Nemecky kulturny dom",
+      "Nam. A. Hlinku"
+    ],
+    "Opletalova": [
+      "Paulinske"
+    ],
+    "Pri mlyne": [
+      "Zlate piesky",
+      "Pracanska"
+    ],
+    "Technicka": [
+      "Bocna"
+    ],
+    "Husova": [
+      "Cremchova"
+    ],
+    "Jana Jonasa": [
+      "COV Dev. Nova Ves",
+      "Jana Jonasa-VW",
+      "Volkswagen"
+    ],
+    "Bory Mall": [
+      "Mokrohajska",
+      "Bory-razcestie",
+      "Patronka",
+      "Velkolucky potok",
+      "Lamac-Stare zahrady",
+      "Agatova"
+    ],
+    "Postova-Martinus": [
+      "Vysoka",
+      "Safarikovo nam.",
+      "Kapucinska",
+      "Namestie SNP"
+    ],
+    "Vozovna Petrzalka": [
+      "Betliarska",
+      "Nemocnica Antolska"
+    ],
+    "Nobelova": [
+      "Eu. vzdel. akademia"
+    ],
+    "Uhliska": [
+      "Pri starom letisku",
+      "MiU Vajnory",
+      "Cierny chodnik",
+      "Osloboditelska"
+    ],
+    "Dolne Krcace": [
+      "Horne Krcace",
+      "Karlova Ves"
+    ],
+    "Soltesovej": [
+      "Krizna",
+      "Mlynske nivy",
+      "Autobusova stanica"
+    ],
+    "Lipskeho": [
+      "Damborskeho",
+      "Huscavova",
+      "Harmincova",
+      "Polianky"
+    ],
+    "Na hriadkach": [
+      "Sandberg",
+      "Uhrovecka"
+    ],
+    "Detvianska": [
+      "Zahumenice-Drevona",
+      "Hybesova"
+    ],
+    "Stara Ivanska": [
+      "Galvaniho",
+      "Vozovna Trnavka",
+      "Pri zvonici",
+      "Avion Shopping Park"
+    ],
+    "Slov. nar. archiv": [
+      "Hauerland",
+      "Safranova"
+    ],
+    "Peknikova": [
+      "Tesco Lamac",
+      "Zatevna",
+      "OD Saratov",
+      "Drobneho"
+    ],
+    "Milana Marecka": [
+      "Hradistna",
+      "Stefana Kralika"
+    ],
+    "Bilikova": [
+      "ZST Lamac",
+      "Alexyho"
+    ],
+    "Kadlecik": [
+      "Zlate schody"
+    ],
+    "Matejkova": [
+      "ZS Majernikova",
+      "Tomankova"
+    ],
+    "Vozovna Hrobonova": [
+      "Prokopa Velkeho",
+      "Subezna",
+      "Lovinskeho",
+      "Hrobonova",
+      "Horsky park"
+    ],
+    "Mliekarenska": [
+      "Drienova",
+      "Pristavny most",
+      "Bajkalska"
+    ],
+    "Podhaj": [
+      "Studenohorska",
+      "Bakosova"
+    ],
+    "Bzovicka": [
+      "Lubovnianska",
+      "Betliarska",
+      "Zehrianska"
+    ],
+    "Janotova": [
+      "Pri podchode",
+      "Molecova",
+      "Lanfranconi"
+    ],
+    "Vrancovicova": [
+      "Bakosova",
+      "Hodoninska",
+      "Pod nasypom",
+      "ZST Lamac",
+      "Lamac-Stare zahrady",
+      "Lediny",
+      "Lamac"
+    ],
+    "Kremnicka": [
+      "Einsteinova",
+      "Zaporozska"
+    ],
+    "Na pasekach": [
+      "Vychodne",
+      "Lokomotivne depo II"
+    ],
+    "Stolarska": [
+      "Pastierska",
+      "Cachticka"
+    ],
+    "Cremchova": [
+      "Jeseniova",
+      "Husova"
+    ],
+    "Na Grbe": [
+      "Ivana Bukovcana",
+      "Novoveska"
+    ],
+    "Sipova": [
+      "Majerska",
+      "Zeleznicna",
+      "Siravska"
+    ],
+    "Junova": [
+      "Na Revine",
+      "Visnova"
+    ],
+    "Udernicka-Kupalisko": [
+      "ZST Petrzalka",
+      "Dargovska"
+    ],
+    "Zoo": [
+      "Pri Habanskom mlyne",
+      "Lanfranconi",
+      "Televizia",
+      "Botanicka zahrada",
+      "Einsteinova"
+    ],
+    "Pridanky": [
+      "ZST Lamac",
+      "Mokrohajska"
+    ],
+    "Strbska": [
+      "Nam. sv. Cyrila a Metoda",
+      "Devin"
+    ],
+    "Na Revine": [
+      "Julova",
+      "Junova"
+    ],
+    "Eu. vzdel. akademia": [
+      "Stare ihrisko",
+      "Nobelova"
+    ],
+    "Puchovska": [
+      "Zahumenice-Drevona",
+      "Rybnicna",
+      "Travna-Drevona",
+      "Na pantoch",
+      "Komisarky"
+    ],
+    "Prokopa Velkeho": [
+      "Hrobonova",
+      "Vozovna Hrobonova"
+    ],
+    "Bradacova": [
+      "Technopol",
+      "Romanova"
+    ],
+    "Safranova": [
+      "Slov. nar. archiv",
+      "Prvosienkova"
+    ],
+    "Bakosova": [
+      "Podhaj",
+      "Vrancovicova",
+      "Lamac-Stare zahrady"
+    ],
+    "MiU Vajnory": [
+      "Uhliska",
+      "Hospodarska",
+      "Pracanska"
+    ],
+    "Vysehradska": [
+      "Luky V",
+      "Lubovnianska"
+    ],
+    "Petofiho": [
+      "ZST P. Biskupice",
+      "Ucitelska"
+    ],
+    "Horne Krcace": [
+      "Damborskeho",
+      "Dolne Krcace"
+    ],
+    "Hlavna stanica": [
+      "SAV"
+    ],
+    "Tulipanova": [
+      "Vendelinska",
+      "Zatevna"
+    ],
+    "Maly Drazdiak": [
+      "Technopol",
+      "Stary haj"
+    ],
+    "Zilinska": [
+      "STU",
+      "Blumental"
+    ],
+    "Strecnianska": [
+      "Sintavska",
+      "Lucanka"
+    ],
+    "Saleziani": [
+      "Trhovisko",
+      "Krizna",
+      "Trnavske myto",
+      "Slovanet",
+      "Zimny stadion",
+      "Kvacalova"
+    ],
+    "Na Sitine": [
+      "Vretenova",
+      "Nad vinicami"
+    ],
+    "Zamocka": [
+      "Hrad",
+      "Partizanska"
+    ],
+    "Pestovatelska": [
+      "Fatruny"
+    ],
+    "Prievozska": [
+      "BBC1 Plus-Mileticova",
+      "Pristavny most",
+      "Hranicna-OC Retro"
+    ],
+    "Pri Habanskom mlyne": [
+      "Patronka",
+      "Zoo",
+      "Pri Suchom mlyne"
+    ],
+    "Damborskeho": [
+      "Svantnerova",
+      "Lipskeho",
+      "Horne Krcace"
+    ],
+    "Hubeneho": [
+      "ZST Vinohrady"
+    ],
+    "Ketelec": [
+      "Lieskovec"
+    ],
+    "DK Ruzinov": [
+      "Maximiliana Hella",
+      "Nevadzova-OC Retro"
+    ],
+    "Kolma": [
+      "ZST Petrzalka",
+      "Nakupna zona Luky"
+    ],
+    "Podunajska": [
+      "Zeleznicna",
+      "Komarovska"
+    ],
+    "Pri nadjazde": [
+      "Jurajov dvor",
+      "Mokrad"
+    ],
+    "Pri Sajbach": [
+      "Sklabinska",
+      "Pastierska"
+    ],
+    "Sustekova": [
+      "Lachova",
+      "Bulikova",
+      "Bosakova"
+    ],
+    "Jana Jonasa-VW": [
+      "Jana Jonasa",
+      "Zamajerske"
+    ],
+    "Slovinska": [
+      "Trnavska",
+      "Radiova",
+      "Haburska",
+      "Hanacka"
+    ],
+    "Janske hony": [
+      "PD P. Biskupice",
+      "Plniaren plynu"
+    ],
+    "Ovsiste": [
+      "Betliarska"
+    ],
+    "Homolova": [
+      "Cabanova",
+      "Pri krizi",
+      "Stepna"
+    ],
+    "Micherov majer": [
+      "Vodostav"
+    ],
+    "Slnecnice": [
+      "Zehrianska",
+      "Jasovska"
+    ],
+    "Pastierska": [
+      "Pri Sajbach",
+      "Stolarska"
+    ],
+    "Dudvazska": [
+      "Hronska",
+      "Zitavska",
+      "ZST P. Biskupice"
+    ],
+    "ZST Lamac": [
+      "Hodoninska",
+      "Bilikova",
+      "Pridanky",
+      "Tesco Lamac",
+      "Vrancovicova",
+      "Mokrohajska"
+    ],
+    "Pieskovy hon": [
+      "Gastanova aleja"
+    ],
+    "Pionierska": [
+      "ZST Vinohrady",
+      "Racianske myto",
+      "Nova doba",
+      "Mlada garda",
+      "Tehelna",
+      "Sliacska",
+      "Riazanska",
+      "Ursinyho"
+    ],
+    "Mlynarovicova": [
+      "Bosakova",
+      "Farskeho"
+    ],
+    "Vojensky utvar": [
+      "Sprinclov majer",
+      "Koniarkova"
+    ],
+    "Sklabinska": [
+      "Lokomotivne depo I",
+      "Pri Sajbach"
+    ],
+    "Stepna": [
+      "Zatevna",
+      "Cabanova II",
+      "Homolova"
+    ],
+    "Jarovce": [
+      "Pila",
+      "Sady"
+    ],
+    "Hajovna": [
+      "Zlate schody",
+      "Pri zahradach"
+    ],
+    "Nad vinicami": [
+      "Na Sitine",
+      "Nad internatmi"
+    ],
+    "Svatoplukova": [
+      "Autobusova stanica",
+      "Cvernovka"
+    ],
+    "Jungmannova": [
+      "Nam. hraniciarov",
+      "Halova",
+      "Farskeho"
+    ],
+    "Stara vinarska": [
+      "Budkova",
+      "Slavin"
+    ],
+    "Betliarska": [
+      "Ovsiste",
+      "Bzovicka",
+      "Vozovna Petrzalka"
+    ],
+    "BBC1 Plus-Mileticova": [
+      "Novohradska",
+      "Prievozska",
+      "Trhovisko",
+      "Trencianska"
+    ],
+    "Velkolucky potok": [
+      "Bory-razcestie",
+      "COV Dev. Nova Ves",
+      "Bory Mall",
+      "Volkswagen"
+    ],
+    "Krizna": [
+      "Autobusova stanica",
+      "Racianske myto",
+      "Saleziani",
+      "Trnavske myto",
+      "Soltesovej"
+    ],
+    "Komarovska": [
+      "Hronska",
+      "Priekopnicka",
+      "Podunajska",
+      "Toryska"
+    ],
+    "Mickiewiczova": [
+      "Karadzicova"
+    ],
+    "Kuklovska": [
+      "ZS Majernikova",
+      "Kuklovska 60"
+    ],
+    "Bratislavska zupa": [
+      "Drienova",
+      "Solivarska",
+      "Bajkalska"
+    ],
+    "Vlcie hrdlo": [
+      "Cierny les",
+      "Refinery Gallery"
+    ],
+    "Rusovska cesta": [
+      "Dvory",
+      "ZST Petrzalka"
+    ],
+    "Donovalova": [
+      "Misikova",
+      "Sulekova"
+    ],
+    "Travna-Drevona": [
+      "Puchovska",
+      "Pekna cesta",
+      "Cachticka"
+    ],
+    "Plniaren plynu": [
+      "Janske hony",
+      "Lieskovec"
+    ],
+    "Na pantoch": [
+      "OU zeleznicne",
+      "Puchovska"
+    ],
+    "Plynarenska": [
+      "Pristav",
+      "Most Apollo"
+    ],
+    "Bocna": [
+      "Technicka",
+      "Radiova"
+    ],
+    "OU obchodne": [
+      "OU zeleznicne",
+      "Rybnicna"
+    ],
+    "Trnavske myto": [
+      "Racianske myto",
+      "Zimny stadion",
+      "Tehelna",
+      "Nova doba",
+      "Krizna",
+      "Legionarska",
+      "Odbojarov",
+      "Saleziani"
+    ],
+    "Cerveny kriz": [
+      "Budkova",
+      "Jancova"
+    ],
+    "Sokolska": [
+      "Bardosova",
+      "SAV",
+      "Hrobonova",
+      "Stromova"
+    ],
+    "Inovecka": [
+      "Radvanska",
+      "Hrad"
+    ],
+    "Gercenova": [
+      "Zaporozska",
+      "Halova"
+    ],
+    "Ucitelska": [
+      "Nakupna",
+      "MiU P. Biskupice",
+      "Petofiho"
+    ],
+    "Ul. 29. augusta": [
+      "Nemocnica sv. Michala",
+      "Autobusova stanica",
+      "Spitalska"
+    ],
+    "Slovanet": [
+      "Nemocnica Ruzinov",
+      "Trhovisko",
+      "Drienova",
+      "Saleziani"
+    ],
+    "Kastielska": [
+      "MiU Ruzinov"
+    ],
+    "Fatruny": [
+      "Pestovatelska",
+      "Cesta na letisko"
+    ],
+    "Vozovna Trnavka": [
+      "Radiova",
+      "Shopping Park Soravia",
+      "Stara Ivanska",
+      "Jurajov dvor"
+    ],
+    "Cierny les": [
+      "Terminal",
+      "Vlcie hrdlo"
+    ],
+    "Hanacka": [
+      "Spolocenska",
+      "Slovinska"
+    ],
+    "Dubova": [
+      "Hrobonova",
+      "Patronka"
+    ],
+    "Panorama": [
+      "Grunty"
+    ],
+    "Mlynske nivy": [
+      "Soltesovej",
+      "Twin City"
+    ],
+    "Polus City Center": [
+      "Halkova",
+      "ZST Nove Mesto",
+      "Odborarska",
+      "Nova doba",
+      "Polus City Center",
+      "Zatisie"
+    ],
+    "Kosicka": [
+      "Pristavna",
+      "Autobusova stanica",
+      "Novohradska",
+      "Cvernovka"
+    ],
+    "L. Derera": [
+      "Visnova",
+      "Guothova"
+    ],
+    "Cachticka": [
+      "Stolarska",
+      "Zavadska",
+      "MiU Raca",
+      "Travna-Drevona"
+    ],
+    "Zatevna": [
+      "Peknikova",
+      "Tulipanova",
+      "Stepna"
+    ],
+    "Misikova": [
+      "Havlickova",
+      "Donovalova"
+    ],
+    "Ondrejovova": [
+      "Cintorin Vrakuna",
+      "Brodna",
+      "Ribezlova"
+    ],
+    "Blumental": [
+      "Racianske myto",
+      "Zilinska",
+      "Legionarska",
+      "Americke nam.",
+      "Vysoka"
+    ],
+    "Terminal": [
+      "Palenisko",
+      "Cierny les"
+    ],
+    "Cintorin Slavicie udolie": [
+      "Televizia",
+      "Internaty B"
+    ],
+    "Technopol": [
+      "Bradacova",
+      "Topolcianska",
+      "Tupolevova",
+      "Maly Drazdiak"
+    ],
+    "Polianky": [
+      "Lipskeho"
+    ],
+    "Autobusova stanica": [
+      "Krizna",
+      "Svatoplukova",
+      "Twin City",
+      "Kosicka",
+      "Ul. 29. augusta",
+      "Cintorinska",
+      "Soltesovej"
+    ],
+    "Kamenace": [
+      "Krpas",
+      "Bory-razcestie"
+    ],
+    "Jiraskova": [
+      "ZST Petrzalka",
+      "Smolenicka",
+      "VS Manazmentu",
+      "Svabinskeho"
+    ],
+    "Zahorska": [
+      "Zahorska Bystrica",
+      "Krce"
+    ],
+    "Vychodne": [
+      "Na pasekach",
+      "Lokomotivne depo I"
+    ],
+    "Kozia": [
+      "Sulekova",
+      "Partizanska"
+    ],
+    "Lanovka": [
+      "Drienovske luky",
+      "Kamenolom"
+    ],
+    "Botanicka zahrada": [
+      "Lanfranconi",
+      "Vodarenske muzeum",
+      "Molecova",
+      "Zoo"
+    ],
+    "Konvalinkova": [
+      "Internaty B",
+      "Vretenova"
+    ],
+    "OD Saratov": [
+      "Pri krizi",
+      "Drobneho",
+      "Peknikova"
+    ],
+    "Lokomotivne depo I": [
+      "Vychodne",
+      "Sklabinska"
+    ],
+    "Trhovisko": [
+      "Slovanet",
+      "Saleziani",
+      "BBC1 Plus-Mileticova",
+      "Ruzova dolina"
+    ],
+    "Most Apollo": [
+      "Panorama City",
+      "Ekonomicka univerzita",
+      "Pristavna",
+      "Plynarenska"
+    ],
+    "Harmincova": [
+      "Borska",
+      "Lipskeho"
+    ],
+    "Racianske myto": [
+      "Krizna",
+      "SAV",
+      "Blumental",
+      "Trnavske myto",
+      "Pionierska",
+      "Dvory",
+      "Karpatska",
+      "Ursinyho"
+    ],
+    "Julova": [
+      "Koliba",
+      "Na Revine"
+    ],
+    "Nevadzova-OC Retro": [
+      "DK Ruzinov",
+      "Mierova",
+      "Brodna",
+      "Herlianska-OC Retro",
+      "Hranicna-OC Retro"
+    ],
+    "Mlynska": [
+      "Novoveska",
+      "Kremencova"
+    ],
+    "Lucanka": [
+      "Budatinska",
+      "Lubovnianska",
+      "Strecnianska",
+      "Znievska"
+    ],
+    "Sumracna": [
+      "Astronomicka",
+      "Maximiliana Hella",
+      "Tomasikova",
+      "Chlumeckeho"
+    ],
+    "Pri krematoriu": [
+      "Lamac-Stare zahrady",
+      "Podkerepusky"
+    ],
+    "Sad Janka Krala": [
+      "Safarikovo nam.",
+      "Farskeho"
+    ],
+    "Stary haj": [
+      "Maly Drazdiak"
+    ],
+    "Bulikova": [
+      "Sustekova",
+      "Ekonomicka univerzita"
+    ],
+    "Drienova": [
+      "Slovanet",
+      "Bratislavska zupa",
+      "Bajkalska",
+      "Mliekarenska"
+    ],
+    "Krce": [
+      "TV Markiza",
+      "Zahorska",
+      "Pri Vapenickom potoku"
+    ],
+    "Astronomicka": [
+      "Astronomicka",
+      "Suhvezdna",
+      "Sumracna"
+    ],
+    "PPA Controll": [
+      "Jurajov dvor",
+      "Shopping Palace"
+    ],
+    "Nam. L. Stura": [
+      "Mala scena",
+      "Most SNP"
+    ],
+    "Osloboditelska": [
+      "Koniarkova",
+      "Uhliska"
+    ],
+    "Starohajska": [
+      "Hrobakova",
+      "Lachova"
+    ],
+    "Nemocnica sv. Michala": [
+      "Ul. 29. augusta"
+    ],
+    "Kovacsova": [
+      "Sady",
+      "Vyvojova"
+    ],
+    "ZST Vinohrady": [
+      "Pekna cesta",
+      "Pionierska",
+      "Mlada garda",
+      "Hubeneho",
+      "Vozovna Krasnany",
+      "Nam. Biely kriz"
+    ],
+    "Huscavova": [
+      "Lipskeho",
+      "Tesco Lamac",
+      "Mokrohajska"
+    ],
+    "Toryska": [
+      "Hronska",
+      "Stavbarska",
+      "Komarovska",
+      "Podzahradna"
+    ],
+    "Subezna": [
+      "Vozovna Hrobonova",
+      "Hauerland"
+    ],
+    "Spitalska": [
+      "Ul. 29. augusta"
+    ],
+    "Hybesova": [
+      "Detvianska",
+      "Heckova"
+    ],
+    "Stavitelska": [
+      "Pribylinska"
+    ],
+    "Bardosova": [
+      "Magurska",
+      "Sokolska",
+      "Guothova",
+      "Stromova"
+    ],
+    "OU zeleznicne": [
+      "Na pantoch",
+      "OU obchodne"
+    ],
+    "Povodie Dunaja": [
+      "Lodenica"
+    ],
+    "Tehelna": [
+      "Trnavske myto",
+      "OD Slimak",
+      "Pionierska"
+    ],
+    "Ribezlova": [
+      "Avion Shopping Park",
+      "Cintorin Vrakuna",
+      "Ondrejovova"
+    ],
+    "Ul. 8. maja": [
+      "MiU P. Biskupice"
+    ],
+    "Nam. sv. Cyrila a Metoda": [
+      "Slovanske nabrezie",
+      "Strbska"
+    ],
+    "Clementisova": [
+      "Martinsky cintorin",
+      "Ivanska cesta",
+      "Big Media-Slowackeho"
+    ],
+    "Pila": [
+      "Strelnica",
+      "Jarovce"
+    ],
+    "ZST Nove Mesto": [
+      "Polus City Center",
+      "Trnavska",
+      "Odborarska"
+    ],
+    "Ruzova dolina": [
+      "Trencianska",
+      "Trhovisko"
+    ],
+    "Sancova": [
+      "Stefanovicova",
+      "Tupeho"
+    ],
+    "Studenohorska": [
+      "Klanec",
+      "Podhaj"
+    ],
+    "Magurska": [
+      "Nemocnica Kramare",
+      "Bardosova",
+      "Vlarska"
+    ],
+    "Pri zahradach": [
+      "Hajovna",
+      "Novy kamenolom"
+    ],
+    "Halkova": [
+      "Kukucinova",
+      "Polus City Center"
+    ],
+    "Romanova": [
+      "Markova",
+      "Hrobakova",
+      "Bradacova"
+    ],
+    "ZST Petrzalka": [
+      "Dvory",
+      "Jiraskova",
+      "Zaporozska",
+      "Udernicka-Kupalisko",
+      "Kolma",
+      "Rusovska cesta",
+      "VS Manazmentu",
+      "Halova",
+      "Kopcianska-stred"
+    ],
+    "Martinsky cintorin": [
+      "Clementisova"
+    ],
+    "Jurigrad": [
+      "Vodarenske muzeum"
+    ],
+    "Mala scena": [
+      "Nove SND",
+      "Nam. L. Stura",
+      "Twin City",
+      "Most SNP"
+    ],
+    "Prokofievova": [
+      "Markova"
+    ],
+    "Ivana Bukovcana": [
+      "Uhrovecka",
+      "Na Grbe"
+    ],
+    "Vahostav": [
+      "Suhvezdna"
+    ],
+    "ZST UNS": [
+      "Syslia"
+    ],
+    "Molecova": [
+      "Janotova",
+      "Botanicka zahrada"
+    ],
+    "Ivanska cesta": [
+      "Clementisova"
+    ],
+    "Alexyho": [
+      "Drobneho",
+      "Svantnerova",
+      "Bilikova",
+      "Vendelinska"
+    ],
+    "Cernockeho": [
+      "Heckova",
+      "Pekna cesta"
+    ],
+    "Heckova": [
+      "Hybesova",
+      "Cernockeho"
+    ],
+    "Sportove letisko": [
+      "Lokomotivne depo II",
+      "Pri starom letisku"
+    ],
+    "Sastinska": [
+      "Solosnicka",
+      "Borska"
+    ],
+    "Kalvaria": [
+      "Slavin",
+      "Kalvaria",
+      "Havlickova"
+    ],
+    "Briezky": [
+      "Sliacska",
+      "Krahulcia"
+    ],
+    "Farskeho": [
+      "Mlynarovicova",
+      "Jungmannova",
+      "Muchovo nam.",
+      "Nam. hraniciarov",
+      "Sad Janka Krala"
+    ],
+    "Zimny stadion": [
+      "Trnavske myto",
+      "Bajkalska",
+      "Saleziani"
+    ],
+    "Paulinske": [
+      "Opletalova",
+      "Panske"
+    ],
+    "COV Dev. Nova Ves": [
+      "Velkolucky potok",
+      "Jana Jonasa"
+    ],
+    "Prievoz-most": [
+      "Strojnicka"
+    ],
+    "Mierova kolonia": [
+      "Vihorlatska",
+      "Magnetova"
+    ],
+    "ZS Majernikova": [
+      "Kuklovska",
+      "Matejkova"
+    ],
+    "Smolenicka": [
+      "Jiraskova",
+      "Luky II",
+      "Holicska",
+      "Svabinskeho",
+      "Tupolevova"
+    ],
+    "Kuklovska 44": [
+      "Kuklovska 60",
+      "Solosnicka"
+    ],
+    "Nam. hraniciarov": [
+      "Hrobakova",
+      "Jungmannova",
+      "Lachova",
+      "Farskeho"
+    ],
+    "Nova doba": [
+      "Trnavske myto",
+      "Bajkalska",
+      "Pionierska",
+      "Polus City Center",
+      "Odbojarov"
+    ],
+    "Cvernovka": [
+      "Kuliskova",
+      "Svatoplukova",
+      "Kosicka"
+    ],
+    "OD Slimak": [
+      "Kukucinova",
+      "Tehelna"
+    ],
+    "Waitov lom": [
+      "Morava",
+      "Sandberg"
+    ],
+    "Halova": [
+      "Jungmannova",
+      "Dvory",
+      "Gercenova",
+      "ZST Petrzalka"
+    ],
+    "Americke nam.": [
+      "Blumental",
+      "Marianska"
+    ],
+    "Lubovnianska": [
+      "Lucanka",
+      "Nemocnica Antolska",
+      "Bzovicka",
+      "Vysehradska"
+    ],
+    "Riazanska": [
+      "Mlada garda",
+      "Pionierska"
+    ],
+    "Na hrebienku": [
+      "Prvosienkova"
+    ],
+    "Novohradska": [
+      "Kosicka",
+      "BBC1 Plus-Mileticova"
+    ],
+    "Male Krasnany": [
+      "Pekna cesta",
+      "Vozovna Krasnany"
+    ],
+    "Zlate schody": [
+      "Kadlecik",
+      "Hajovna"
+    ],
+    "Rybnicna": [
+      "OU obchodne",
+      "Puchovska",
+      "Sprinclov majer"
+    ],
+    "Big Media-Slowackeho": [
+      "Galvaniho",
+      "Clementisova"
+    ],
+    "Vendelinska": [
+      "Alexyho",
+      "Tulipanova"
+    ],
+    "Galvaniho": [
+      "Avion Shopping Park",
+      "Big Media-Slowackeho",
+      "Stara Ivanska"
+    ],
+    "Brodna": [
+      "Ondrejovova",
+      "Nevadzova-OC Retro"
+    ],
+    "Kuklovska 60": [
+      "Kuklovska",
+      "Kuklovska 44"
+    ],
+    "Solivarska": [
+      "Bratislavska zupa",
+      "Maximiliana Hella"
+    ],
+    "Stavbarska": [
+      "Toryska",
+      "Estonska"
+    ],
+    "Korytnicka": [
+      "Bodrocka",
+      "Nakupna"
+    ],
+    "Agatova": [
+      "Technicke sklo",
+      "Pri krizi",
+      "Bory-razcestie",
+      "Bory Mall"
+    ],
+    "Visnova": [
+      "Junova",
+      "L. Derera"
+    ],
+    "MiU Raca": [
+      "Cachticka",
+      "Nemecky kulturny dom"
+    ],
+    "Stefanovicova": [
+      "Sancova"
+    ],
+    "Pekna cesta": [
+      "Travna-Drevona",
+      "ZST Vinohrady",
+      "Cernockeho",
+      "Male Krasnany"
+    ],
+    "Lovinskeho": [
+      "Vozovna Hrobonova",
+      "Valasska"
+    ],
+    "Tesco Lamac": [
+      "Huscavova",
+      "Peknikova",
+      "Patronka",
+      "ZST Lamac",
+      "Mokrohajska",
+      "Pod Zecakom"
+    ],
+    "Sandberg": [
+      "Waitov lom",
+      "Na hriadkach"
+    ],
+    "Slovanske nabrezie": [
+      "Kremelska",
+      "Nam. sv. Cyrila a Metoda"
+    ],
+    "Horsky park": [
+      "Vozovna Hrobonova",
+      "Budkova"
+    ],
+    "Twin City": [
+      "Autobusova stanica",
+      "Panorama City",
+      "Mala scena",
+      "Mlynske nivy"
+    ],
+    "Trencianska": [
+      "BBC1 Plus-Mileticova",
+      "Ruzova dolina"
+    ],
+    "Pribylinska": [
+      "Stavitelska"
+    ],
+    "Strelnica": [
+      "Pila"
+    ],
+    "Chlumeckeho": [
+      "Sumracna"
+    ]
+  },
+  "bus_stops": {
+    "Ursinyho": [
+      17.1238219,
+      48.1619737
+    ],
+    "Klepac": [
+      17.074174,
+      48.1820617
+    ],
+    "Gagarinova": [
+      17.1678175,
+      48.1502618
+    ],
+    "Mlada garda": [
+      17.1280017,
+      48.1773678
+    ],
+    "Vretenova": [
+      17.062484,
+      48.1624696
+    ],
+    "Pri zvonici": [
+      17.1709946,
+      48.1731434
+    ],
+    "Komisarky": [
+      17.1662226,
+      48.216186
+    ],
+    "Hany Melickovej": [
+      17.0542588,
+      48.1495957
+    ],
+    "Bratislava-Zelezna studienka": [
+      17.0727785,
+      48.1746117
+    ],
+    "Zlate piesky": [
+      17.1832841,
+      48.1894747
+    ],
+    "Budatinska": [
+      17.1016211,
+      48.0997471
+    ],
+    "Nobelova": [
+      17.1373438,
+      48.1858656
+    ],
+    "Topolove": [
+      17.200794,
+      48.0834239
+    ],
+    "Televizia": [
+      17.072482,
+      48.155703
+    ],
+    "TV Markiza": [
+      17.0314906,
+      48.2341092
+    ],
+    "Chatam Sofer": [
+      17.0906616,
+      48.1418523
+    ],
+    "Drienovske luky": [
+      17.0914711,
+      48.1940888
+    ],
+    "Letisko (Airport)": [
+      17.2003197,
+      48.1708891
+    ],
+    "Zochova": [
+      17.1038905,
+      48.1455326
+    ],
+    "Tomasikova": [
+      17.1605688,
+      48.1574431
+    ],
+    "Pri podchode": [
+      17.0562764,
+      48.1497103
+    ],
+    "Nad internatmi": [
+      17.0630161,
+      48.1587833
+    ],
+    "Pri Vapenickom potoku": [
+      17.0370376,
+      48.2349075
+    ],
+    "Na vratkach": [
+      17.0468398,
+      48.1849453
+    ],
+    "Cunovske Jazera": [
+      17.1655594,
+      48.0329177
+    ],
+    "Kolma": [
+      17.0962219,
+      48.1137233
+    ],
+    "Holicska": [
+      17.1031198,
+      48.1072049
+    ],
+    "Vihorlatska": [
+      17.1605668,
+      48.174832
+    ],
+    "Zilinska": [
+      17.1103665,
+      48.1545357
+    ],
+    "Kacinska dolina": [
+      17.0657796,
+      48.2113251
+    ],
+    "Bratislava-Vinohrady": [
+      17.1327151,
+      48.186528
+    ],
+    "Hodoninska": [
+      17.0467747,
+      48.1883286
+    ],
+    "Spalovna": [
+      17.1672971,
+      48.1075494
+    ],
+    "Vodarenske muzeum": [
+      17.0633163,
+      48.148094
+    ],
+    "Avion Shopping Park": [
+      17.1788806,
+      48.1663646
+    ],
+    "Krahulcia": [
+      17.1167695,
+      48.174846
+    ],
+    "Pri kaplnke": [
+      17.0425932,
+      48.2306626
+    ],
+    "Pristavna": [
+      17.1310272,
+      48.1421666
+    ],
+    "Kamenne nam.": [
+      17.113559,
+      48.1455395
+    ],
+    "Lesopark": [
+      17.0983665,
+      48.2017074
+    ],
+    "Krpas": [
+      17.0077889,
+      48.2052158
+    ],
+    "Hospodarska": [
+      17.2119399,
+      48.2070076
+    ],
+    "Lieskovec": [
+      17.198193,
+      48.1017162
+    ],
+    "NUSCH": [
+      17.0874935,
+      48.1701169
+    ],
+    "Kamenolom": [
+      17.100075,
+      48.196658
+    ],
+    "Valasska": [
+      17.0795601,
+      48.1652967
+    ],
+    "Ribezlova": [
+      17.1858019,
+      48.1462865
+    ],
+    "COV Vlcie hrdlo": [
+      17.1658336,
+      48.1128451
+    ],
+    "Drobneho": [
+      17.036662,
+      48.1878915
+    ],
+    "Bratislava-Lamac": [
+      17.0505324,
+      48.1849603
+    ],
+    "Vajnory-nadjazd": [
+      17.1989207,
+      48.1946473
+    ],
+    "ZST Rusovce": [
+      17.1522457,
+      48.0467655
+    ],
+    "MiU Ruzinov": [
+      17.1633273,
+      48.1491993
+    ],
+    "Stare ihrisko": [
+      17.1385974,
+      48.1794291
+    ],
+    "Cesta na Kamzik": [
+      17.1028866,
+      48.161624
+    ],
+    "Ul. 8. maja": [
+      17.2170303,
+      48.1283028
+    ],
+    "Cabanova": [
+      17.0265881,
+      48.1937884
+    ],
+    "Bratislava,,Bajkalska": [
+      17.1395178,
+      48.1629021
+    ],
+    "Ihriskova": [
+      17.1591197,
+      48.2078993
+    ],
+    "Sliacska": [
+      17.126042,
+      48.1725936
+    ],
+    "Lokomotivne depo II": [
+      17.1788757,
+      48.1962526
+    ],
+    "Topolcianska": [
+      17.1081466,
+      48.1095121
+    ],
+    "Zitavska": [
+      17.2144562,
+      48.1417965
+    ],
+    "Slavin": [
+      17.1001276,
+      48.1521747
+    ],
+    "Klanec": [
+      17.0585531,
+      48.1927155
+    ],
+    "Plniaren plynu": [
+      17.2022986,
+      48.1119767
+    ],
+    "Micherov majer": [
+      17.1630731,
+      48.1165811
+    ],
+    "Jelacicova": [
+      17.1300601,
+      48.1563942
+    ],
+    "Nam. Biely kriz": [
+      17.1297673,
+      48.1821751
+    ],
+    "Gerulata": [
+      17.1472596,
+      48.0539312
+    ],
+    "Bratislava-Petrzalka": [
+      17.0987019,
+      48.1212332
+    ],
+    "Kastiel Rusovce": [
+      17.150457,
+      48.050866
+    ],
+    "Karpatska": [
+      17.1125056,
+      48.1564317
+    ],
+    "PD P. Biskupice": [
+      17.2049322,
+      48.1185834
+    ],
+    "Hronska": [
+      17.2095171,
+      48.1358745
+    ],
+    "Nemocnica Podunajske Biskupice": [
+      17.2073339,
+      48.1244158
+    ],
+    "Cesta na letisko": [
+      17.197138,
+      48.1707682
+    ],
+    "Pazitkova": [
+      17.1531692,
+      48.149423
+    ],
+    "Magnetova": [
+      17.1544115,
+      48.1798468
+    ],
+    "Kopcany": [
+      17.087957,
+      48.1133034
+    ],
+    "Klenova": [
+      17.0932056,
+      48.1708868
+    ],
+    "Lachova": [
+      17.1211105,
+      48.1251507
+    ],
+    "Haburska": [
+      17.1557153,
+      48.1630875
+    ],
+    "Aupark": [
+      17.1048581,
+      48.1333887
+    ],
+    "Panorama": [
+      17.0663218,
+      48.150895
+    ],
+    "Dubravska cesta": [
+      17.0667827,
+      48.1732045
+    ],
+    "Cilizska": [
+      17.2128045,
+      48.1439366
+    ],
+    "Sikma": [
+      17.203095,
+      48.1273205
+    ],
+    "Cabanova II": [
+      17.0262686,
+      48.1920396
+    ],
+    "Bratislava - Nove Mesto": [
+      17.1465312,
+      48.1717443
+    ],
+    "Trnavske myto": [
+      17.1269446,
+      48.1575829
+    ],
+    "Zabi majer": [
+      17.165876,
+      48.1952612
+    ],
+    "Strojnicka": [
+      17.1771631,
+      48.1486269
+    ],
+    "Rakyta": [
+      16.98316,
+      48.215449
+    ],
+    "Technicke sklo": [
+      17.01482,
+      48.2013433
+    ],
+    "Pristavny most": [
+      17.1513129,
+      48.1445533
+    ],
+    "Zelezna studnicka": [
+      17.0824872,
+      48.1903085
+    ],
+    "Ekonomicka univerzita": [
+      17.131027,
+      48.1257543
+    ],
+    "Armenska": [
+      17.2046866,
+      48.1461072
+    ],
+    "Legionarska": [
+      17.1236619,
+      48.1547027
+    ],
+    "Zeleznicna": [
+      17.2093229,
+      48.1475742
+    ],
+    "Segnerova": [
+      17.0578354,
+      48.153643
+    ],
+    "Bukva": [
+      17.0870884,
+      48.1925356
+    ],
+    "Udernicka-Kupalisko": [
+      17.0928437,
+      48.1228706
+    ],
+    "Nove SND": [
+      17.1228793,
+      48.1421573
+    ],
+    "Nakupna": [
+      17.2086441,
+      48.1286052
+    ],
+    "Znievska": [
+      17.1060256,
+      48.1006469
+    ],
+    "Most SNP": [
+      17.1056034,
+      48.1397004
+    ],
+    "Spadovisko II": [
+      17.1844568,
+      48.1912266
+    ],
+    "Zahumenice-Drevona": [
+      17.1628612,
+      48.2124224
+    ],
+    "Segnare": [
+      17.05328,
+      48.1859784
+    ],
+    "Internaty B": [
+      17.0696099,
+      48.1597916
+    ],
+    "Radvanska": [
+      17.0920957,
+      48.1459076
+    ],
+    "Tbiliska": [
+      17.1588915,
+      48.2153586
+    ],
+    "Deviaty mlyn": [
+      17.077567,
+      48.1857683
+    ],
+    "Kopcianska-stred": [
+      17.0956456,
+      48.1182886
+    ],
+    "Pri Suchom mlyne": [
+      17.0806333,
+      48.1675903
+    ],
+    "Bilikova": [
+      17.0424297,
+      48.1861518
+    ],
+    "Podzahradna": [
+      17.203829,
+      48.1335663
+    ],
+    "Cerveny most P+R": [
+      17.0738204,
+      48.1746464
+    ],
+    "Stefana Kralika": [
+      16.9828386,
+      48.2059242
+    ],
+    "Kopcianska": [
+      17.0908317,
+      48.1125137
+    ],
+    "Bajkalska": [
+      17.1416819,
+      48.161635
+    ],
+    "Kuliskova": [
+      17.1294161,
+      48.1518583
+    ],
+    "Lanfranconi": [
+      17.0777149,
+      48.1454884
+    ],
+    "Kukucinova": [
+      17.1294341,
+      48.1730759
+    ],
+    "Kremencova": [
+      16.9787878,
+      48.2195745
+    ],
+    "Priekopnicka": [
+      17.1970174,
+      48.1369404
+    ],
+    "Mokrohajska": [
+      17.068492,
+      48.1731588
+    ],
+    "Jancova": [
+      17.0891755,
+      48.1478768
+    ],
+    "Devin": [
+      16.979877,
+      48.1801457
+    ],
+    "Shopping Park Soravia": [
+      17.171396,
+      48.1824738
+    ],
+    "Hrobonova": [
+      17.0919455,
+      48.1630924
+    ],
+    "Novoveska": [
+      16.9732922,
+      48.2116947
+    ],
+    "Spolocenska": [
+      17.1657654,
+      48.1703901
+    ],
+    "ZST P. Biskupice": [
+      17.2207995,
+      48.130358
+    ],
+    "Solosnicka": [
+      17.0438791,
+      48.1630071
+    ],
+    "Dargovska": [
+      17.0901447,
+      48.1201709
+    ],
+    "STU": [
+      17.1157568,
+      48.1523201
+    ],
+    "Refinery Gallery": [
+      17.17911,
+      48.1293648
+    ],
+    "Radnicne namestie": [
+      17.1725809,
+      48.1498337
+    ],
+    "Hajnicka": [
+      17.0646028,
+      48.1504616
+    ],
+    "Odborarske nam.": [
+      17.1201636,
+      48.1520063
+    ],
+    "Lamac": [
+      17.0532655,
+      48.1922568
+    ],
+    "Borska": [
+      17.0485308,
+      48.1624618
+    ],
+    "ZST Devinska Nova Ves": [
+      16.9778566,
+      48.2199674
+    ],
+    "Svantnerova": [
+      17.0405061,
+      48.1817385
+    ],
+    "Sulekova": [
+      17.0983231,
+      48.148956
+    ],
+    "Hradistna": [
+      16.9747727,
+      48.2067517
+    ],
+    "Namestie Franza Liszta": [
+      17.1087542,
+      48.1556416
+    ],
+    "ZST Petrzalka": [
+      17.0999912,
+      48.1205001
+    ],
+    "Martinsky cintorin": [
+      17.1606886,
+      48.1649815
+    ],
+    "Zatisie": [
+      17.1413853,
+      48.1719608
+    ],
+    "Luky II": [
+      17.0983203,
+      48.1070707
+    ],
+    "Zamajerske": [
+      16.9850008,
+      48.2227005
+    ],
+    "Nemecky kulturny dom": [
+      17.150092,
+      48.2086701
+    ],
+    "Miestny urad Zahorska Bystrica": [
+      17.0377162,
+      48.2388297
+    ],
+    "Bodrocka": [
+      17.2090708,
+      48.13244
+    ],
+    "Maximiliana Hella": [
+      17.1619218,
+      48.1601812
+    ],
+    "Vajnory": [
+      17.2165192,
+      48.2086506
+    ],
+    "Dievci hradok": [
+      17.0325806,
+      48.2289972
+    ],
+    "Nemocnica Kramare": [
+      17.0893173,
+      48.1676771
+    ],
+    "Cintorin Petrzalka": [
+      17.0867981,
+      48.1187192
+    ],
+    "Stary kamenolom": [
+      17.0002589,
+      48.1629457
+    ],
+    "Zahorska Bystrica": [
+      17.0438284,
+      48.2399167
+    ],
+    "Vlarska": [
+      17.0904818,
+      48.1693975
+    ],
+    "Hrad Devin": [
+      16.9799493,
+      48.1761599
+    ],
+    "Ulica svornosti": [
+      17.1922047,
+      48.1306716
+    ],
+    "Palenisko": [
+      17.1581493,
+      48.1359334
+    ],
+    "Mlaka": [
+      16.9919902,
+      48.2178346
+    ],
+    "Kapucinska": [
+      17.1049719,
+      48.1449449
+    ],
+    "Nemocnica Antolska": [
+      17.1153744,
+      48.1013036
+    ],
+    "Ivana Bukovcana": [
+      16.9765592,
+      48.2087278
+    ],
+    "Stromova": [
+      17.0993287,
+      48.1627252
+    ],
+    "Sady": [
+      17.1174512,
+      48.0640013
+    ],
+    "SAV": [
+      17.1065363,
+      48.1553401
+    ],
+    "Jurajov dvor": [
+      17.1637702,
+      48.1830088
+    ],
+    "Syslia": [
+      17.168836,
+      48.1428578
+    ],
+    "Novy kamenolom": [
+      17.008082,
+      48.1582693
+    ],
+    "Luky V": [
+      17.1034738,
+      48.0962637
+    ],
+    "MiU Karlova Ves": [
+      17.0516787,
+      48.1584283
+    ],
+    "ZS Budatinska": [
+      17.0995141,
+      48.1029128
+    ],
+    "Pod nasypom": [
+      17.0480407,
+      48.1888069
+    ],
+    "Sabinovska": [
+      17.1450709,
+      48.1632103
+    ],
+    "Vodostav": [
+      17.1480335,
+      48.1055971
+    ],
+    "Vyvojova": [
+      17.1442043,
+      48.0561285
+    ],
+    "Tupeho": [
+      17.1147434,
+      48.1608904
+    ],
+    "Jiraskova": [
+      17.0986694,
+      48.1123282
+    ],
+    "Konvalinkova": [
+      17.0647094,
+      48.1622515
+    ],
+    "Park kultury": [
+      17.0844781,
+      48.1430593
+    ],
+    "Koliba": [
+      17.102096,
+      48.1712902
+    ],
+    "Smolenicka": [
+      17.1009254,
+      48.1093522
+    ],
+    "Pracanska": [
+      17.20831,
+      48.2013047
+    ],
+    "Nemocnica Ruzinov": [
+      17.1519342,
+      48.1566144
+    ],
+    "Shopping Palace": [
+      17.1764267,
+      48.1871947
+    ],
+    "Pod Zecakom": [
+      17.059712,
+      48.1825976
+    ],
+    "Dvory": [
+      17.1049055,
+      48.1283057
+    ],
+    "Herlianska-OC Retro": [
+      17.1563639,
+      48.1570213
+    ],
+    "Hrobakova": [
+      17.1144392,
+      48.1187519
+    ],
+    "Obchod Vajnory": [
+      17.1963422,
+      48.2001827
+    ],
+    "Kopcany - sidlisko": [
+      17.0928065,
+      48.1148575
+    ],
+    "Panske": [
+      16.9791162,
+      48.2258931
+    ],
+    "Hranicna-OC Retro": [
+      17.158252,
+      48.1490259
+    ],
+    "Guothova": [
+      17.0988789,
+      48.1654344
+    ],
+    "VS Manazmentu": [
+      17.0982484,
+      48.1185309
+    ],
+    "Tupolevova": [
+      17.1045254,
+      48.1108238
+    ],
+    "Lodenica": [
+      17.1588496,
+      48.1284954
+    ],
+    "Havlickova": [
+      17.1004276,
+      48.1540212
+    ],
+    "Hyrosova": [
+      17.0782525,
+      48.1658948
+    ],
+    "Cintorin Vrakuna": [
+      17.1906451,
+      48.1437491
+    ],
+    "Zaporozska": [
+      17.0959148,
+      48.1262972
+    ],
+    "Vozovna Jurajov dvor": [
+      17.1594805,
+      48.181499
+    ],
+    "Rozvodna": [
+      17.0933455,
+      48.1683223
+    ],
+    "Patronka": [
+      17.0767512,
+      48.1685106
+    ],
+    "Kon-Rad": [
+      17.1960958,
+      48.1888591
+    ],
+    "Nad luckami": [
+      17.0535376,
+      48.1560222
+    ],
+    "Lopenicka": [
+      17.1168128,
+      48.1757229
+    ],
+    "Budkova": [
+      17.0916724,
+      48.1529824
+    ],
+    "ZST Zelezna studienka": [
+      17.0740655,
+      48.1725191
+    ],
+    "Koniarkova": [
+      17.2023366,
+      48.2063006
+    ],
+    "Cunovo - zahrady": [
+      17.1978846,
+      48.0216491
+    ],
+    "Cintorinska": [
+      17.1206096,
+      48.1476517
+    ],
+    "MiU P. Biskupice": [
+      17.2111073,
+      48.1249539
+    ],
+    "Sprinclov majer": [
+      17.1900569,
+      48.2145625
+    ],
+    "Cunovo - priehrada": [
+      17.2064243,
+      48.027227
+    ],
+    "Vrakuna - zahrady": [
+      17.194363,
+      48.1547538
+    ],
+    "Kremelska": [
+      16.9891417,
+      48.1704698
+    ],
+    "Zehrianska": [
+      17.1197943,
+      48.0958013
+    ],
+    "Morava": [
+      16.9775601,
+      48.1880722
+    ],
+    "Kvacalova": [
+      17.1293734,
+      48.1542126
+    ],
+    "Bory-razcestie": [
+      17.0172523,
+      48.2062215
+    ],
+    "Lucna": [
+      17.1525435,
+      48.1395583
+    ],
+    "Markova": [
+      17.1051012,
+      48.1173715
+    ],
+    "Ovsistske namestie": [
+      17.1306338,
+      48.120322
+    ],
+    "Kollarovo namestie": [
+      17.1126975,
+      48.1493106
+    ],
+    "Lamac-Stare zahrady": [
+      17.0447246,
+      48.1992373
+    ],
+    "Sintavska": [
+      17.1079439,
+      48.1067317
+    ],
+    "Hanacka": [
+      17.1616455,
+      48.1686753
+    ],
+    "Cierny chodnik": [
+      17.203807,
+      48.202283
+    ],
+    "Partizanska": [
+      17.099274,
+      48.1461283
+    ],
+    "Podkerepusky": [
+      17.0346536,
+      48.2203682
+    ],
+    "Lediny": [
+      17.0473637,
+      48.1898425
+    ],
+    "Jeseniova": [
+      17.1136459,
+      48.165693
+    ],
+    "Pri krizi": [
+      17.03261,
+      48.1950708
+    ],
+    "Nam. A. Hlinku": [
+      17.1523923,
+      48.2130903
+    ],
+    "Bratislava, Racianske myto": [
+      17.1225797,
+      48.1565537
+    ],
+    "Pristav": [
+      17.1455218,
+      48.1407852
+    ],
+    "Slovnaftska": [
+      17.1958175,
+      48.1309165
+    ],
+    "Bratislava hl.st.": [
+      17.1065857,
+      48.1591519
+    ],
+    "Volkswagen": [
+      16.9911299,
+      48.2372279
+    ],
+    "Segnare - nadchod": [
+      17.0518299,
+      48.1838872
+    ],
+    "Kuklovska 44": [
+      17.045563,
+      48.1611601
+    ],
+    "Prvosienkova": [
+      17.0848238,
+      48.1549669
+    ],
+    "Siravska": [
+      17.2055463,
+      48.1459759
+    ],
+    "Grunty": [
+      17.0654019,
+      48.1536739
+    ],
+    "Bosakova": [
+      17.1234628,
+      48.1276996
+    ],
+    "Namestie SNP": [
+      17.1116367,
+      48.1451993
+    ],
+    "Panorama City": [
+      17.1236955,
+      48.1426677
+    ],
+    "Mokrad": [
+      17.157261,
+      48.1937745
+    ],
+    "Cunovo": [
+      17.1958392,
+      48.0338861
+    ],
+    "Vysehradska": [
+      17.1073062,
+      48.0948964
+    ],
+    "Bulharska": [
+      17.1681572,
+      48.1716452
+    ],
+    "Suhvezdna": [
+      17.1768921,
+      48.1612762
+    ],
+    "Krematorium": [
+      17.042861,
+      48.2092933
+    ],
+    "Majerska": [
+      17.2014241,
+      48.1512551
+    ],
+    "Trnavska": [
+      17.1501011,
+      48.166349
+    ],
+    "Estonska": [
+      17.2041474,
+      48.1440311
+    ],
+    "Patronka, Kaufland": [
+      17.0760533,
+      48.1664279
+    ],
+    "Jarovce - zahrady": [
+      17.1258495,
+      48.0777539
+    ],
+    "Schengenska": [
+      17.1930228,
+      48.0227692
+    ],
+    "Bratislava,Pod.Biskupice,Trafostanica": [
+      17.2221596,
+      48.1107943
+    ],
+    "Muchovo nam.": [
+      17.1140335,
+      48.1291971
+    ],
+    "Vozovna Krasnany": [
+      17.1356805,
+      48.188118
+    ],
+    "Devatinova": [
+      17.2168975,
+      48.1217865
+    ],
+    "Karadzicova": [
+      17.1241991,
+      48.1533072
+    ],
+    "Safarikovo nam.": [
+      17.1157112,
+      48.1417026
+    ],
+    "Stara Vajnorska": [
+      17.1653994,
+      48.1862156
+    ],
+    "Krasna": [
+      17.1686009,
+      48.1455996
+    ],
+    "Zavadska": [
+      17.1567554,
+      48.2134985
+    ],
+    "Karlova Ves": [
+      17.0468962,
+      48.1644645
+    ],
+    "Dolne koruny": [
+      16.9967745,
+      48.1657216
+    ],
+    "Svabinskeho": [
+      17.1018139,
+      48.1146234
+    ],
+    "Uhrovecka": [
+      16.9727255,
+      48.2089309
+    ],
+    "Odbojarov": [
+      17.1318194,
+      48.1620361
+    ],
+    "Namestie slobody": [
+      17.1106673,
+      48.1510793
+    ],
+    "Baronka": [
+      17.1468888,
+      48.2112578
+    ],
+    "Opletalova": [
+      16.9822332,
+      48.2324214
+    ],
+    "Pri mlyne": [
+      17.2110909,
+      48.1981834
+    ],
+    "Technicka": [
+      17.1753017,
+      48.1753818
+    ],
+    "Husova": [
+      17.1078904,
+      48.169724
+    ],
+    "Jana Jonasa": [
+      16.9974726,
+      48.2271568
+    ],
+    "Dulovo namestie": [
+      17.1345194,
+      48.1495042
+    ],
+    "Bory Mall": [
+      17.032156,
+      48.2036149
+    ],
+    "Postova-Martinus": [
+      17.1087702,
+      48.1467137
+    ],
+    "Vozovna Petrzalka": [
+      17.1253573,
+      48.0988866
+    ],
+    "Mierova": [
+      17.1664974,
+      48.1495692
+    ],
+    "Uhliska": [
+      17.2014721,
+      48.2015702
+    ],
+    "Tranovskeho": [
+      17.0249286,
+      48.1920751
+    ],
+    "Dolne Krcace": [
+      17.0495328,
+      48.1703978
+    ],
+    "Soltesovej": [
+      17.125234,
+      48.1500998
+    ],
+    "Lipskeho": [
+      17.0505875,
+      48.1783345
+    ],
+    "Bratislava-Raca": [
+      17.1609344,
+      48.2089137
+    ],
+    "Na hriadkach": [
+      16.9703336,
+      48.2045038
+    ],
+    "Detvianska": [
+      17.1548265,
+      48.2111984
+    ],
+    "Stara Ivanska": [
+      17.1745252,
+      48.1711326
+    ],
+    "Pharos": [
+      17.1891367,
+      48.1614921
+    ],
+    "Areal vodnych sportov": [
+      17.2286748,
+      48.0315688
+    ],
+    "OC Dubrawa": [
+      17.0333347,
+      48.1976882
+    ],
+    "Slov. nar. archiv": [
+      17.0795896,
+      48.1598157
+    ],
+    "Kacin": [
+      17.0677989,
+      48.2143271
+    ],
+    "Peknikova": [
+      17.0326973,
+      48.1897511
+    ],
+    "Devinska Nova Ves": [
+      16.9763888,
+      48.2190239
+    ],
+    "Milana Marecka": [
+      16.9781882,
+      48.2058036
+    ],
+    "Narodny onkologicky ustav": [
+      17.0914064,
+      48.172036
+    ],
+    "Kadlecik": [
+      17.038199,
+      48.150443
+    ],
+    "Matejkova": [
+      17.0480707,
+      48.1519352
+    ],
+    "Vozovna Hrobonova": [
+      17.0864212,
+      48.1597863
+    ],
+    "Mliekarenska": [
+      17.1445488,
+      48.1536349
+    ],
+    "Podhaj": [
+      17.0519784,
+      48.1956257
+    ],
+    "Bzovicka": [
+      17.1183813,
+      48.0994262
+    ],
+    "Janotova": [
+      17.0574184,
+      48.1488983
+    ],
+    "Vrancovicova": [
+      17.0466623,
+      48.1941973
+    ],
+    "Kremnicka": [
+      17.0935722,
+      48.1287556
+    ],
+    "Na pasekach": [
+      17.1718814,
+      48.1981496
+    ],
+    "Devinske Jazero": [
+      16.9609206,
+      48.2510312
+    ],
+    "Stolarska": [
+      17.155528,
+      48.2082646
+    ],
+    "Cremchova": [
+      17.1110097,
+      48.1686007
+    ],
+    "Hrad": [
+      17.0972768,
+      48.1424638
+    ],
+    "Sipova": [
+      17.2038701,
+      48.1498638
+    ],
+    "Junova": [
+      17.0980279,
+      48.1672022
+    ],
+    "Karpatske namestie": [
+      17.1619447,
+      48.2160767
+    ],
+    "Polianky": [
+      17.0590195,
+      48.1757722
+    ],
+    "Zoo": [
+      17.0758708,
+      48.1546356
+    ],
+    "Pridanky": [
+      17.058289,
+      48.1806384
+    ],
+    "Strbska": [
+      16.9830548,
+      48.1768504
+    ],
+    "Na Revine": [
+      17.0959666,
+      48.1686416
+    ],
+    "Potocna": [
+      17.1485476,
+      48.2220582
+    ],
+    "Eu. vzdel. akademia": [
+      17.1346725,
+      48.1818181
+    ],
+    "Puchovska": [
+      17.163253,
+      48.2145126
+    ],
+    "Prokopa Velkeho": [
+      17.0886831,
+      48.1630923
+    ],
+    "Zabotova": [
+      17.1082239,
+      48.1589455
+    ],
+    "Bradacova": [
+      17.1124179,
+      48.1142101
+    ],
+    "Safranova": [
+      17.0814232,
+      48.1570353
+    ],
+    "Bakosova": [
+      17.048498,
+      48.1971469
+    ],
+    "MiU Vajnory": [
+      17.2074362,
+      48.2045474
+    ],
+    "Stara vinarska": [
+      17.0966992,
+      48.1526155
+    ],
+    "Petofiho": [
+      17.2159837,
+      48.128739
+    ],
+    "Horne Krcace": [
+      17.0492079,
+      48.1736765
+    ],
+    "Hlavna stanica": [
+      17.1065418,
+      48.1577919
+    ],
+    "Tulipanova": [
+      17.0312499,
+      48.1875674
+    ],
+    "Maly Drazdiak": [
+      17.1194171,
+      48.1120876
+    ],
+    "Strecnianska": [
+      17.1077705,
+      48.1028107
+    ],
+    "Saleziani": [
+      17.1334885,
+      48.1553822
+    ],
+    "Na Sitine": [
+      17.061131,
+      48.1615515
+    ],
+    "Jasovska": [
+      17.1180004,
+      48.0939402
+    ],
+    "Zahorska": [
+      17.0384468,
+      48.2413346
+    ],
+    "Pestovatelska": [
+      17.1831821,
+      48.1698969
+    ],
+    "Prievozska": [
+      17.1474262,
+      48.1485947
+    ],
+    "Pri Habanskom mlyne": [
+      17.07635,
+      48.1638558
+    ],
+    "Damborskeho": [
+      17.043835,
+      48.1794808
+    ],
+    "VD Usvit": [
+      17.1581037,
+      48.1623873
+    ],
+    "Hubeneho": [
+      17.1402297,
+      48.1964156
+    ],
+    "Vychodne": [
+      17.169455,
+      48.1986973
+    ],
+    "DK Ruzinov": [
+      17.1633326,
+      48.1552854
+    ],
+    "Pri strelnici": [
+      17.1607942,
+      48.1717615
+    ],
+    "Tuhovska": [
+      17.1965128,
+      48.1912221
+    ],
+    "Podunajska": [
+      17.1974521,
+      48.1415672
+    ],
+    "Pri nadjazde": [
+      17.1599058,
+      48.1867943
+    ],
+    "Pri Sajbach": [
+      17.162598,
+      48.2027129
+    ],
+    "Sustekova": [
+      17.125288,
+      48.1260243
+    ],
+    "Jana Jonasa-VW": [
+      16.9920344,
+      48.2256558
+    ],
+    "Slovinska": [
+      17.1578552,
+      48.1694161
+    ],
+    "Janske hony": [
+      17.2033539,
+      48.1146762
+    ],
+    "Ovsiste": [
+      17.1320477,
+      48.1184482
+    ],
+    "Homolova": [
+      17.0289613,
+      48.1942552
+    ],
+    "Kozia": [
+      17.1010956,
+      48.1482172
+    ],
+    "Zavodna": [
+      17.1873725,
+      48.1302205
+    ],
+    "Slnecnice": [
+      17.124159,
+      48.0865169
+    ],
+    "Pastierska": [
+      17.1588029,
+      48.206188
+    ],
+    "Dudvazska": [
+      17.213909,
+      48.1377868
+    ],
+    "ZST Lamac": [
+      17.0491494,
+      48.1852225
+    ],
+    "Pieskovy hon": [
+      17.1614345,
+      48.0380288
+    ],
+    "Pionierska": [
+      17.1274638,
+      48.1679236
+    ],
+    "Mlynarovicova": [
+      17.1215436,
+      48.1277778
+    ],
+    "Vojensky utvar": [
+      17.1934679,
+      48.2119814
+    ],
+    "Sklabinska": [
+      17.1638082,
+      48.2007667
+    ],
+    "Nam. hraniciarov": [
+      17.1169245,
+      48.1220553
+    ],
+    "Jarovce": [
+      17.1143771,
+      48.0661377
+    ],
+    "Hajovna": [
+      17.0249781,
+      48.15258
+    ],
+    "Nad vinicami": [
+      17.0646281,
+      48.1555805
+    ],
+    "Americke nam.": [
+      17.1179506,
+      48.151106
+    ],
+    "Jungmannova": [
+      17.1115039,
+      48.1236616
+    ],
+    "Povraznicka": [
+      17.1169461,
+      48.1553536
+    ],
+    "Gagarinova-Radio Europa 2": [
+      17.1651984,
+      48.1501934
+    ],
+    "Betliarska": [
+      17.122337,
+      48.0992932
+    ],
+    "Mariansky potok": [
+      17.0390436,
+      48.2462206
+    ],
+    "BBC1 Plus-Mileticova": [
+      17.140712,
+      48.1470774
+    ],
+    "Velkolucky potok": [
+      17.0141711,
+      48.210281
+    ],
+    "Krizna": [
+      17.1251895,
+      48.1549577
+    ],
+    "Komarovska": [
+      17.200008,
+      48.1371292
+    ],
+    "Mickiewiczova": [
+      17.1163904,
+      48.1502435
+    ],
+    "Kuklovska": [
+      17.0452572,
+      48.1568191
+    ],
+    "Bratislavska zupa": [
+      17.1502317,
+      48.1603599
+    ],
+    "Vlcie hrdlo": [
+      17.175928,
+      48.128744
+    ],
+    "Rusovska cesta": [
+      17.1026191,
+      48.1234651
+    ],
+    "Donovalova": [
+      17.1001289,
+      48.1510048
+    ],
+    "Travna-Drevona": [
+      17.1576407,
+      48.2106452
+    ],
+    "Bystricka": [
+      16.978356,
+      48.2236247
+    ],
+    "Na pantoch": [
+      17.1732797,
+      48.2124593
+    ],
+    "Plynarenska": [
+      17.1419705,
+      48.1418324
+    ],
+    "Bocna": [
+      17.1729853,
+      48.1764875
+    ],
+    "OU obchodne": [
+      17.1785791,
+      48.2170071
+    ],
+    "Odborarska": [
+      17.1462562,
+      48.1767018
+    ],
+    "Domkarska": [
+      17.1805923,
+      48.1429342
+    ],
+    "Antolska": [
+      17.115522,
+      48.1032851
+    ],
+    "Cerveny kriz": [
+      17.0904271,
+      48.1498679
+    ],
+    "Sokolska": [
+      17.1043997,
+      48.1590902
+    ],
+    "Inovecka": [
+      17.0950563,
+      48.1437942
+    ],
+    "Kalne jazero": [
+      17.1768043,
+      48.1938986
+    ],
+    "Studena - zastavka": [
+      17.1776927,
+      48.1827947
+    ],
+    "Gercenova": [
+      17.1003859,
+      48.1240981
+    ],
+    "Ucitelska": [
+      17.2128438,
+      48.1273789
+    ],
+    "Ul. 29. augusta": [
+      17.1225413,
+      48.1466512
+    ],
+    "Vapencova": [
+      16.9810187,
+      48.2148229
+    ],
+    "Slovanet": [
+      17.1423346,
+      48.1559227
+    ],
+    "Kastielska": [
+      17.1659416,
+      48.1491693
+    ],
+    "Fatruny": [
+      17.1897506,
+      48.1712969
+    ],
+    "Vozovna Trnavka": [
+      17.1656944,
+      48.1789339
+    ],
+    "Cierny les": [
+      17.1711124,
+      48.1329764
+    ],
+    "Vazovova (obcasna)": [
+      17.1198859,
+      48.1544169
+    ],
+    "Bratislava,,AS": [
+      17.1292755,
+      48.1470888
+    ],
+    "Dubova": [
+      17.0822927,
+      48.1654712
+    ],
+    "Mlynske nivy": [
+      17.1242011,
+      48.147252
+    ],
+    "Polus City Center": [
+      17.1381315,
+      48.1685817
+    ],
+    "Kosicka": [
+      17.1326702,
+      48.1462906
+    ],
+    "Tranovskeho II": [
+      17.0242904,
+      48.1942492
+    ],
+    "Gastanova aleja": [
+      17.155705,
+      48.0433639
+    ],
+    "L. Derera": [
+      17.1021255,
+      48.1659133
+    ],
+    "Cachticka": [
+      17.1558677,
+      48.2109602
+    ],
+    "Zatevna": [
+      17.0289417,
+      48.1888362
+    ],
+    "Misikova": [
+      17.1020067,
+      48.1519227
+    ],
+    "Zabi majer - zahrady": [
+      17.1604742,
+      48.1961572
+    ],
+    "Avion - IKEA": [
+      17.181246,
+      48.1691105
+    ],
+    "Ondrejovova": [
+      17.1761027,
+      48.150754
+    ],
+    "Blumental": [
+      17.1187979,
+      48.1535948
+    ],
+    "Kuklovska 60": [
+      17.0462368,
+      48.1597163
+    ],
+    "Terminal": [
+      17.1611628,
+      48.1352783
+    ],
+    "Cintorin Slavicie udolie": [
+      17.0683393,
+      48.1582248
+    ],
+    "Technopol": [
+      17.1112976,
+      48.1105919
+    ],
+    "Strme Vrsky": [
+      17.0477373,
+      48.2279642
+    ],
+    "Vysoka": [
+      17.1123005,
+      48.1484611
+    ],
+    "Autobusova stanica": [
+      17.1267889,
+      48.1462803
+    ],
+    "Kamenace": [
+      17.0130135,
+      48.205655
+    ],
+    "ZIPP": [
+      17.1702329,
+      48.1874519
+    ],
+    "Zamocka": [
+      17.0986865,
+      48.1433132
+    ],
+    "Ketelec": [
+      17.1962227,
+      48.091255
+    ],
+    "Vajnorsky potok": [
+      17.1780946,
+      48.2216707
+    ],
+    "Lanovka": [
+      17.0977418,
+      48.1951075
+    ],
+    "Botanicka zahrada": [
+      17.0724239,
+      48.1480128
+    ],
+    "Radiova": [
+      17.1664501,
+      48.17415
+    ],
+    "OD Saratov": [
+      17.0351182,
+      48.192204
+    ],
+    "Lokomotivne depo I": [
+      17.1652131,
+      48.1994331
+    ],
+    "Bratislava-Vajnory": [
+      17.2067243,
+      48.1947875
+    ],
+    "Raztocna": [
+      17.2158403,
+      48.1494222
+    ],
+    "Piniova": [
+      17.2119141,
+      48.1485499
+    ],
+    "Trhovisko": [
+      17.1358244,
+      48.15352
+    ],
+    "Cunovo - namestie": [
+      17.1995298,
+      48.0311484
+    ],
+    "Most Apollo": [
+      17.1283664,
+      48.1390732
+    ],
+    "Staviva": [
+      17.1699102,
+      48.1912282
+    ],
+    "Harmincova": [
+      17.0466078,
+      48.1770452
+    ],
+    "Racianske myto": [
+      17.1195151,
+      48.157743
+    ],
+    "Pri starom letisku": [
+      17.1977384,
+      48.1992287
+    ],
+    "Julova": [
+      17.0980794,
+      48.1683335
+    ],
+    "Vapenka": [
+      16.9961081,
+      48.2059178
+    ],
+    "Nevadzova-OC Retro": [
+      17.1643204,
+      48.1522114
+    ],
+    "Mlynska": [
+      16.9758682,
+      48.2165329
+    ],
+    "Lucanka": [
+      17.1092779,
+      48.0989909
+    ],
+    "Jurigovo namestie": [
+      17.061906,
+      48.1529382
+    ],
+    "Sumracna": [
+      17.1692868,
+      48.1579795
+    ],
+    "Pri krematoriu": [
+      17.0405813,
+      48.2095315
+    ],
+    "Sad Janka Krala": [
+      17.1169879,
+      48.1353448
+    ],
+    "MiU Cunovo": [
+      17.1979497,
+      48.0285494
+    ],
+    "Stary haj": [
+      17.1243299,
+      48.1122112
+    ],
+    "Bulikova": [
+      17.1292048,
+      48.1241248
+    ],
+    "Tomankova": [
+      17.0509419,
+      48.1517957
+    ],
+    "Lieskovska cesta": [
+      17.2056973,
+      48.1205089
+    ],
+    "Drienova": [
+      17.143688,
+      48.1579638
+    ],
+    "Halkova": [
+      17.1329336,
+      48.1720131
+    ],
+    "Astronomicka": [
+      17.1771889,
+      48.1585697
+    ],
+    "PPA Controll": [
+      17.1695664,
+      48.1851561
+    ],
+    "Nam. L. Stura": [
+      17.1088053,
+      48.1399314
+    ],
+    "Spadovisko I": [
+      17.1816978,
+      48.1932615
+    ],
+    "Osloboditelska": [
+      17.2034278,
+      48.2037472
+    ],
+    "Jaskovy rad": [
+      17.1078912,
+      48.159561
+    ],
+    "Starohajska": [
+      17.1195816,
+      48.1201605
+    ],
+    "Nemocnica sv. Michala": [
+      17.1162229,
+      48.1461416
+    ],
+    "Kovacsova": [
+      17.1386457,
+      48.0579328
+    ],
+    "ZST Vinohrady": [
+      17.1331615,
+      48.1857811
+    ],
+    "Huscavova": [
+      17.0549118,
+      48.1790045
+    ],
+    "Sihot - BVS": [
+      17.0438219,
+      48.1488621
+    ],
+    "Trencianska": [
+      17.13904,
+      48.1509564
+    ],
+    "Subezna": [
+      17.0834487,
+      48.1607809
+    ],
+    "Hybesova": [
+      17.1503896,
+      48.2076722
+    ],
+    "Stavitelska": [
+      17.1639839,
+      48.190562
+    ],
+    "Bardosova": [
+      17.0959413,
+      48.1650203
+    ],
+    "OU zeleznicne": [
+      17.1751502,
+      48.2138892
+    ],
+    "Povodie Dunaja": [
+      17.1588245,
+      48.1238678
+    ],
+    "Tehelna": [
+      17.1279048,
+      48.1642746
+    ],
+    "Hodzovo namestie": [
+      17.1081549,
+      48.1480986
+    ],
+    "Nakupna zona Luky": [
+      17.0954835,
+      48.1049575
+    ],
+    "Nam. sv. Cyrila a Metoda": [
+      16.9864225,
+      48.1735483
+    ],
+    "Clementisova": [
+      17.1650621,
+      48.1648875
+    ],
+    "Pila": [
+      17.1167778,
+      48.0695618
+    ],
+    "ZST Nove Mesto": [
+      17.1454668,
+      48.1715369
+    ],
+    "Ruzova dolina": [
+      17.1399634,
+      48.1518648
+    ],
+    "Sancova": [
+      17.1133179,
+      48.1568759
+    ],
+    "Kadnarova": [
+      17.1409842,
+      48.1992233
+    ],
+    "Studenohorska": [
+      17.0565259,
+      48.1940146
+    ],
+    "Magurska": [
+      17.0934497,
+      48.1665397
+    ],
+    "Pri zahradach": [
+      17.0132194,
+      48.157037
+    ],
+    "Na Grbe": [
+      16.9767024,
+      48.2105889
+    ],
+    "Vinohradnicka": [
+      17.2191218,
+      48.1228572
+    ],
+    "Krce": [
+      17.0353747,
+      48.2374934
+    ],
+    "Romanova": [
+      17.1110735,
+      48.1180781
+    ],
+    "Hauerland": [
+      17.0795939,
+      48.1611419
+    ],
+    "Bukovinska": [
+      17.151537,
+      48.2051465
+    ],
+    "Marianska": [
+      17.1155267,
+      48.1473993
+    ],
+    "Jurigrad": [
+      17.0533642,
+      48.1468564
+    ],
+    "Mala scena": [
+      17.1192503,
+      48.1420122
+    ],
+    "Prokofievova": [
+      17.1019096,
+      48.1158362
+    ],
+    "Spitalska": [
+      17.1186525,
+      48.1492213
+    ],
+    "Vahostav": [
+      17.1899162,
+      48.1575703
+    ],
+    "ZST UNS": [
+      17.1726588,
+      48.1420977
+    ],
+    "Vlcie hrdlo - sidlisko": [
+      17.1664323,
+      48.1287984
+    ],
+    "Molecova": [
+      17.0631736,
+      48.1493614
+    ],
+    "Zvoncekova": [
+      17.1502635,
+      48.2182536
+    ],
+    "Ivanska cesta": [
+      17.1720529,
+      48.163806
+    ],
+    "Alexyho": [
+      17.0379879,
+      48.1845828
+    ],
+    "Cernockeho": [
+      17.1475656,
+      48.1996659
+    ],
+    "Studena": [
+      17.1791444,
+      48.1805337
+    ],
+    "Heckova": [
+      17.1494608,
+      48.2029016
+    ],
+    "Sportove letisko": [
+      17.1914861,
+      48.1966946
+    ],
+    "Sastinska": [
+      17.0442705,
+      48.1662188
+    ],
+    "Kalvaria": [
+      17.0977295,
+      48.1577252
+    ],
+    "Bratislava,,ZST Vinohrady": [
+      17.1333776,
+      48.185343
+    ],
+    "Briezky": [
+      17.119302,
+      48.1741413
+    ],
+    "Farskeho": [
+      17.1164656,
+      48.1273789
+    ],
+    "Zimny stadion": [
+      17.1364958,
+      48.1595515
+    ],
+    "Paulinske": [
+      16.9804575,
+      48.2290395
+    ],
+    "COV Dev. Nova Ves": [
+      17.0057543,
+      48.2214631
+    ],
+    "Prievoz-most": [
+      17.186085,
+      48.145634
+    ],
+    "Mierova kolonia": [
+      17.1572393,
+      48.176791
+    ],
+    "ZS Majernikova": [
+      17.0459762,
+      48.154277
+    ],
+    "Trstinska": [
+      17.0382524,
+      48.2437303
+    ],
+    "Stepna": [
+      17.0285175,
+      48.1913865
+    ],
+    "Nova doba": [
+      17.1347081,
+      48.1650134
+    ],
+    "Cvernovka": [
+      17.1307631,
+      48.1482866
+    ],
+    "OD Slimak": [
+      17.1286847,
+      48.1700989
+    ],
+    "Waitov lom": [
+      16.9761124,
+      48.192643
+    ],
+    "ZST Vajnory": [
+      17.2054902,
+      48.1954015
+    ],
+    "Halova": [
+      17.107444,
+      48.1239072
+    ],
+    "Svatoplukova": [
+      17.1314686,
+      48.1463356
+    ],
+    "Lubovnianska": [
+      17.1136685,
+      48.0989964
+    ],
+    "Riazanska": [
+      17.1271935,
+      48.1731517
+    ],
+    "Na hrebienku": [
+      17.0884199,
+      48.153561
+    ],
+    "Hummelova": [
+      17.0892878,
+      48.1473619
+    ],
+    "Novohradska": [
+      17.1373553,
+      48.146169
+    ],
+    "Male Krasnany": [
+      17.1388367,
+      48.1910693
+    ],
+    "Zlate schody": [
+      17.0320165,
+      48.1516582
+    ],
+    "Rybnicna": [
+      17.1820396,
+      48.2192832
+    ],
+    "Big Media-Slowackeho": [
+      17.1711175,
+      48.1655775
+    ],
+    "Matuskova": [
+      17.1118761,
+      48.1599775
+    ],
+    "Vendelinska": [
+      17.033074,
+      48.1862657
+    ],
+    "Galvaniho": [
+      17.1759577,
+      48.1670018
+    ],
+    "Brodna": [
+      17.173159,
+      48.1505832
+    ],
+    "Einsteinova": [
+      17.0986964,
+      48.1321501
+    ],
+    "Solivarska": [
+      17.1539199,
+      48.1606341
+    ],
+    "Stavbarska": [
+      17.2027584,
+      48.1399944
+    ],
+    "Korytnicka": [
+      17.2062007,
+      48.1304868
+    ],
+    "Agatova": [
+      17.031714,
+      48.2006968
+    ],
+    "Visnova": [
+      17.0993263,
+      48.1658552
+    ],
+    "MiU Raca": [
+      17.1536729,
+      48.2110782
+    ],
+    "Stefanovicova": [
+      17.1106683,
+      48.1537508
+    ],
+    "Pekna cesta": [
+      17.143841,
+      48.1957361
+    ],
+    "Vlcie Hrdlo - zahrady": [
+      17.1616633,
+      48.1218887
+    ],
+    "Lovinskeho": [
+      17.0819361,
+      48.1626705
+    ],
+    "Tesco Lamac": [
+      17.0656646,
+      48.1763945
+    ],
+    "Sandberg": [
+      16.9728528,
+      48.1978001
+    ],
+    "Slovanske nabrezie": [
+      16.9871778,
+      48.1716314
+    ],
+    "Horsky park": [
+      17.0883846,
+      48.1562184
+    ],
+    "Twin City": [
+      17.1233793,
+      48.1446727
+    ],
+    "Toryska": [
+      17.2056425,
+      48.1359921
+    ],
+    "Pribylinska": [
+      17.1588406,
+      48.1925595
+    ],
+    "Strelnica": [
+      17.1190346,
+      48.0728071
+    ],
+    "Chlumeckeho": [
+      17.1750981,
+      48.1584158
+    ],
+    "Trnavska, NAD": [
+      17.1558865,
+      48.1650882
+    ]
+  }
+}
