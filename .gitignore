@@ -6,7 +6,6 @@
 nbproject/
 *.mf
 lib/
-*.xml
 build/
 
 # VS Code

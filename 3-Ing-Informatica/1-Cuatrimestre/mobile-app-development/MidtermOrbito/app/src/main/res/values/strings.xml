@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MidtermOrbito</string>
+    <string name="new_game">New Game</string>
+    <string name="rotate">ROTATE</string>
+</resources>
