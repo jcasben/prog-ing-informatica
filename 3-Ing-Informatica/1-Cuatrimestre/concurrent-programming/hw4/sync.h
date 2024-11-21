@@ -42,8 +42,8 @@
 
 #define MUTEX_INIT(m) (*(m) = semget(IPC_PRIVATE, 1, IPC_CREAT | 0666), semctl(*(m), 0, SETVAL, 1))
 #define MUTEX_DESTROY(m) semctl(*(m), 0, IPC_RMID)
-#define LOCK(m) do { struct sembuf sb = { 0, -1, 0 }; semop(*(m), &sb, 1); } while (0)
-#define UNLOCK(m) do { struct sembuf sb = { 0, 1, 0 }; semop(*(m), &sb, 1); } while (0)
+#define LOCK(m) do { struct sembuf sb = { 0, -1, 0 }; semop(*(m), &sb, 1); __sync_synchronize(); } while (0)
+#define UNLOCK(m) do { __sync_synchronize(); struct sembuf sb = { 0, 1, 0 }; semop(*(m), &sb, 1); } while (0)
 
 #define COND_INIT(c) (*(c) = semget(IPC_PRIVATE, 1, IPC_CREAT | 0666), semctl(*(c), 0, SETVAL, 0))
 #define COND_DESTROY(c) semctl((*c), 0, IPC_RMID)
