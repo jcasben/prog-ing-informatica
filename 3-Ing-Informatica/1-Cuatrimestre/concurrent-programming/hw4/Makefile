@@ -3,18 +3,23 @@ CC=	gcc
 #Mutex synchronisation
 #CFLAGS=	-c -ansi -Wall -O0 -g -DSYNC_MUTEX $(INCL)
 #Semaphore synchronisation
-CFLAGS=	-c -ansi -Wall -O3 -DSYNC_SEM $(INCL)
+#CFLAGS=	-c -ansi -Wall -O3 -DSYNC_SEM $(INCL)
 #System V Semaphore synchronisation
-#CFLAGS=	-c -ansi -Wall -O3 -DSYNC_SYSV $(INCL)
+CFLAGS=	-c -ansi -Wall -O3 -DSYNC_SYSV $(INCL)
 
 LFLAGS= -g -lpthread
 INCL=	-I. -I$(HOME)/include
 RM=	"rm" -f
 LIBS=	-lpthread
 
+SOURCES= prodcon.c sync.c
+INCLUDES= prodcon.h sync.h
+PROGRAMS= prodcon
 OBJS =\
 	prodcon.o \
 	sync.o
+
+all: $(OBJS) $(PROGRAMS)
 
 default:	prodcon
 
