@@ -1,7 +1,7 @@
 CC=	gcc
 #For debugging, use -O0 and -g in CFLAGS
 #Mutex synchronisation
-#CFLAGS=	-c -ansi -Wall -O0 -g -DSYNC_MUTEX $(INCL)
+#CFLAGS=	-c -ansi -Wall -O3 -DSYNC_MUTEX $(INCL)
 #Semaphore synchronisation
 #CFLAGS=	-c -ansi -Wall -O3 -DSYNC_SEM $(INCL)
 #System V Semaphore synchronisation
