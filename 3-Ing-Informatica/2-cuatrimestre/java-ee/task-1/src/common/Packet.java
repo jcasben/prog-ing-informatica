@@ -1,3 +1,5 @@
+package src.common;
+
 import java.io.Serializable;
 
 public record Packet(
@@ -7,8 +9,3 @@ public record Packet(
         String message
 ) implements Serializable {}
 
-enum PacketType implements Serializable {
-    MESSAGE,
-    LOGIN,
-    LOGOUT
-}

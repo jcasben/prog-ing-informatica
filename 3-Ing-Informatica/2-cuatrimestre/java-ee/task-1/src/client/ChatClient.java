@@ -1,5 +1,8 @@
-import common.Packet;
-import common.PacketType;
+package src.client;
+
+import src.server.ChatServer;
+import src.common.Packet;
+import src.common.PacketType;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -96,12 +99,12 @@ public class ChatClient extends Application implements Runnable {
     private boolean createConnection() {
         try {
             socket = new Socket("localhost", ChatServer.PORT);
-            System.out.println("Connected to server successfully");
+            System.out.println("Connected to chat.server successfully");
             out = new ObjectOutputStream(socket.getOutputStream());
             in = new ObjectInputStream(socket.getInputStream());
             sendMessage(new Packet(PacketType.LOGIN, this.id, this.nick, null));
         } catch (ConnectException e) {
-            System.err.println("Couldn't reach server. Shutting down...");
+            System.err.println("Couldn't reach chat.server. Shutting down...");
             return false;
         } catch (IOException e) {
             System.err.println("An IO error occurred: " + e);
@@ -164,7 +167,4 @@ public class ChatClient extends Application implements Runnable {
 
         return true;
     }
-}
-
-record UIClientComponent(Label nick, TextArea textArea) {
 }
