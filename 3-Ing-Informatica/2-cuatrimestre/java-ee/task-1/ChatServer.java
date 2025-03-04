@@ -1,3 +1,7 @@
+import common.Packet;
+import common.PacketType;
+
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -16,6 +20,7 @@ public class ChatServer {
 
     private void start() {
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
+            System.out.println("Server running on port " + PORT + "...");
             while (true) {
                 Socket socket = serverSocket.accept();
                 ServerSideClientHandler handler = new ServerSideClientHandler(socket);
@@ -47,15 +52,11 @@ public class ChatServer {
 }
 
 class ServerSideClientHandler implements Runnable {
-    private Socket socket;
-    private ObjectOutputStream out;
-    private ObjectInputStream in;
+    private final Socket socket;
+    private final ObjectOutputStream out;
+    private final ObjectInputStream in;
     private String nick;
     private String id;
-
-    public String getId() {
-        return id;
-    }
 
     public ServerSideClientHandler(Socket socket) {
         this.socket = socket;
@@ -89,6 +90,8 @@ class ServerSideClientHandler implements Runnable {
                 Packet message = (Packet) in.readObject();
                 ChatServer.broadcast(message, this);
             }
+        } catch (EOFException eof) {
+            System.out.println("[INFO]: User " + this.nick + " with id " + this.id + " disconnected");
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         } finally {
