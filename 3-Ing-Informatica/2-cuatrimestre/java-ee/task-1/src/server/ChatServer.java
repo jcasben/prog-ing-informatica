@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 
 /**
  * Server for a chat developed used Java.IO Sockets
+ *
  * @author jcasben
  */
 public class ChatServer {
@@ -40,14 +41,15 @@ public class ChatServer {
 
     /**
      * Broadcasts a {@link CustomPackage} to all the connected clients but the sender client.
+     *
      * @param customPackage package to be sent.
-     * @param sender the client that wants to broadcast the message.
+     * @param sender        the client that wants to broadcast the message.
      */
     public static void broadcast(CustomPackage customPackage, ServerSideClientHandler sender) {
         synchronized (clientHandlers) {
             for (ServerSideClientHandler clientHandler : clientHandlers) {
                 if (clientHandler != sender) {
-                    clientHandler.sendMessage(customPackage);
+                    clientHandler.sendPackage(customPackage);
                 }
             }
         }
@@ -55,6 +57,7 @@ public class ChatServer {
 
     /**
      * Removes a handler from the server when a client disconnects.
+     *
      * @param handler handler to be removed.
      */
     public static void removeHandler(ServerSideClientHandler handler) {
@@ -66,6 +69,7 @@ public class ChatServer {
     /**
      * Maps the handlers to an array of {@link UserInfo}, that is the object that represents
      * the main information about the user from that is connected with that handler.
+     *
      * @return the array of {@link UserInfo}
      */
     public static UserInfo[] connectedUsers() {

@@ -2,6 +2,11 @@ package src.common.packages;
 
 import src.common.UserInfo;
 
+/**
+ * Custom Package that transport a message from a user.
+ *
+ * @author jcasben
+ */
 public class MessagePackage extends CustomPackage {
     public final String message;
     public final UserInfo user;

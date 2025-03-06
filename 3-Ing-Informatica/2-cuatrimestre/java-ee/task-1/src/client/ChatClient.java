@@ -27,6 +27,7 @@ import java.util.logging.Logger;
 
 /**
  * UI client for a chat developed used Java.IO Sockets
+ *
  * @author jcasben
  */
 public class ChatClient extends Application implements Runnable {
@@ -107,6 +108,7 @@ public class ChatClient extends Application implements Runnable {
     /**
      * Creates a connection with the server and sends a {@link LoginPackage} to
      * the server so it notifies the other clients.
+     *
      * @return true if the connection is successful.
      */
     private boolean createConnection() {
@@ -130,6 +132,7 @@ public class ChatClient extends Application implements Runnable {
 
     /**
      * Sends a {@link CustomPackage} to the server.
+     *
      * @param customPackage the package to be sent.
      */
     private void sendPackage(CustomPackage customPackage) {
@@ -144,6 +147,7 @@ public class ChatClient extends Application implements Runnable {
     /**
      * Receives a {@link CustomPackage} from the server and performs the required action
      * depending on the {@link PackageType}.
+     *
      * @return true if the client received a message.
      */
     private boolean acceptMessage() {
@@ -183,6 +187,7 @@ public class ChatClient extends Application implements Runnable {
 
     /**
      * Adds the required element to the UI for a new user connects to the chat.
+     *
      * @param user the connected user in the chat.
      */
     private void addClientToUI(UserInfo user) {
@@ -198,6 +203,7 @@ public class ChatClient extends Application implements Runnable {
 
     /**
      * Removes the UI of a client from the UI given its id when it disconnects.
+     *
      * @param id the id of the disconnected user.
      */
     private void removeClientFromUI(String id) {
