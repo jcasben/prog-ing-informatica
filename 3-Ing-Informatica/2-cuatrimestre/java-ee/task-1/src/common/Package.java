@@ -2,10 +2,9 @@ package src.common;
 
 import java.io.Serializable;
 
-public record Packet(
-        PacketType type,
-        String id,
-        String nick,
+public record Package(
+        PackageType type,
+        UserInfo user,
         String message
 ) implements Serializable {}
 

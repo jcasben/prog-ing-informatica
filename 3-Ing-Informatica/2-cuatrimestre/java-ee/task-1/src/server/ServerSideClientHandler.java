@@ -1,7 +1,8 @@
 package src.server;
 
-import src.common.Packet;
-import src.common.PacketType;
+import src.common.Package;
+import src.common.PackageType;
+import src.common.UserInfo;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -13,8 +14,7 @@ class ServerSideClientHandler implements Runnable {
     private final Socket socket;
     private final ObjectOutputStream out;
     private final ObjectInputStream in;
-    private String nick;
-    private String id;
+    private UserInfo user;
 
     public ServerSideClientHandler(Socket socket) {
         this.socket = socket;
@@ -26,9 +26,9 @@ class ServerSideClientHandler implements Runnable {
         }
     }
 
-    public void sendMessage(Packet packet) {
+    public void sendMessage(Package aPackage) {
         try {
-            out.writeObject(packet);
+            out.writeObject(aPackage);
             out.flush();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -38,23 +38,22 @@ class ServerSideClientHandler implements Runnable {
     @Override
     public void run() {
         try {
-            Packet firstMessage = (Packet) in.readObject();
-            this.id = firstMessage.id();
-            this.nick = firstMessage.nick();
-            System.out.println("[INFO]: User " + this.nick + " with ID " + this.id + " joined the chat");
-            ChatServer.broadcast(new Packet(PacketType.LOGIN, this.id, this.nick, null), this);
+            Package firstMessage = (Package) in.readObject();
+            this.user = firstMessage.user();
+            System.out.println("[INFO]: User " + this.user.nick() + " with ID " + this.user.id() + " joined the chat");
+            ChatServer.broadcast(new Package(PackageType.LOGIN, this.user, null), this);
 
             while (true) {
-                Packet message = (Packet) in.readObject();
+                Package message = (Package) in.readObject();
                 ChatServer.broadcast(message, this);
             }
         } catch (EOFException eof) {
-            System.out.println("[INFO]: User " + this.nick + " with id " + this.id + " disconnected");
+            System.out.println("[INFO]: User " + this.user.nick() + " with id " + this.user.id() + " disconnected");
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         } finally {
             ChatServer.removeHandler(this);
-            ChatServer.broadcast(new Packet(PacketType.LOGOUT, this.id, this.nick, null), this);
+            ChatServer.broadcast(new Package(PackageType.LOGOUT, this.user, null), this);
             try {
                 socket.close();
             } catch (IOException e) {

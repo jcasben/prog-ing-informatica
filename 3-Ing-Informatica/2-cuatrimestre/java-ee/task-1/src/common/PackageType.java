@@ -2,8 +2,9 @@ package src.common;
 
 import java.io.Serializable;
 
-public enum PacketType implements Serializable {
+public enum PackageType implements Serializable {
     MESSAGE,
     LOGIN,
-    LOGOUT
+    LOGOUT,
+    USER_LIST
 }

@@ -1,8 +1,9 @@
 package src.client;
 
+import src.common.UserInfo;
 import src.server.ChatServer;
-import src.common.Packet;
-import src.common.PacketType;
+import src.common.Package;
+import src.common.PackageType;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -25,8 +26,7 @@ import java.util.UUID;
 public class ChatClient extends Application implements Runnable {
 
     private Socket socket;
-    private String nick;
-    private String id;
+    private UserInfo user = new UserInfo(null, null);
 
     VBox root;
     Stage stage;
@@ -47,16 +47,16 @@ public class ChatClient extends Application implements Runnable {
         dialog.setTitle("Nickname");
         dialog.setHeaderText(null);
         dialog.setContentText("Please, introduce your name: ");
+        String id = UUID.randomUUID().toString();
         Optional<String> result = dialog.showAndWait();
-        result.ifPresentOrElse((name) -> nick = name, () -> nick = "Anonymous");
+        result.ifPresentOrElse((name) -> user = new UserInfo(id, name), () -> user = new UserInfo(id, "Anonymous"));
 
         root = new VBox();
         this.stage = stage;
-        String userLabelText = "You (" + nick + ")";
+        String userLabelText = "You (" + user.nick() + ")";
         root.getChildren().add(new Label(userLabelText));
         root.getChildren().add(t1);
 
-        id = UUID.randomUUID().toString();
 
         Scene scene = new Scene(root, 800, 600);
         stage.setTitle("Client-Chat");
@@ -66,7 +66,7 @@ public class ChatClient extends Application implements Runnable {
         t1.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         t1.requestFocus();
         t1.setOnKeyReleased((e) -> {
-            sendMessage(new Packet(PacketType.MESSAGE, this.id, this.nick, t1.getText()));
+            sendMessage(new Package(PackageType.MESSAGE, this.user, t1.getText()));
         });
         stage.setOnCloseRequest((e) -> {
             if (socket != null) {
@@ -102,7 +102,7 @@ public class ChatClient extends Application implements Runnable {
             System.out.println("Connected to chat.server successfully");
             out = new ObjectOutputStream(socket.getOutputStream());
             in = new ObjectInputStream(socket.getInputStream());
-            sendMessage(new Packet(PacketType.LOGIN, this.id, this.nick, null));
+            sendMessage(new Package(PackageType.LOGIN, this.user, null));
         } catch (ConnectException e) {
             System.err.println("Couldn't reach chat.server. Shutting down...");
             return false;
@@ -114,9 +114,9 @@ public class ChatClient extends Application implements Runnable {
         return true;
     }
 
-    private void sendMessage(Packet packet) {
+    private void sendMessage(Package aPackage) {
         try {
-            out.writeObject(packet);
+            out.writeObject(aPackage);
             out.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -124,9 +124,9 @@ public class ChatClient extends Application implements Runnable {
     }
 
     private void notifyLogout() {
-        Packet outgoingPacket = new Packet(PacketType.LOGOUT, this.id, this.nick, null);
+        Package outgoingPackage = new Package(PackageType.LOGOUT, this.user, null);
         try {
-            out.writeObject(outgoingPacket);
+            out.writeObject(outgoingPackage);
             out.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -135,30 +135,30 @@ public class ChatClient extends Application implements Runnable {
 
     private boolean acceptMessage() {
         try {
-            Packet incomingPacket = (Packet) in.readObject();
-            switch (incomingPacket.type()) {
+            Package incomingPackage = (Package) in.readObject();
+            switch (incomingPackage.type()) {
                 case MESSAGE -> {
                     Platform.runLater(() -> {
-                        this.clientsUI.get(incomingPacket.id()).textArea().setText(incomingPacket.message());
+                        this.clientsUI.get(incomingPackage.user().id()).textArea().setText(incomingPackage.message());
                     });
                 }
                 case LOGIN -> {
-                    Label label = new Label(incomingPacket.nick());
+                    Label label = new Label(incomingPackage.user().nick());
                     TextArea textArea = new TextArea();
                     Platform.runLater(() -> {
                         root.getChildren().add(label);
                         root.getChildren().add(textArea);
                     });
 
-                    this.clientsUI.put(incomingPacket.id(), new UIClientComponent(label, textArea));
+                    this.clientsUI.put(incomingPackage.user().id(), new UIClientComponent(label, textArea));
                 }
                 case LOGOUT -> {
-                    UIClientComponent disconnectedClient = this.clientsUI.get(incomingPacket.id());
+                    UIClientComponent disconnectedClient = this.clientsUI.get(incomingPackage.user().id());
                     Platform.runLater(() -> {
                         root.getChildren().remove(disconnectedClient.nick());
                         root.getChildren().remove(disconnectedClient.textArea());
                     });
-                    this.clientsUI.remove(incomingPacket.id());
+                    this.clientsUI.remove(incomingPackage.user().id());
                 }
             }
         } catch (IOException | ClassNotFoundException e) {
