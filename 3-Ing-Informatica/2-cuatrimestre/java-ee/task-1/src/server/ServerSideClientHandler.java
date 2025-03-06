@@ -1,9 +1,6 @@
 package src.server;
 
-import src.common.packages.CustomPackage;
-import src.common.packages.LoginPackage;
-import src.common.packages.LogoutPackage;
-import src.common.packages.PackageType;
+import src.common.packages.*;
 import src.common.UserInfo;
 
 import java.io.EOFException;
@@ -17,6 +14,10 @@ public class ServerSideClientHandler implements Runnable {
     private final ObjectOutputStream out;
     private final ObjectInputStream in;
     private UserInfo user;
+
+    public UserInfo getUser() {
+        return user;
+    }
 
     public ServerSideClientHandler(Socket socket) {
         this.socket = socket;
@@ -44,6 +45,8 @@ public class ServerSideClientHandler implements Runnable {
             this.user = firstMessage.user;
             System.out.println("[INFO]: User " + this.user.nick() + " with ID " + this.user.id() + " joined the chat");
             ChatServer.broadcast(new LoginPackage(PackageType.LOGIN, this.user), this);
+
+            sendMessage(new UserListPackage(PackageType.USER_LIST, ChatServer.connectedUsers()));
 
             while (true) {
                 CustomPackage message = (CustomPackage) in.readObject();
