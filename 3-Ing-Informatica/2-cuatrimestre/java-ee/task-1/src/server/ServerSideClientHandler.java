@@ -1,7 +1,9 @@
 package src.server;
 
-import src.common.Package;
-import src.common.PackageType;
+import src.common.packages.CustomPackage;
+import src.common.packages.LoginPackage;
+import src.common.packages.LogoutPackage;
+import src.common.packages.PackageType;
 import src.common.UserInfo;
 
 import java.io.EOFException;
@@ -10,7 +12,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-class ServerSideClientHandler implements Runnable {
+public class ServerSideClientHandler implements Runnable {
     private final Socket socket;
     private final ObjectOutputStream out;
     private final ObjectInputStream in;
@@ -26,9 +28,9 @@ class ServerSideClientHandler implements Runnable {
         }
     }
 
-    public void sendMessage(Package aPackage) {
+    public void sendMessage(CustomPackage customPackage) {
         try {
-            out.writeObject(aPackage);
+            out.writeObject(customPackage);
             out.flush();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -38,13 +40,13 @@ class ServerSideClientHandler implements Runnable {
     @Override
     public void run() {
         try {
-            Package firstMessage = (Package) in.readObject();
-            this.user = firstMessage.user();
+            LoginPackage firstMessage = (LoginPackage) in.readObject();
+            this.user = firstMessage.user;
             System.out.println("[INFO]: User " + this.user.nick() + " with ID " + this.user.id() + " joined the chat");
-            ChatServer.broadcast(new Package(PackageType.LOGIN, this.user, null), this);
+            ChatServer.broadcast(new LoginPackage(PackageType.LOGIN, this.user), this);
 
             while (true) {
-                Package message = (Package) in.readObject();
+                CustomPackage message = (CustomPackage) in.readObject();
                 ChatServer.broadcast(message, this);
             }
         } catch (EOFException eof) {
@@ -53,7 +55,7 @@ class ServerSideClientHandler implements Runnable {
             throw new RuntimeException(e);
         } finally {
             ChatServer.removeHandler(this);
-            ChatServer.broadcast(new Package(PackageType.LOGOUT, this.user, null), this);
+            ChatServer.broadcast(new LogoutPackage(PackageType.LOGOUT, this.user), this);
             try {
                 socket.close();
             } catch (IOException e) {

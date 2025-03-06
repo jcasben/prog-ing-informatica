@@ -1,4 +1,6 @@
 package src.common;
 
-public record UserInfo(String id, String nick) {
+import java.io.Serializable;
+
+public record UserInfo(String id, String nick) implements Serializable {
 }

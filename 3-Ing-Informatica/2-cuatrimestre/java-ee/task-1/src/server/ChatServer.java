@@ -1,6 +1,6 @@
 package src.server;
 
-import src.common.Package;
+import src.common.packages.CustomPackage;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -32,11 +32,11 @@ public class ChatServer {
         }
     }
 
-    public static void broadcast(Package aPackage, ServerSideClientHandler sender) {
+    public static void broadcast(CustomPackage customPackage, ServerSideClientHandler sender) {
         synchronized (clientHandlers) {
             for (ServerSideClientHandler clientHandler : clientHandlers) {
                 if (clientHandler != sender) {
-                    clientHandler.sendMessage(aPackage);
+                    clientHandler.sendMessage(customPackage);
                 }
             }
         }

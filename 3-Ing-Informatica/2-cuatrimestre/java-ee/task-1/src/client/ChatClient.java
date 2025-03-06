@@ -1,9 +1,8 @@
 package src.client;
 
 import src.common.UserInfo;
+import src.common.packages.*;
 import src.server.ChatServer;
-import src.common.Package;
-import src.common.PackageType;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -66,7 +65,7 @@ public class ChatClient extends Application implements Runnable {
         t1.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         t1.requestFocus();
         t1.setOnKeyReleased((e) -> {
-            sendMessage(new Package(PackageType.MESSAGE, this.user, t1.getText()));
+            sendMessage(new MessagePackage(PackageType.MESSAGE, t1.getText(), this.user));
         });
         stage.setOnCloseRequest((e) -> {
             if (socket != null) {
@@ -102,7 +101,7 @@ public class ChatClient extends Application implements Runnable {
             System.out.println("Connected to chat.server successfully");
             out = new ObjectOutputStream(socket.getOutputStream());
             in = new ObjectInputStream(socket.getInputStream());
-            sendMessage(new Package(PackageType.LOGIN, this.user, null));
+            sendMessage(new LoginPackage(PackageType.LOGIN, this.user));
         } catch (ConnectException e) {
             System.err.println("Couldn't reach chat.server. Shutting down...");
             return false;
@@ -114,9 +113,9 @@ public class ChatClient extends Application implements Runnable {
         return true;
     }
 
-    private void sendMessage(Package aPackage) {
+    private void sendMessage(CustomPackage customPackage) {
         try {
-            out.writeObject(aPackage);
+            out.writeObject(customPackage);
             out.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -124,7 +123,7 @@ public class ChatClient extends Application implements Runnable {
     }
 
     private void notifyLogout() {
-        Package outgoingPackage = new Package(PackageType.LOGOUT, this.user, null);
+        CustomPackage outgoingPackage = new LogoutPackage(PackageType.LOGOUT, this.user);
         try {
             out.writeObject(outgoingPackage);
             out.flush();
@@ -135,30 +134,29 @@ public class ChatClient extends Application implements Runnable {
 
     private boolean acceptMessage() {
         try {
-            Package incomingPackage = (Package) in.readObject();
-            switch (incomingPackage.type()) {
+            CustomPackage incomingPackage = (CustomPackage) in.readObject();
+            switch (incomingPackage.type) {
                 case MESSAGE -> {
+                    MessagePackage messagePackage = (MessagePackage) incomingPackage;
                     Platform.runLater(() -> {
-                        this.clientsUI.get(incomingPackage.user().id()).textArea().setText(incomingPackage.message());
+                        this.clientsUI.get(messagePackage.user.id()).textArea().setText(messagePackage.message);
                     });
                 }
                 case LOGIN -> {
-                    Label label = new Label(incomingPackage.user().nick());
-                    TextArea textArea = new TextArea();
-                    Platform.runLater(() -> {
-                        root.getChildren().add(label);
-                        root.getChildren().add(textArea);
-                    });
-
-                    this.clientsUI.put(incomingPackage.user().id(), new UIClientComponent(label, textArea));
+                    LoginPackage loginPackage = (LoginPackage) incomingPackage;
+                    addClientToUI(loginPackage.user);
                 }
                 case LOGOUT -> {
-                    UIClientComponent disconnectedClient = this.clientsUI.get(incomingPackage.user().id());
-                    Platform.runLater(() -> {
-                        root.getChildren().remove(disconnectedClient.nick());
-                        root.getChildren().remove(disconnectedClient.textArea());
-                    });
-                    this.clientsUI.remove(incomingPackage.user().id());
+                    LogoutPackage logoutPackage = (LogoutPackage) incomingPackage;
+                    removeClientFromUI(logoutPackage.user.id());
+                }
+                case USER_LIST -> {
+                    UserListPackage listPackage = (UserListPackage) incomingPackage;
+                    for (UserInfo user : listPackage.connectedUsers) {
+                        if (user != this.user) {
+                            addClientToUI(user);
+                        }
+                    }
                 }
             }
         } catch (IOException | ClassNotFoundException e) {
@@ -166,5 +164,25 @@ public class ChatClient extends Application implements Runnable {
         }
 
         return true;
+    }
+
+    private void addClientToUI(UserInfo user) {
+        Label label = new Label(user.nick());
+        TextArea textArea = new TextArea();
+        Platform.runLater(() -> {
+            root.getChildren().add(label);
+            root.getChildren().add(textArea);
+        });
+
+        this.clientsUI.put(user.id(), new UIClientComponent(label, textArea));
+    }
+
+    private void removeClientFromUI(String id) {
+        UIClientComponent disconnectedClient = this.clientsUI.get(id);
+        Platform.runLater(() -> {
+            root.getChildren().remove(disconnectedClient.nick());
+            root.getChildren().remove(disconnectedClient.textArea());
+        });
+        this.clientsUI.remove(id);
     }
 }
