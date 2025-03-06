@@ -19,22 +19,31 @@ import java.io.ObjectOutputStream;
 import java.net.ConnectException;
 import java.net.Socket;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+/**
+ * UI client for a chat developed used Java.IO Sockets
+ * @author jcasben
+ */
 public class ChatClient extends Application implements Runnable {
 
     private Socket socket;
     private UserInfo user = new UserInfo(null, null);
 
-    VBox root;
-    Stage stage;
-    TextArea t1 = new TextArea();
+    private VBox root;
+    private Stage stage;
+    private final TextArea t1 = new TextArea();
 
-    ObjectOutputStream out;
-    ObjectInputStream in;
+    private ObjectOutputStream out;
+    private ObjectInputStream in;
 
-    private HashMap<String, UIClientComponent> clientsUI = new HashMap<>();
+    private final HashMap<String, UIClientComponent> clientsUI = new HashMap<>();
+
+    private static final Logger LOGGER = Logger.getLogger(ChatClient.class.getName());
 
     public static void main(String[] args) {
         launch(args);
@@ -42,6 +51,7 @@ public class ChatClient extends Application implements Runnable {
 
     @Override
     public void start(Stage stage) {
+        // Show a dialog to the user to introduce the nickname
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Nickname");
         dialog.setHeaderText(null);
@@ -56,24 +66,23 @@ public class ChatClient extends Application implements Runnable {
         root.getChildren().add(new Label(userLabelText));
         root.getChildren().add(t1);
 
-
         Scene scene = new Scene(root, 800, 600);
-        stage.setTitle("Client-Chat");
+        stage.setTitle("Client - Chat");
         stage.setScene(scene);
         stage.show();
 
         t1.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         t1.requestFocus();
         t1.setOnKeyReleased((e) -> {
-            sendMessage(new MessagePackage(PackageType.MESSAGE, t1.getText(), this.user));
+            sendPackage(new MessagePackage(PackageType.MESSAGE, t1.getText(), this.user));
         });
         stage.setOnCloseRequest((e) -> {
             if (socket != null) {
-                notifyLogout();
+                sendPackage(new LogoutPackage(PackageType.LOGOUT, this.user));
                 try {
                     socket.close();
                 } catch (IOException ex) {
-                    ex.printStackTrace();
+                    LOGGER.log(Level.WARNING, "The following exception occurred (" + ex.getMessage() + ").");
                 }
             }
         });
@@ -95,43 +104,48 @@ public class ChatClient extends Application implements Runnable {
         }
     }
 
+    /**
+     * Creates a connection with the server and sends a {@link LoginPackage} to
+     * the server so it notifies the other clients.
+     * @return true if the connection is successful.
+     */
     private boolean createConnection() {
         try {
             socket = new Socket("localhost", ChatServer.PORT);
-            System.out.println("Connected to chat.server successfully");
+            LOGGER.log(Level.INFO, "Connected to server successfully");
+
             out = new ObjectOutputStream(socket.getOutputStream());
             in = new ObjectInputStream(socket.getInputStream());
-            sendMessage(new LoginPackage(PackageType.LOGIN, this.user));
+            sendPackage(new LoginPackage(PackageType.LOGIN, this.user));
         } catch (ConnectException e) {
-            System.err.println("Couldn't reach chat.server. Shutting down...");
+            LOGGER.log(Level.WARNING, "Couldn't reach server. Shutting down...");
             return false;
         } catch (IOException e) {
-            System.err.println("An IO error occurred: " + e);
+            LOGGER.log(Level.WARNING, "The following exception occurred (" + e.getMessage() + ").");
             return false;
         }
 
         return true;
     }
 
-    private void sendMessage(CustomPackage customPackage) {
+    /**
+     * Sends a {@link CustomPackage} to the server.
+     * @param customPackage the package to be sent.
+     */
+    private void sendPackage(CustomPackage customPackage) {
         try {
             out.writeObject(customPackage);
             out.flush();
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.WARNING, "The following exception occurred (" + e.getMessage() + ").");
         }
     }
 
-    private void notifyLogout() {
-        CustomPackage outgoingPackage = new LogoutPackage(PackageType.LOGOUT, this.user);
-        try {
-            out.writeObject(outgoingPackage);
-            out.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+    /**
+     * Receives a {@link CustomPackage} from the server and performs the required action
+     * depending on the {@link PackageType}.
+     * @return true if the client received a message.
+     */
     private boolean acceptMessage() {
         try {
             CustomPackage incomingPackage = (CustomPackage) in.readObject();
@@ -145,6 +159,7 @@ public class ChatClient extends Application implements Runnable {
                 case LOGIN -> {
                     LoginPackage loginPackage = (LoginPackage) incomingPackage;
                     addClientToUI(loginPackage.user);
+                    sendPackage(new MessagePackage(PackageType.MESSAGE, t1.getText(), this.user));
                 }
                 case LOGOUT -> {
                     LogoutPackage logoutPackage = (LogoutPackage) incomingPackage;
@@ -153,7 +168,7 @@ public class ChatClient extends Application implements Runnable {
                 case USER_LIST -> {
                     UserListPackage listPackage = (UserListPackage) incomingPackage;
                     for (UserInfo user : listPackage.connectedUsers) {
-                        if (user != this.user) {
+                        if (!Objects.equals(user.id(), this.user.id())) {
                             addClientToUI(user);
                         }
                     }
@@ -166,6 +181,10 @@ public class ChatClient extends Application implements Runnable {
         return true;
     }
 
+    /**
+     * Adds the required element to the UI for a new user connects to the chat.
+     * @param user the connected user in the chat.
+     */
     private void addClientToUI(UserInfo user) {
         Label label = new Label(user.nick());
         TextArea textArea = new TextArea();
@@ -177,6 +196,10 @@ public class ChatClient extends Application implements Runnable {
         this.clientsUI.put(user.id(), new UIClientComponent(label, textArea));
     }
 
+    /**
+     * Removes the UI of a client from the UI given its id when it disconnects.
+     * @param id the id of the disconnected user.
+     */
     private void removeClientFromUI(String id) {
         UIClientComponent disconnectedClient = this.clientsUI.get(id);
         Platform.runLater(() -> {
