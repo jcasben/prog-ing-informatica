@@ -22,15 +22,18 @@ import java.util.logging.Logger;
 public class ChatServer {
     public static final int PORT = 9999;
 
-    private static final Logger LOGGER = Logger.getLogger(ChatServer.class.getName());
-
     private static final Map<SocketChannel, UserInfo> connectedClients = Collections.synchronizedMap(new HashMap<>());
 
+    private static final Logger LOGGER = Logger.getLogger(ChatServer.class.getName());
+
     public static void main(String[] args) {
-        new ChatServer().createConnection();
+        new ChatServer().handleConnections();
     }
 
-    public void createConnection() {
+    /**
+     * Opens a {@link ServerSocketChannel} and manages all the events and connections around it.
+     */
+    public void handleConnections() {
         try (Selector selector = Selector.open()) {
             ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
             serverSocketChannel.bind(new InetSocketAddress(PORT));
@@ -54,7 +57,6 @@ public class ChatServer {
                         client.register(selector, SelectionKey.OP_READ | SelectionKey.OP_WRITE);
                         selector.wakeup();
                         connectedClients.put(client, new UserInfo());
-                        LOGGER.info("New client connected");
                     } else if (key.isReadable()) {
                         SocketChannel client = (SocketChannel) key.channel();
                         UserInfo user = connectedClients.get(client);
@@ -67,7 +69,7 @@ public class ChatServer {
                             user.setFirstMessageReceived(true);
                             user.setId(login.user.getId());
                             user.setNick(login.user.getNick());
-                            LOGGER.info("User info: " + user.getNick() + " " + user.getId());
+                            LOGGER.info("User " + user.getNick() + " with ID " + user.getId() + " connected to the server");
                             if (!user.isUsersListSent()) {
                                 sendPackage(new UserListPackage(PackageType.USER_LIST, connectedClients.values().toArray(UserInfo[]::new)), client);
                                 user.setFirstMessageReceived(true);
@@ -83,6 +85,12 @@ public class ChatServer {
         }
     }
 
+    /**
+     * Sends the specified {@link CustomPackage} to all the connected users but the one who sent it.
+     *
+     * @param customPackage package to be broadcast.
+     * @param sender client who sent the package.
+     */
     private static void broadcast(CustomPackage customPackage, SocketChannel sender) {
         synchronized (connectedClients) {
             for (SocketChannel client : connectedClients.keySet()) {
@@ -96,49 +104,56 @@ public class ChatServer {
     /**
      * Receives a package from a client and deserializes it into a {@link CustomPackage}
      *
-     * @param client that sends the message
-     * @return the {@link CustomPackage} received
+     * @param client that sends the message.
+     * @return the {@link CustomPackage} received or null.
      */
     private CustomPackage receivePackage(SocketChannel client) {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
 
         try {
-            int readBytes = client.read(buffer); // Read data into the buffer
+            int readBytes = client.read(buffer);
 
             if (readBytes == -1) {
+                UserInfo user = connectedClients.get(client);
                 connectedClients.remove(client);
                 client.close();
-                LOGGER.info("Client disconnected");
+                LOGGER.info("Client " + user.getNick() + " wit ID " + user.getId() + " disconnected");
+                connectedClients.remove(client);
+                try {
+                    client.close();
+                } catch (IOException ioException) { /*Ignore*/ }
                 return null;
             }
 
-            LOGGER.info("Bytes read: " + readBytes);
-
-            buffer.flip(); // Prepare the buffer for reading
+            buffer.flip();
 
             // Check if there is any data to process
             if (buffer.remaining() == 0) {
-                buffer.compact(); // No data to read yet, so compact the buffer
+                buffer.compact();
                 return null;
             }
 
             // Get the bytes from the buffer and process the message
             byte[] messageBytes = new byte[buffer.remaining()];
-            buffer.get(messageBytes); // Get the remaining bytes
-            buffer.clear(); // Clear the buffer for the next read
+            buffer.get(messageBytes);
+            buffer.clear();
 
-            // Deserialize the message
             return (CustomPackage) SerializationUtil.deserialize(messageBytes);
         } catch (IOException e) {
-            //LOGGER.warning("Error receiving package: " + e.getMessage());
-            e.printStackTrace();
+            LOGGER.warning("Error receiving package (" + e.getMessage() + ")");
             return null;
         } catch (ClassNotFoundException cnfe) {
-            cnfe.printStackTrace();
+            LOGGER.warning("Error parsing the incoming package (" + cnfe.getMessage() + ")");
             return null;
         }
     }
 
+    /**
+     * Serializes and sends a {@link CustomPackage} to the specified client.
+     *
+     * @param customPackage package to be sent.
+     * @param receiver client that must receive the package.
+     */
     private static void sendPackage(CustomPackage customPackage, SocketChannel receiver) {
         try {
             byte[] packageBytes = SerializationUtil.serialize(customPackage);
@@ -153,10 +168,10 @@ public class ChatServer {
             }
         } catch (IOException e) {
             LOGGER.warning("Error sending message to client: " + e.getMessage());
-//            connectedClients.remove(receiver);
-//            try {
-//                receiver.close();
-//            } catch (IOException ioException) { /*Ignore*/ }
+            connectedClients.remove(receiver);
+            try {
+                receiver.close();
+            } catch (IOException ioException) { /*Ignore*/ }
         }
     }
 }

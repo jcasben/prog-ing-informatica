@@ -1,9 +1,5 @@
 package src.client;
 
-import src.common.SerializationUtil;
-import src.common.UserInfo;
-import src.common.packages.*;
-import src.server.ChatServer;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -13,13 +9,13 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import src.common.SerializationUtil;
+import src.common.UserInfo;
+import src.common.packages.*;
+import src.server.ChatServer;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.ConnectException;
 import java.net.InetSocketAddress;
-import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import java.util.HashMap;
@@ -35,18 +31,14 @@ import java.util.logging.Logger;
  * @author jcasben
  */
 public class ChatClient extends Application implements Runnable {
-
     private UserInfo user = new UserInfo(null, null);
 
     private SocketChannel socketChannel;
+    private boolean exit = false;
+    private final HashMap<String, UIClientComponent> clientsUI = new HashMap<>();
 
     private VBox root;
     private final TextArea t1 = new TextArea();
-
-    private ObjectOutputStream out;
-    private ObjectInputStream in;
-
-    private final HashMap<String, UIClientComponent> clientsUI = new HashMap<>();
 
     private static final Logger LOGGER = Logger.getLogger(ChatClient.class.getName());
 
@@ -88,6 +80,7 @@ public class ChatClient extends Application implements Runnable {
                 } catch (IOException ex) {
                     LOGGER.log(Level.WARNING, "The following exception occurred (" + ex.getMessage() + ").");
                 }
+                exit = true;
             }
         });
 
@@ -99,13 +92,13 @@ public class ChatClient extends Application implements Runnable {
     public void run() {
         if (!createConnection()) return;
 
-        while (true) acceptMessage();
+        while (!exit) acceptMessage();
 
-//        try {
-//            socket.close();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            socketChannel.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -115,27 +108,14 @@ public class ChatClient extends Application implements Runnable {
      * @return true if the connection is successful.
      */
     private boolean createConnection() {
-//        try {
-//            socket = new Socket("localhost", ChatServer.PORT);
-//            LOGGER.log(Level.INFO, "Connected to server successfully");
-//
-//            out = new ObjectOutputStream(socket.getOutputStream());
-//            in = new ObjectInputStream(socket.getInputStream());
-//            sendPackage(new LoginPackage(PackageType.LOGIN, this.user));
-//        } catch (ConnectException e) {
-//            LOGGER.log(Level.WARNING, "Couldn't reach server. Shutting down...");
-//            return false;
-//        } catch (IOException e) {
-//            LOGGER.log(Level.WARNING, "The following exception occurred (" + e.getMessage() + ").");
-//            return false;
-//        }
-        // Java NIO implementation
         try {
             socketChannel = SocketChannel.open(new InetSocketAddress("localhost", ChatServer.PORT));
             socketChannel.configureBlocking(true);
             sendPackage(new LoginPackage(PackageType.LOGIN, this.user));
+            LOGGER.info("Connected to server successfully...");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            LOGGER.warning("The following exception occurred (" + e.getMessage() + ").");
+            return false;
         }
 
         return true;
@@ -150,26 +130,20 @@ public class ChatClient extends Application implements Runnable {
         try {
             byte[] packageBytes = SerializationUtil.serialize(customPackage);
             int packageSize = packageBytes.length;
-            LOGGER.info("Package size: " + packageSize);
 
             ByteBuffer buffer = ByteBuffer.allocate(packageSize);
             buffer.put(packageBytes);
             buffer.flip();
 
-            while (buffer.hasRemaining()) {
-                int written = this.socketChannel.write(buffer);
-                LOGGER.info("Written bytes: " + written);
-            }
+            while (buffer.hasRemaining()) this.socketChannel.write(buffer);
         } catch (IOException e) {
-            LOGGER.warning("Error sending message to client");
+            LOGGER.warning("Error sending message to client (" + e.getMessage() + ")");
         }
     }
 
     /**
      * Receives a {@link CustomPackage} from the server and performs the required action
      * depending on the {@link PackageType}.
-     *
-     * @return true if the client received a message.
      */
     private void acceptMessage() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
@@ -178,7 +152,8 @@ public class ChatClient extends Application implements Runnable {
             int readBytes = socketChannel.read(buffer); // Read data into the buffer
 
             if (readBytes == -1) {
-                LOGGER.info("Client disconnected");
+                LOGGER.info("Couldn't read from server...");
+                return;
             }
 
             buffer.flip(); // Prepare the buffer for reading
@@ -222,7 +197,7 @@ public class ChatClient extends Application implements Runnable {
                 }
             }
         } catch (IOException | ClassNotFoundException e) {
-            LOGGER.warning("Error receiving package: " + e.getMessage());
+            LOGGER.warning("Error receiving package (" + e.getMessage() + ")");
         }
     }
 
