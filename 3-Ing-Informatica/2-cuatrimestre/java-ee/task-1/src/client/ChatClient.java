@@ -193,6 +193,7 @@ public class ChatClient extends Application implements Runnable {
     private void addClientToUI(UserInfo user) {
         Label label = new Label(user.nick());
         TextArea textArea = new TextArea();
+        textArea.setEditable(false);
         Platform.runLater(() -> {
             root.getChildren().add(label);
             root.getChildren().add(textArea);
