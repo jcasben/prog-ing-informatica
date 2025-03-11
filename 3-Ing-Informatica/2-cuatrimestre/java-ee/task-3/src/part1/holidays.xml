@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<holidayList>
+  <vacation id="1">
+    <place country="Slovakia">Chopok</place>
+    <year>1994</year>
+    <duration>10</duration>
+  </vacation>
+  <vacation id="2">
+    <place country="Italy">Catania</place>
+    <year>1995</year>
+    <duration>10</duration>
+  </vacation>
+  <vacation id="3">
+    <place country="Spain">Costa Brava</place>
+    <year>1993</year>
+    <duration>6</duration>
+  </vacation>
+</holidayList>
