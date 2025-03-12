@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<vacationsList>
+    <vacation>
+        <year>1994</year>
+        <place>Chopok (Slovakia) - Duration: 10</place>
+    </vacation>
+    <vacation>
+        <year>1995</year>
+        <place>Catania (Italy) - Duration: 10</place>
+    </vacation>
+    <vacation>
+        <year>1993</year>
+        <place>Costa Brava (Spain) - Duration: 6</place>
+    </vacation>
+    <totalDuration>26</totalDuration>
+</vacationsList>
