@@ -8,6 +8,10 @@ nbproject/
 lib/
 build/
 
+.settings
+.project
+.classpath
+
 # VS Code
 .vscode
 
