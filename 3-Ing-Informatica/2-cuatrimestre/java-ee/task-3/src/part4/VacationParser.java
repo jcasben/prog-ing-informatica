@@ -14,6 +14,11 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+/**
+ * Parses an XML file which stores data about vacations.
+ *
+ * @author jcasben
+ */
 public class VacationParser extends DefaultHandler {
     private final StringBuffer year = new StringBuffer(10);
     private final StringBuffer place = new StringBuffer(50);
@@ -39,6 +44,7 @@ public class VacationParser extends DefaultHandler {
         }
     }
 
+    @Override
     public void startElement(String uri, String localName, String qName, Attributes atts) {
         switch (qName) {
             case "year" -> {
@@ -57,6 +63,7 @@ public class VacationParser extends DefaultHandler {
         }
     }
 
+    @Override
     public void endElement(String uri, String localName, String qName) {
         switch (qName) {
             case "year" -> processingYear = false;
@@ -90,6 +97,7 @@ public class VacationParser extends DefaultHandler {
         rootElement.appendChild(totalDurationElement);
     }
 
+    @Override
     public void characters(char[] ch, int start, int length) {
         if (processingYear) {
             year.append(ch, start, length);
@@ -100,6 +108,9 @@ public class VacationParser extends DefaultHandler {
         }
     }
 
+    /**
+     * Writes the generated XML document into the specified path.
+     */
     public void writeXML() {
         try {
             transformer.transform(new DOMSource(document), result);

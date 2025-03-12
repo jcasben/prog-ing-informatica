@@ -12,6 +12,11 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Parses a XML file that stores data about vacations using the DOM Parser.
+ *
+ * @author jcasben
+ */
 public class DOMVacationParser {
     public static void main(String[] args) {
         if (args.length < 1) System.out.println("Usage: DOMVacationParser holidays.xml");

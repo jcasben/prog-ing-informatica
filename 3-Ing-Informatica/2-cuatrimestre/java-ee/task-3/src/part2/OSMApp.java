@@ -11,6 +11,11 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Java FX applications that renders an OSM Map.
+ *
+ * @author jcasben
+ */
 public class OSMApp extends Application {
 
     public static void main(String[] args) {
