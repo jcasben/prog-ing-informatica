@@ -1,0 +1,21 @@
+-- Create TABLES
+CREATE TABLE p(
+    x TEXT PRIMARY KEY
+);
+
+CREATE TABLE q(
+    x TEXT PRIMARY KEY
+);
+
+-- Insert FACTS
+INSERT INTO p VALUES('a');
+INSERT INTO q VALUES('b');
+
+-- QUERY
+SELECT p.x
+FROM p
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM q
+    WHERE q.x = p.x
+);
