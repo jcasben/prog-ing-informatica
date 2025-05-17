@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <title>Detective View</title>
+        <h:outputScript library="js" name="resendscript.js"/>
+    </h:head>
+    <h:body>
+        <h2>Introduction to the story:</h2>
+        <p>#{detectiveBean.session.story}</p>
+
+        <h3>Questions and Answers</h3>
+        <h:outputText id="msgs" escape="false" value="#{detectiveBean.session.messages}"/>
+
+        <h:form id="chatForm" rendered="#{not detectiveBean.session.gameFinished}">
+            <h:commandButton id="reloadbut" value="v" action="#{detectiveBean.refresh}" style="visibility: hidden">
+                <f:ajax execute="@this" render="msgs greeting" onevent="handleAjax"/>
+            </h:commandButton>
+
+            <h:inputTextarea cols="60" rows="6" value="#{detectiveBean.question}"/>
+            <h:commandButton value="Send question" action="#{detectiveBean.sendQuestion}"/>
+        </h:form>
+
+        <h:panelGroup id="greeting">
+            <h:panelGroup rendered="#{detectiveBean.session.gameFinished}">
+                <h2>✅ You have solved the story!!</h2>
+                <h:form>
+                    <h:commandButton action="#{gameManager.navigateToCreateStory}" value="Create a new story"/>
+                    <h:commandButton action="#{gameManager.navigateToJoinGame}" value="Join a game"/>
+                </h:form>
+            </h:panelGroup>
+        </h:panelGroup>
+        <h:outputScript>resendRequest()</h:outputScript>
+    </h:body>
+</f:view>
+</html>

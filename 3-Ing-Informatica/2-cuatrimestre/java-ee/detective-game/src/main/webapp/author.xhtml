@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <title>Author View</title>
+        <h:outputScript library="js" name="resendscript.js"/>
+    </h:head>
+    <h:body>
+        <h2>Your introduction to the story:</h2>
+        <p>#{authorBean.story}</p>
+
+        <h3>Questions and Answers</h3>
+        <h:outputText id="msgs" escape="false" value="#{authorBean.game.messages}"/>
+
+        <h:form rendered="#{not authorBean.game.gameFinished}" id="chatForm">
+            <h:commandButton value="Yes" action="#{authorBean.sayYes}"/>
+            <h:commandButton value="No" action="#{authorBean.sayNo}"/>
+            <h:commandButton value="No comments" action="#{authorBean.sayNoComments}"/>
+            <h:commandButton value="That's it!" action="#{authorBean.sayThatsIt}"/>
+
+            <h:commandButton id="reloadbut" value="v" action="#{authorBean.refresh}" style="visibility: hidden">
+                <f:ajax execute="@this" render="msgs" onevent="handleAjax"/>
+            </h:commandButton>
+        </h:form>
+
+        <h:panelGroup rendered="#{authorBean.game.gameFinished}">
+            <h2>✅ The detective has solved the story!!</h2>
+            <h:form>
+                <h:commandButton action="#{gameManager.navigateToCreateStory}" value="Create a new story"/>
+                <h:commandButton action="#{gameManager.navigateToJoinGame}" value="Join a game"/>
+            </h:form>
+        </h:panelGroup>
+        <h:outputScript>resendRequest()</h:outputScript>
+    </h:body>
+</f:view>
+</html>
