@@ -1,4 +1,4 @@
-package dev.jcasben.asyncservletchat;
+package dev.jcasben.asyncchat;
 
 import jakarta.servlet.AsyncContext;
 import jakarta.servlet.annotation.WebServlet;

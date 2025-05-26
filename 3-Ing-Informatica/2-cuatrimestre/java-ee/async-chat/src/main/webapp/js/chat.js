@@ -1,6 +1,6 @@
 function startRequest() {
     let xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", "/async-servlet-chat-1.0-SNAPSHOT/asyncchat", true);
+    xmlHttp.open("GET", "/async-chat-1.0-SNAPSHOT/asyncchat", true);
     xmlHttp.onreadystatechange = function () {
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
             const msgs = xmlHttp.responseXML.getElementsByTagName("line");
@@ -16,7 +16,7 @@ function startRequest() {
 function sendInput(value) {
     console.log("sending data")
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/async-servlet-chat-1.0-SNAPSHOT/send", true);
+    xhr.open("POST", "/async-chat-1.0-SNAPSHOT/send", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("text=" + encodeURIComponent(value));
 }
