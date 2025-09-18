@@ -18,6 +18,9 @@ build/
 # Java
 out/
 
+# JavaScript
+node_modules/
+
 # Android Studio
 /build
 .gradle
