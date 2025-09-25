@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Email>
+    <Date>
+        <Sent>2025/09/25 19:39:09</Sent>
+        <Received>2025/09/25 19:39:20</Received>
+    </Date>
+    <From>jcasben@email.com</From>
+    <Destinataries>
+        <To>
+            <Destinatary>
+                <User>jesus</User>
+                <Domain>uib.eu</Domain>
+            </Destinatary>
+        </To>
+        <CC>
+            <Destinatary>
+                <User>pere</User>
+                <Domain>uib.eu</Domain>
+            </Destinatary>
+        </CC>
+        <CCO>
+            <Destinatary>
+                <User>toni</User>
+                <Domain>uib.eu</Domain>
+            </Destinatary>
+        </CCO>
+    </Destinataries>
+    <Subject>TFG</Subject>
+    <Body>Lorem Ipsum</Body>
+    <Attachments>
+        <Attachment>
+            <Name>file</Name>
+            <Extension>txt</Extension>
+            <Size>7482473298472398472374</Size>
+            <Content>xd</Content>
+        </Attachment>
+    </Attachments>
+</Email>
