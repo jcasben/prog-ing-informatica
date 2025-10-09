@@ -27,7 +27,7 @@
     <binding name="UserBinding" type="tns:UserPortType">
         <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http">
         <operation name="getUser">
-            getPersona
+            getUser
             <input>
                 <soap:body use="literal"/>
             </input>
@@ -40,6 +40,6 @@
     <service name="UserService">
         <port name="UserPort" binding="tns:UserBinding">
             <soap:address location="http://localhost:8000/wsdl"/>
-        </port>3
+        </port>
     </service>
 </definitions>
