@@ -1,12 +1,9 @@
-// paquete que nos permite manejar peticiones HTTP de manera más fácil
 const express = require('express');
 const mysql = require('mysql2');
 
-// crear una nueva app de express
 const app = express();
 const PORT = 3000;
 
-// abstraemos la configuracion de la BBDD por si tenemos que cambiar algo
 const dbConfig = {
     host: 'localhost',
     user: 'root',
@@ -19,49 +16,44 @@ dbConnection.connect(err => {
     if (err) console.error('Connection error: ', err);
 });
 
-// metodo que escucha peticiones HTTP GET en la ruta http://localhost:3000/user
-// espera ciertos parámetros (o no) para hacer la query.
 
-// En clase definimos los siguientes:
-// - lastname (opcional)
-// - email (opcional)
-// -id (obligatorio)
+app.listen(PORT, () => console.log(`Server running at http:localhost:${PORT}`))
 app.get("/user", async function (req, res) {
-    // De los parámetros que hemos pasado en la petición, selecciona los que tengan el mismo
-    // nombre que las variables. Asigna automáticamente el valor.
+    const {lastname, email, id} = req.query;
 
-    // EJERCICIO 1: Investigar si de esta manera, estamos haciendo que los parámetros que
-    // son obligatorios/opcionales realmente lo son. Si no es así, cambiarlo.
-    const {lastname, email, userId} = req.query;
-
-    // EJERCICIO 2: Cambiar la siguiente query para que use AND en lugar de OR y que añada
-    // las AND solo si el parámetro está presente.
-
-    // await dbConnection.query("SELECT * FROM user WHERE lastname LIKE \'%?%\' OR email LIKE \'%?%\' OR id LIKE \'%?%\'", [lastname, email, id])
-
-
-    // SOLUCIÓN EJERCICIO 2
     let sql = 'SELECT * FROM user WHERE 1=1';
-    const params = []
+    let fields = [];
+    let values = [];
 
     if (lastname) {
-        sql += ' AND lastname LIKE ?';
-        params.push(`%${lastname}%`);
+        fields.push('lastname');
+        values.push(`%${lastname}%`);
     }
 
     if (email) {
-        sql += ' AND email LIKE ?';
-        params.push(`%${email}%`);
+        fields.push('email');
+        values.push(`%${email}%`);
     }
 
-    if (userId) {
-        sql += ' AND userId = ?';
-        params.push(`%${userId}%`);
+    if (id) {
+        fields.push('id');
+        values.push(`%${id}%`);
     }
 
-    try {
-        const [rows] = await dbConnection.query(sql, params);
-    } catch (error) {
-        console.error('Error in the query: ', error);
+    for(let i = 0; i < fields.length; i++) {
+        sql = sql + ' AND ' + fields[i] + ' LIKE ?';
     }
+
+    console.log(sql);
+    console.log(values);
+    
+    dbConnection.query(sql, values, (err, rows) => {
+        if (err) {
+            console.log('Error in the query: ', err)
+            return;
+        }
+
+        res.json(rows);
+    });
+    
 })
