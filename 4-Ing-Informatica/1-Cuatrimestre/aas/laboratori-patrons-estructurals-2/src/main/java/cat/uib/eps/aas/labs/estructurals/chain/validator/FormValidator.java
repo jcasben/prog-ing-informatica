@@ -1,7 +1,6 @@
 package cat.uib.eps.aas.labs.estructurals.chain.validator;
 
 import cat.uib.eps.aas.labs.estructurals.chain.Document;
-import cat.uib.eps.aas.labs.estructurals.chain.ValidFormats;
 
 public class FormValidator extends AbstractValidator {
 

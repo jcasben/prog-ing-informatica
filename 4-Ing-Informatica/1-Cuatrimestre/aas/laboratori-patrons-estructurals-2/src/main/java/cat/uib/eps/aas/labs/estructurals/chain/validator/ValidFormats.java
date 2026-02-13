@@ -1,4 +1,4 @@
-package cat.uib.eps.aas.labs.estructurals.chain;
+package cat.uib.eps.aas.labs.estructurals.chain.validator;
 
 import java.util.Set;
 
