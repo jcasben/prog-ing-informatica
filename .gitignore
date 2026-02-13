@@ -56,3 +56,6 @@ output/
 *.L68
 *.S68
 dist/
+
+# LISP
+xlispcl
