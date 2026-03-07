@@ -205,6 +205,8 @@
     )
 )
 
+;;;; SETS ;;;;
+
 ;; Diapo 78
 (defun correct-set (l)
     (cond 
@@ -278,4 +280,83 @@
         ((null a) nil)
         (t (append (make-list (car a) b) (cartesian-product (cdr a) b)))
     )
+)
+
+;;;; IO ;;;;
+
+;; Diapo 89: Lee la expresión de un fichero
+(defun read-expr (name)
+    (let* (
+            (fp (open name))
+            (e (read fp nil nil))
+        )
+        (close fp)
+        e
+    )
+)
+
+;; Diapo 90: Escribir una expresión a un fichero
+(defun write-expr (name expr)
+    (let 
+        ((fp (open name :direction :output)))
+        (print expr fp)
+        (close fp)
+    )
+)
+
+;; Diapo 91: Leer carácteres de un fichero y ponerlos en una lista
+(defun myread (name)
+    (let*
+        (
+            (fp (open name))
+            (content (myread-intern fp))
+        )
+        (close fp)
+        
+        content
+    )
+)
+
+(defun myread-intern (fp)
+    (let 
+        ((c (read-char fp nil nil)))
+        (cond
+            ((null c) '())
+            (t (cons c (myread-intern fp)))
+        )
+    )
+)
+
+;; Diapo 92: Escribir una lista de carácteres en un fichero
+(defun mywrite-intern (fp content)
+    (cond
+        ((null content) nil)
+        (t (write-char (car content) fp) (mywrite-intern fp (cdr content)))
+    )
+)
+
+(defun mywrite (name content)
+    (let
+        ((fp (open name :direction :output)))
+        (mywrite-intern fp content)
+        (close fp)
+    )
+)
+
+;; Diapo 93: Añadir una lista de carácteres al final de un fichero
+(defun addcontent (name content)
+    (let
+        ((fp (open name :direction :output
+                        :if-exists :append
+                        :if-does-not-exist :create)))
+        (mywrite-intern fp content)
+        (close fp)
+    )
+)
+
+;;;; EVAL ;;;;
+
+(defun repeat (x)
+    (print x) 
+    (repeat (eval (read)))
 )
