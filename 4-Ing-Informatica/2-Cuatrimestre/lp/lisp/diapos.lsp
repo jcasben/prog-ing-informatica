@@ -360,3 +360,62 @@
     (print x) 
     (repeat (eval (read)))
 )
+
+;; Diapo 97: Evaluar el contenido de un fichero
+(defun myload (fp e)
+    (cond 
+        ((null e) (close fp))
+        (t (print (eval e)) (myload fp (read fp nil nil)))
+    )
+)
+
+;;;; LISTAS DE PROPIEDADES ;;;;
+
+;; Diapo 99: Poner propiedades a un
+(putprop 'pep 'pere 'pare)
+(putprop 'pere '(pep lluis) 'fills)
+
+;; Diapo 101: Obtener el valor de la propiedad de un átomo
+(get 'pep 'pare)
+(get 'pere 'fills)
+
+;; Diapo 102: Obtener una lista de todas las propiedades de un átomo
+(symbol-plist 'pep)
+(symbol-plist 'pere)
+
+;; Diapo 103: Las propiedades se pueden usar para almacenar datos de los átomos
+(defun siblings (x)
+    (remove x (get (get x 'pare) 'fills))
+)
+
+;;;; FUNCIONES DE ORDEN SUPERIOR ;;;;
+
+;; Diapo 115: Borra un elemento de una lista si se cumple determinada condición
+(defun delete-if (f l)
+    (cond
+        ((null l) nil)
+        ((funcall f (car l)) (delete-if f (cdr l)))
+        (t (cons (car l) (delete-if f (cdr l))))
+    )
+)
+
+;; Diapo 116: Dada una lista de listas, devuelve una lista con los cdr de todas las listas
+(defun add-tails (l)
+    (apply 'append (mapcar 'cdr l))
+)
+
+;; Diapo 117
+(defun mymapcar (f l)
+    (cond
+        ((null l) nil)
+        (t (cons (funcall f (car l)) (mymapcar f (cdr l))))
+    )
+)
+
+;; Diapo 118: Producto escalar
+(defun pescalar (v1 v2)
+    (cond
+        ((null v1) 0)
+        (t (+ (* (car v1) (car v2)) (pescalar (cdr v1) (cdr v2))))
+    )
+)
